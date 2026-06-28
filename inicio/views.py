@@ -29,7 +29,8 @@
 
 
 
-from django.http import HttpResponse
+
+from django.shortcuts import render
 
 def home(request):
-    return HttpResponse("Funciona")
+    return render(request, "inicio/index.html")
