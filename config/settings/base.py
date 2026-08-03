@@ -11,8 +11,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_browser_reload",
 
-    'inicio',
+    "apps.home",
+    
+    "apps.nosotros",
+    "apps.catalogo_academico",
+    "apps.blog",
+    "apps.contactanos",
+    "apps.preinscripcion",
+
+    "apps.biblioteca",
+
+
 ]
 
 MIDDLEWARE = [

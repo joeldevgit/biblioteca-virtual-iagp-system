@@ -1,0 +1,320 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO BLOG -->
+<section class="hero-blog"style="background-image: url('{% static 'assets/img/blog/hero-blog.jpg' %}');">
+    <div class="container text-center">
+        <h1 class="display-3 fw-bold mb-4 text-white">
+            Bienvenido al Blog de IAGP
+        </h1>
+
+        <p class="fs-2 fw-semibold text-white">
+            Somos una institución enfocada y comprometida con el desarrollo de tus competencias laborales
+        </p>
+    </div>
+</section>
+
+<!-- CONTENIDO DEL BLOG -->
+<section class="container py-5">
+
+    <!-- Pestañas -->
+    <ul class="nav nav-pills justify-content-center mb-5" id="blogTabs" role="tablist">
+
+        <li class="nav-item me-3">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#articulos">
+                <i class="bi bi-file-earmark-text"></i> Artículos
+            </button>
+        </li>
+
+        <li class="nav-item me-3">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#noticias">
+                <i class="bi bi-newspaper"></i> Noticias
+            </button>
+        </li>
+
+        <li class="nav-item me-3">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tips">
+                <i class="bi bi-lightbulb"></i> Tips
+            </button>
+        </li>
+
+        <li class="nav-item me-3">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#entrevistas">
+                <i class="bi bi-person-video3"></i> Entrevistas
+            </button>
+        </li>
+
+        <li class="nav-item">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#normas">
+                <i class="bi bi-file-earmark"></i> Otras Normas
+            </button>
+        </li>
+
+    </ul>
+
+    <!-- Contenido -->
+    <div class="tab-content">
+
+        <!-- ARTICULOS -->
+        <div class="tab-pane fade show active" id="articulos">
+
+            <div class="row g-4">
+
+                <!-- Articulo 1-->
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="course-card">
+
+                        <div class="course-image-wrapper">
+                            <img src="{% static 'assets/img/articulos/articulo1.png' %}" class="course-image"
+                                alt="Artículo 1">
+                        </div>
+
+                        <div class="course-body">
+
+                            <span class="course-status">
+                                Articulos
+                            </span>
+
+                            <h5 class="course-title">
+                                ¿Es válido encargar el despacho de alcaldía cuando el alcalde está en comisión de servicios?
+                            </h5>
+
+                            <div class="course-info">
+                                <span>
+                                    <i class="bi bi-clock-fill text-warning"></i>
+                                    8 junio, 2026
+                                </span>
+                            </div>
+
+                            <hr>
+
+                            <div class="course-footer">
+
+                                <img src="{% static 'assets/img/logo.png' %}" width="28">
+
+                                <span>IAGP</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Articulo 2-->
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="course-card">
+
+                        <div class="course-image-wrapper">
+                            <img src="{% static 'assets/img/articulos/articulo1.png' %}" class="course-image"
+                                alt="Artículo 1">
+                        </div>
+
+                        <div class="course-body">
+
+                            <span class="course-status">
+                                Articulos
+                            </span>
+
+                            <h5 class="course-title">
+                                ¿Es válido encargar el despacho de alcaldía cuando el alcalde está en comisión de servicios?
+                            </h5>
+
+                            <div class="course-info">
+                                <span>
+                                    <i class="bi bi-clock-fill text-warning"></i>
+                                    8 junio, 2026
+                                </span>
+                            </div>
+
+                            <hr>
+
+                            <div class="course-footer">
+
+                                <img src="{% static 'assets/img/logo.png' %}" width="28">
+
+                                <span>IAGP</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- NOTICIAS -->
+        <div class="tab-pane fade" id="noticias">
+
+            <div class="row">
+
+                <!-- Noticia 1-->
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="course-card">
+
+                        <div class="course-image-wrapper">
+                            <img src="{% static 'assets/img/noticias/noticia1.png' %}" class="course-image"
+                                alt="Noticia 1">
+                        </div>
+
+                        <div class="course-body">
+
+                            <span class="course-status">
+                                Noticias
+                            </span>
+
+                            <h5 class="course-title">
+                                ALCANCES DE LOS FUNDAMENTOS DE OBSERVANCIA OBLIGATORIA EN LA NOTIFICACIÓN DE LOS ACTOS EMITIDOS EN EL PROCEDIMIENTO ADMINISTRATIVO DISCIPLINARIO EN EL MARCO DE LA LEY N º 30057
+                            </h5>
+
+                            <div class="course-info">
+                                <span>
+                                    <i class="bi bi-clock-fill text-warning"></i>
+                                    18 marzo, 2026
+                                </span>
+                            </div>
+
+                            <hr>
+
+                            <div class="course-footer">
+
+                                <img src="{% static 'assets/img/logo.png' %}" width="28">
+
+                                <span>IAGP</span>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TIPS -->
+        <div class="tab-pane fade" id="tips">
+
+            <div class="alert alert-success">
+                Tip 1
+            </div>
+
+            <div class="alert alert-success">
+                Tip 2
+            </div>
+
+        </div>
+
+        <!-- ENTREVISTAS -->
+        <div class="tab-pane fade" id="entrevistas">
+
+            <div class="card">
+                <div class="card-body">
+                    <h4>Entrevista al Director</h4>
+                    <p>Contenido...</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NORMAS -->
+        <div class="tab-pane fade" id="normas">
+
+            <ul class="list-group">
+                <li class="list-group-item">Norma 001</li>
+                <li class="list-group-item">Norma 002</li>
+                <li class="list-group-item">Norma 003</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<style>
+    /*=========================================
+        HERO BLOG
+    =========================================*/
+    .hero-blog {
+        position: relative;
+        min-height: 500px;
+        background: url("../img/blog/hero-blog.jpg") center center/cover no-repeat;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-blog::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.315);
+    }
+
+    .hero-blog .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-blog h1 {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, .6);
+    }
+
+    .hero-blog p {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, .6);
+    }
+
+    @media (max-width:768px) {
+
+        .hero-blog {
+            min-height: 350px;
+        }
+
+        .hero-blog h1 {
+            font-size: 2.4rem;
+        }
+
+        .hero-blog p {
+            font-size: 1.2rem !important;
+        }
+
+    }
+
+
+
+
+    .nav-pills .nav-link {
+        background: #004d40;
+        color: #fff;
+        margin: 5px;
+        padding: 14px 25px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .nav-pills .nav-link:hover {
+
+        background: #0b6b5d;
+    }
+
+    .nav-pills .nav-link.active {
+
+        background: #f39c12;
+        color: #fff;
+    }
+
+    .tab-content {
+
+        margin-top: 40px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,441 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+    Biblioteca Virtual
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Seach -->
+<section class="py-5 bg-success text-white">
+    <div class="container text-center">
+
+        <h1 class="fw-bold display-5">
+            <i class="bi bi-book-half"></i>
+            Biblioteca Virtual
+        </h1>
+
+        <p class="lead mt-3">
+            Accede gratuitamente a normas, libros y documentos especializados.
+        </p>
+
+    </div>
+</section>
+
+
+
+<!-- Pestaña y Contenidos -->
+<section class="py-5">
+
+    <div class="container">
+
+
+        <!-- Pestañas -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="bibliotecaTab">
+
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#norma">
+
+                    <i class="bi bi-bank me-2"></i>
+
+                    Norma
+
+                </button>
+            </li>
+
+            <li class="nav-item">
+
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#jurisprudencia">
+
+                    <i class="bi bi-briefcase-fill me-2"></i>
+
+                    Jurisprudencia
+
+                </button>
+
+            </li>
+
+            <li class="nav-item">
+
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#doctrina">
+
+                    <i class="bi bi-building me-2"></i>
+
+                    Doctrina
+
+                </button>
+
+            </li>
+
+        </ul>
+
+
+        <!-- Contenidos -->
+        <div class="tab-content">
+
+            <!-- Norma -->
+            <div class="tab-pane fade show active" id="norma">
+
+                <!-- Buscador -->
+                <div class="row mb-4">
+
+                    <div class="col-lg-5 mx-auto">
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
+                            </span>
+
+                            <input type="text" class="form-control" id="buscarNorma" placeholder="Buscar norma...">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row g-4" id="listaNormas">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 documento">
+
+                        <div class="card border-0 shadow h-100 document-card">
+
+                            <img src="assets/img/libro.png" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">PDF</span>
+
+                                <h6 class="fw-bold">
+                                    Constitución Política del Perú
+                                </h6>
+
+                                <small class="text-muted">
+                                    Actualizado 2026
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 documento">
+
+                        <div class="card border-0 shadow h-100 document-card">
+
+                            <img src="assets/img/libro.png" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">PDF</span>
+
+                                <h6 class="fw-bold">
+                                    Codigo Civil
+                                </h6>
+
+                                <small class="text-muted">
+                                    Actualizado 2026
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Jurisprudencia -->
+            <div class="tab-pane fade" id="jurisprudencia">
+
+                <!-- Buscador -->
+                <div class="row mb-4">
+
+                    <div class="col-lg-5 mx-auto">
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-search"></i>
+
+                            </span>
+
+                            <input type="text" class="form-control" id="buscarJurisprudencia"
+                                placeholder="Buscar jurisprudencia...">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4" id="listaJurisprudencia">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 documento">
+
+                        <div class="card border-0 shadow h-100 document-card">
+
+                            <img src="assets/img/libro.png" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">PDF</span>
+
+                                <h6 class="fw-bold">
+                                    Constitución Política del Perú
+                                </h6>
+
+                                <small class="text-muted">
+                                    Actualizado 2026
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 documento">
+
+                        <div class="card border-0 shadow h-100 document-card">
+
+                            <img src="assets/img/libro.png" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">PDF</span>
+
+                                <h6 class="fw-bold">
+                                    Codigo Civil
+                                </h6>
+
+                                <small class="text-muted">
+                                    Actualizado 2026
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Doctrina -->
+            <div class="tab-pane fade" id="doctrina">
+
+                <!-- Buscador -->
+                <div class="row mb-4">
+
+                    <div class="col-lg-5 mx-auto">
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+
+                                <i class="bi bi-search"></i>
+
+                            </span>
+
+                            <input type="text" class="form-control" id="buscarDoctrinas"
+                                placeholder="Buscar Doctrinas...">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row g-4" id="listaDoctrina">
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 documento">
+
+                        <div class="card border-0 shadow h-100 document-card">
+
+                            <img src="assets/img/libro.png" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">PDF</span>
+
+                                <h6 class="fw-bold">
+                                    Doctrina 1
+                                </h6>
+
+                                <small class="text-muted">
+                                    Actualizado 2026
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 documento">
+
+                        <div class="card border-0 shadow h-100 document-card">
+
+                            <img src="assets/img/libro.png" class="card-img-top">
+
+                            <div class="card-body">
+
+                                <span class="badge bg-danger mb-2">PDF</span>
+
+                                <h6 class="fw-bold">
+                                    Doctrina 2
+                                </h6>
+
+                                <small class="text-muted">
+                                    Actualizado 2026
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Últimos documentos agregados -->
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="fw-bold mb-4">
+            Últimos documentos agregados
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-file-earmark-pdf-fill text-danger display-6"></i>
+
+                        <h5 class="mt-3">
+                            Ley de Contrataciones del Estado
+                        </h5>
+
+                        <p class="text-muted">
+                            PDF • 2026
+                        </p>
+
+                        <a href="assets\pdf\documento.pdf" target="_blank" class="btn btn-primary">
+                            <i class="bi bi-eye"></i> Leer PDF
+                        </a>
+
+                        <a href="assets\pdf\documento.pdf" target="_blank"
+                            download="Ley_de_Contrataciones_del_Estado.pdf" class="btn btn-success">
+                            <i class="bi bi-download me-2"></i>
+                            Descargar
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-file-earmark-pdf-fill text-danger display-6"></i>
+
+                        <h5 class="mt-3">
+                            Opiniones del OSCE
+                        </h5>
+
+                        <p class="text-muted">
+                            PDF
+                        </p>
+
+                        <a href="assets\pdf\documento.pdf" target="_blank" class="btn btn-primary">
+                            <i class="bi bi-eye"></i> Leer PDF
+                        </a>
+
+                        <a href="assets\pdf\documento.pdf" target="_blank"
+                            download="Ley_de_Contrataciones_del_Estado.pdf" class="btn btn-success">
+                            <i class="bi bi-download me-2"></i>
+                            Descargar
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card shadow-sm">
+
+                    <div class="card-body">
+
+                        <i class="bi bi-file-earmark-pdf-fill text-danger display-6"></i>
+
+                        <h5 class="mt-3">
+                            Ley del Procedimiento Administrativo
+                        </h5>
+
+                        <p class="text-muted">
+                            PDF
+                        </p>
+
+                        <a href="assets\pdf\documento.pdf" target="_blank" class="btn btn-primary">
+                            <i class="bi bi-eye"></i> Leer PDF
+                        </a>
+
+                        <a href="assets\pdf\documento.pdf" target="_blank"
+                            download="Ley_de_Contrataciones_del_Estado.pdf" class="btn btn-success">
+                            <i class="bi bi-download me-2"></i>
+                            Descargar
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}
