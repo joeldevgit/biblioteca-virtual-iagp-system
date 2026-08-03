@@ -1,10 +1,5 @@
 {% load static %}
 
-{% if debug %}
-    {% load django_browser_reload %}
-    {% django_browser_reload_script %}
-{% endif %}
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -346,7 +341,6 @@
 
     <!-- JavaScript -->
     <script src="{% static 'assets/js/app.js' %}"></script>
-
 
 
 </body>
