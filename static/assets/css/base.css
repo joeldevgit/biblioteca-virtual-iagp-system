@@ -430,6 +430,10 @@ HERO
     font-size:.9rem;
     font-weight:600;
     color:#555;
+
+    border-top:1px solid #ddd;
+    padding-top:15px;
+    margin-top:15px;
 }
 
 

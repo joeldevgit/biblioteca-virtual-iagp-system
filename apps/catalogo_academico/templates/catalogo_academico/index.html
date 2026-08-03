@@ -1,121 +1,52 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
-
-<!-- =========================================
-    BUSCADOR DE LIBROS
-========================================= -->
-<section class="search-course py-4 bg-light border-bottom">
-    <div class="container">
-
-        <div class="row justify-content-center">
-
-            <div class="col-lg-8">
-
-                <div class="card shadow-sm border-0">
-                    <div class="card-body p-4">
-
-                        <h4 class="fw-bold text-center mb-3">
-                            <i class="bi bi-search"></i>
-                            Buscar cursos
-                        </h4>
-
-                        <p class="text-center text-muted mb-4">
-                            Encuentra rápidamente el curso o evento que deseas.
-                        </p>
-
-                        <form class="row g-3">
-
-                            <div class="col-md-10">
-                                <input
-                                    type="text"
-                                    class="form-control form-control-lg"
-                                    id="searchCourse"
-                                    placeholder="Escriba el nombre del curso...">
-                            </div>
-
-                            <div class="col-md-2 d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-
-                        </form>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-
-
 <section class="courses py-5">
-
     <div class="container">
 
         <div class="section-header text-center mb-5">
-
-            <h2 class="section-title">Eventos en vivo</h2>
-
+            <h2 class="section-title">Cursos</h2>
         </div>
 
-        <div class="row g-4">
+        <!-- Pestañas -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="eventosTab" role="tablist">
 
-            <!-- Curso 1-->
-            <div class="col-lg-4 col-md-6">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#presenciales" type="button">
+                    Eventos en Vivo
+                </button>
+            </li>
 
-                <div class="course-card">
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#virtuales" type="button">
+                    Eventos Virtuales
+                </button>
+            </li>
 
-                    <div class="course-image-wrapper">
-                        <img src="media/cursos/curso1.jpg" class="course-image" alt="">
-                    </div>
+        </ul>
 
-                    <div class="course-body">
 
-                        <span class="course-status">
-                            En Vivo
-                        </span>
 
-                        <h5 class="course-title">
-                            Curso Ley General de Contrataciones Públicas
-                        </h5>
+        <div class="tab-content">
 
-                        <div class="course-info">
+            <!-- EVENTOS EN VIVO -->
+            <div class="tab-pane fade show active" id="presenciales">
 
-                            <span>
-                                <i class="bi bi-clock-fill text-danger"></i>
-                                120H
+                <div class="row justify-content-center mb-4">
+
+                    <div class="col-lg-6">
+
+                        <div class="input-group">
+
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
                             </span>
 
-                            <span>
-                                <i class="bi bi-calendar-week-fill text-success"></i>
-                                7 Semanas
-                            </span>
-
-                        </div>
-
-                        <div class="course-date">
-
-                            <i class="bi bi-calendar-event-fill text-warning"></i>
-
-                            30/07/2026
-
-                        </div>
-
-                        <hr>
-
-                        <div class="course-footer">
-
-                            <img src="media/logo.png" width="28">
-
-                            <span>IAGP</span>
+                            <input type="text" id="buscarVivo" class="form-control"
+                                placeholder="Buscar curso en vivo...">
 
                         </div>
 
@@ -123,57 +54,82 @@
 
                 </div>
 
+                <div class="row g-4" id="listaVivo">
+
+                    {% for curso in cursos_vivo %}
+
+                    <div class="col-lg-4 col-md-6 curso-item">
+
+                        <div class="course-card">
+
+                            <div class="course-image-wrapper">
+                                <img src="{{ curso.imagen.url }}" class="course-image">
+                            </div>
+
+                            <div class="course-body">
+
+                                <span class="course-status">
+                                    Evento en Vivo
+                                </span>
+
+                                <h5 class="course-title">
+                                    {{ curso.titulo }}
+                                </h5>
+
+                                <div class="course-info">
+
+                                    <span>
+                                        <i class="bi bi-clock-fill text-danger me-1"></i>
+                                        {{ curso.horas }} H
+                                    </span>
+
+                                    <span>
+                                        <i class="bi bi-calendar-week-fill text-success me-1"></i>
+                                        {{ curso.semanas }} semanas
+                                    </span>
+
+                                </div>
+
+                                <div class="course-date">
+                                    <i class="bi bi-calendar-event-fill text-warning me-1"></i>
+                                    {{ curso.fecha_inicio|date:"d/m/Y" }}
+                                </div>
+
+                                
+
+                                <div class="course-footer">
+                                    <img src="{% static 'assets/img/logo.png' %}" width="98" alt="Logo IAGP">
+                                    <span>IAGP</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
             </div>
 
 
-            <!-- Curso 2-->
-            <div class="col-lg-4 col-md-6">
 
-                <div class="course-card">
+            <!-- EVENTOS VIRTUALES -->
+            <div class="tab-pane fade" id="virtuales">
 
-                    <div class="course-image-wrapper">
-                        <img src="media/cursos/curso2.jpg" class="course-image" alt="">
-                    </div>
+                <div class="row justify-content-center mb-4">
 
-                    <div class="course-body">
+                    <div class="col-lg-6">
 
-                        <span class="course-status">
-                            En Vivo
-                        </span>
+                        <div class="input-group">
 
-                        <h5 class="course-title">
-                            Curso Ley General de Contrataciones Públicas
-                        </h5>
-
-                        <div class="course-info">
-
-                            <span>
-                                <i class="bi bi-clock-fill text-danger"></i>
-                                120H
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
                             </span>
 
-                            <span>
-                                <i class="bi bi-calendar-week-fill text-success"></i>
-                                7 Semanas
-                            </span>
-
-                        </div>
-
-                        <div class="course-date">
-
-                            <i class="bi bi-calendar-event-fill text-warning"></i>
-
-                            30/07/2026
-
-                        </div>
-
-                        <hr>
-
-                        <div class="course-footer">
-
-                            <img src="media/logo.png" width="28">
-
-                            <span>IAGP</span>
+                            <input type="text" id="buscarVirtual" class="form-control"
+                                placeholder="Buscar curso virtual...">
 
                         </div>
 
@@ -181,269 +137,87 @@
 
                 </div>
 
-            </div>
+                <div class="row g-4" id="listaVirtual">
 
+                    {% for curso in cursos_virtual %}
+
+                    <div class="col-lg-4 col-md-6 curso-item">
+
+                        <div class="course-card">
+
+                            <div class="course-image-wrapper">
+                                <img src="{{ curso.imagen.url }}" class="course-image">
+                            </div>
+
+                            <div class="course-body">
+
+                                <span class="course-status">
+                                    Evento en Vivo
+                                </span>
+
+                                <h5 class="course-title">
+                                    {{ curso.titulo }}
+                                </h5>
+
+                                <div class="course-info">
+
+                                    <span>
+                                        {{ curso.horas }} H
+                                    </span>
+
+                                    <span>
+                                        {{ curso.semanas }} semanas
+                                    </span>
+
+                                </div>
+
+                                <div class="course-date">
+                                    {{ curso.fecha_inicio|date:"d/m/Y" }}
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
-
 </section>
 
 
+<script>
+    function activarBuscador(inputId, listaId) {
 
+        const input = document.getElementById(inputId);
 
-<section class="courses py-5">
+        input.addEventListener("keyup", function () {
 
-    <div class="container">
+            const texto = this.value.toLowerCase();
 
-        <div class="section-header text-center mb-5">
+            document.querySelectorAll("#" + listaId + " .curso-item").forEach(function (item) {
 
-            <h2 class="section-title">Eventos Virtuales</h2>
+                const titulo = item.querySelector(".course-title")
+                    .textContent
+                    .toLowerCase();
 
-        </div>
+                item.style.display = titulo.includes(texto) ? "" : "none";
 
-        <div class="row g-4">
+            });
 
-            <!-- Curso 1-->
-            <div class="col-lg-4 col-md-6">
+        });
 
-                <div class="course-card">
+    }
 
-                    <div class="course-image-wrapper">
-                        <img src="media/cursos/curso2.jpg" class="course-image" alt="">
-                    </div>
-
-                    <div class="course-body">
-
-                        <span class="course-status">
-                            En Vivo
-                        </span>
-
-                        <h5 class="course-title">
-                            Curso Ley General de Contrataciones Públicas
-                        </h5>
-
-                        <div class="course-info">
-
-                            <span>
-                                <i class="bi bi-clock-fill text-danger"></i>
-                                120H
-                            </span>
-
-                            <span>
-                                <i class="bi bi-calendar-week-fill text-success"></i>
-                                7 Semanas
-                            </span>
-
-                        </div>
-
-                        <div class="course-date">
-
-                            <i class="bi bi-calendar-event-fill text-warning"></i>
-
-                            30/07/2026
-
-                        </div>
-
-                        <hr>
-
-                        <div class="course-footer">
-
-                            <img src="media/logo.png" width="28">
-
-                            <span>IAGP</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Curso 2-->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="course-card">
-
-                    <div class="course-image-wrapper">
-                        <img src="media/cursos/curso1.jpg" class="course-image" alt="">
-                    </div>
-
-                    <div class="course-body">
-
-                        <span class="course-status">
-                            Virtual
-                        </span>
-
-                        <h5 class="course-title">
-                            Curso Ley General de Contrataciones Públicas
-                        </h5>
-
-                        <div class="course-info">
-
-                            <span>
-                                <i class="bi bi-clock-fill text-danger"></i>
-                                120H
-                            </span>
-
-                            <span>
-                                <i class="bi bi-calendar-week-fill text-success"></i>
-                                7 Semanas
-                            </span>
-
-                        </div>
-
-                        <div class="course-date">
-
-                            <i class="bi bi-calendar-event-fill text-warning"></i>
-
-                            30/07/2026
-
-                        </div>
-
-                        <hr>
-
-                        <div class="course-footer">
-
-                            <img src="media/logo.png" width="28">
-
-                            <span>IAGP</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Curso 3-->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="course-card">
-
-                    <div class="course-image-wrapper">
-                        <img src="media/cursos/curso4.jpg" class="course-image" alt="">
-                    </div>
-
-                    <div class="course-body">
-
-                        <span class="course-status">
-                            Virtual
-                        </span>
-
-                        <h5 class="course-title">
-                            Curso Ley General de Contrataciones Públicas
-                        </h5>
-
-                        <div class="course-info">
-
-                            <span>
-                                <i class="bi bi-clock-fill text-danger"></i>
-                                120H
-                            </span>
-
-                            <span>
-                                <i class="bi bi-calendar-week-fill text-success"></i>
-                                7 Semanas
-                            </span>
-
-                        </div>
-
-                        <div class="course-date">
-
-                            <i class="bi bi-calendar-event-fill text-warning"></i>
-
-                            30/07/2026
-
-                        </div>
-
-                        <hr>
-
-                        <div class="course-footer">
-
-                            <img src="media/logo.png" width="28">
-
-                            <span>IAGP</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Curso 4-->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="course-card">
-
-                    <div class="course-image-wrapper">
-                        <img src="media/cursos/curso5.jpg" class="course-image" alt="">
-                    </div>
-
-                    <div class="course-body">
-
-                        <span class="course-status">
-                            Virtual
-                        </span>
-
-                        <h5 class="course-title">
-                            Curso Ley General de Contrataciones Públicas
-                        </h5>
-
-                        <div class="course-info">
-
-                            <span>
-                                <i class="bi bi-clock-fill text-danger"></i>
-                                120H
-                            </span>
-
-                            <span>
-                                <i class="bi bi-calendar-week-fill text-success"></i>
-                                7 Semanas
-                            </span>
-
-                        </div>
-
-                        <div class="course-date">
-
-                            <i class="bi bi-calendar-event-fill text-warning"></i>
-
-                            30/07/2026
-
-                        </div>
-
-                        <hr>
-
-                        <div class="course-footer">
-
-                            <img src="media/logo.png" width="28">
-
-                            <span>IAGP</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
+    activarBuscador("buscarVivo", "listaVivo");
+    activarBuscador("buscarVirtual", "listaVirtual");
+</script>
 
 {% endblock %}
