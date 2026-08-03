@@ -22,9 +22,8 @@ INSTALLED_APPS = [
     "apps.preinscripcion",
 
     "apps.biblioteca",
-
-
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
