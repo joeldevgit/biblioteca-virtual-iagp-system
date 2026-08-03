@@ -162,17 +162,26 @@
                                 <div class="course-info">
 
                                     <span>
+                                        <i class="bi bi-clock-fill text-danger me-1"></i>
                                         {{ curso.horas }} H
                                     </span>
 
                                     <span>
+                                        <i class="bi bi-calendar-week-fill text-success me-1"></i>
                                         {{ curso.semanas }} semanas
                                     </span>
 
                                 </div>
 
                                 <div class="course-date">
+                                    <i class="bi bi-calendar-event-fill text-warning me-1"></i>
                                     {{ curso.fecha_inicio|date:"d/m/Y" }}
+                                </div>
+
+
+                                <div class="course-footer">
+                                    <img src="{% static 'assets/img/logo.png' %}" width="98" alt="Logo IAGP">
+                                    <span>IAGP</span>
                                 </div>
 
                             </div>
