@@ -1,69 +1,123 @@
-    <section class="live-conferences py-5">
+{% load static %}
 
-        <div class="container">
+<section class="live-conferences py-5">
 
-            <div class="section-header text-center mb-5">
+    <div class="container">
 
-                <span class="section-subtitle">
-                    Aprende con nuestros especialistas
-                </span>
+        <div class="section-header text-center mb-5">
 
-                <h2 class="section-title">
-                    Conferencias en Vivo
-                </h2>
+            <span class="section-subtitle">
+                Aprende con nuestros especialistas
+            </span>
 
-                <p class="section-description">
-                    Revive nuestras conferencias y capacitaciones más importantes.
-                </p>
+            <h2 class="section-title">
+                Conferencias en Vivo
+            </h2>
+
+            <p class="section-description">
+                Revive nuestras conferencias y capacitaciones más importantes.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Conferencia 1 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="conference-card">
+
+                    <div class="conference-video">
+
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/SpTtupRJwFc"
+                            title="Video de YouTube" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <div class="conference-body">
+
+                        <h5>
+                            Elaboración de Términos de Referencia en las Contrataciones del Estado.
+                        </h5>
+
+                        <div class="conference-info">
+
+                            <span>
+                                <i class="bi bi-eye-fill"></i>
+                                50
+                            </span>
+
+                            <span>
+                                <i class="bi bi-calendar-event"></i>
+                                09/04/2021
+                            </span>
+
+                        </div>
+
+                        <div class="conference-footer">
+                            <img src="{% static 'assets/img/logo.png' %}" width="38">
+                            <div>
+
+                                <strong>IAGP</strong><br>
+
+                                <small>Instituto de Alta Gestión Pública</small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <div class="row g-4">
 
-                <!-- Conferencia 1 -->
-                <div class="col-lg-4 col-md-6">
+            <!-- Conferencia 2 -->
+            <div class="col-lg-4 col-md-6">
 
-                    <div class="conference-card">
+                <div class="conference-card">
 
-                        <div class="conference-video">
+                    <div class="conference-video">
 
-                            <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                allowfullscreen>
-                            </iframe>
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            allowfullscreen>
+                        </iframe>
+
+                    </div>
+
+                    <div class="conference-body">
+
+                        <h5>
+                            Elaboración de Términos de Referencia en las Contrataciones del Estado.
+                        </h5>
+
+                        <div class="conference-info">
+
+                            <span>
+                                <i class="bi bi-eye-fill"></i>
+                                50
+                            </span>
+
+                            <span>
+                                <i class="bi bi-calendar-event"></i>
+                                09/04/2021
+                            </span>
 
                         </div>
 
-                        <div class="conference-body">
+                        <div class="conference-footer">
 
-                            <h5>
-                                Elaboración de Términos de Referencia en las Contrataciones del Estado.
-                            </h5>
+                            <img src="{% static 'assets/img/logo.png' %}" width="38">
 
-                            <div class="conference-info">
+                            <div>
 
-                                <span>
-                                    <i class="bi bi-eye-fill"></i>
-                                    50
-                                </span>
+                                <strong>IAGP</strong><br>
 
-                                <span>
-                                    <i class="bi bi-calendar-event"></i>
-                                    09/04/2021
-                                </span>
-
-                            </div>
-
-                            <div class="conference-footer">
-
-                                <img src="media/logo.png" alt="IAGP">
-
-                                <div>
-
-                                    <strong>IAGP</strong><br>
-
-                                    <small>Instituto de Alta Gestión Pública</small>
-
-                                </div>
+                                <small>Instituto de Alta Gestión Pública</small>
 
                             </div>
 
@@ -73,105 +127,51 @@
 
                 </div>
 
+            </div>
 
-                <!-- Conferencia 2 -->
-                <div class="col-lg-4 col-md-6">
 
-                    <div class="conference-card">
+            <!-- Conferencia 3 -->
+            <div class="col-lg-4 col-md-6">
 
-                        <div class="conference-video">
+                <div class="conference-card">
 
-                            <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                allowfullscreen>
-                            </iframe>
+                    <div class="conference-video">
 
-                        </div>
-
-                        <div class="conference-body">
-
-                            <h5>
-                                Elaboración de Términos de Referencia en las Contrataciones del Estado.
-                            </h5>
-
-                            <div class="conference-info">
-
-                                <span>
-                                    <i class="bi bi-eye-fill"></i>
-                                    50
-                                </span>
-
-                                <span>
-                                    <i class="bi bi-calendar-event"></i>
-                                    09/04/2021
-                                </span>
-
-                            </div>
-
-                            <div class="conference-footer">
-
-                                <img src="media/logo.png" alt="IAGP">
-
-                                <div>
-
-                                    <strong>IAGP</strong><br>
-
-                                    <small>Instituto de Alta Gestión Pública</small>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            allowfullscreen>
+                        </iframe>
 
                     </div>
 
-                </div>
+                    <div class="conference-body">
 
+                        <h5>
+                            Elaboración de Términos de Referencia en las Contrataciones del Estado.
+                        </h5>
 
-                <!-- Conferencia 3 -->
-                <div class="col-lg-4 col-md-6">
+                        <div class="conference-info">
 
-                    <div class="conference-card">
+                            <span>
+                                <i class="bi bi-eye-fill"></i>
+                                50
+                            </span>
 
-                        <div class="conference-video">
-
-                            <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                                allowfullscreen>
-                            </iframe>
+                            <span>
+                                <i class="bi bi-calendar-event"></i>
+                                09/04/2021
+                            </span>
 
                         </div>
 
-                        <div class="conference-body">
+                        <div class="conference-footer">
 
-                            <h5>
-                                Elaboración de Términos de Referencia en las Contrataciones del Estado.
-                            </h5>
+                            <img src="{% static 'assets/img/logo.png' %}" width="38">
 
-                            <div class="conference-info">
+                            <div>
 
-                                <span>
-                                    <i class="bi bi-eye-fill"></i>
-                                    50
-                                </span>
+                                <strong>IAGP</strong><br>
 
-                                <span>
-                                    <i class="bi bi-calendar-event"></i>
-                                    09/04/2021
-                                </span>
-
-                            </div>
-
-                            <div class="conference-footer">
-
-                                <img src="media/logo.png" alt="IAGP">
-
-                                <div>
-
-                                    <strong>IAGP</strong><br>
-
-                                    <small>Instituto de Alta Gestión Pública</small>
-
-                                </div>
+                                <small>Instituto de Alta Gestión Pública</small>
 
                             </div>
 
@@ -185,4 +185,6 @@
 
         </div>
 
-    </section>
+    </div>
+
+</section>

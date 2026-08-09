@@ -1,0 +1,561 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- TÍTULO -->
+
+<div class="text-center mb-4">
+    <h2 class="fw-bold">Opiniones OSCE</h2>
+    <p class="text-muted">
+        Opiniones emitidas por el Organismo Especializado para las Contrataciones del Estado.
+    </p>
+</div>
+
+<!-- FILTRO -->
+
+<div class="row mb-4">
+    <div class="col-md-6 mx-auto">
+        <div class="input-group shadow-sm">
+
+            <span class="input-group-text bg-white">
+                <i class="bi bi-search"></i>
+            </span>
+
+            <input type="text" id="filtroOpiniones" class="form-control" placeholder="Buscar opinión, tema o fecha...">
+
+            <button class="btn btn-outline-secondary" type="button" id="limpiarFiltro">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+    </div>
+
+
+</div>
+
+<!-- TABLA -->
+
+<div class="container table-responsive">
+
+
+    <table class="table table-bordered align-middle" id="tablaOpiniones">
+
+        <!-- CABECERA -->
+        <thead class="table-dark text-center">
+            <tr>
+                <th style="width: 6%;">N.º</th>
+                <th style="width: 25%;">OPINIÓN</th>
+                <th style="width: 43%;">TEMA</th>
+                <th style="width: 15%;">FECHA</th>
+                <th style="width: 11%;">PDF</th>
+            </tr>
+        </thead>
+
+        <!-- CONTENIDO -->
+        <tbody>
+
+            <tr>
+                <td class="text-center">01</td>
+                <td>Opinión N.° D000001-2025-OECE-DTN</td>
+                <td>El pago en los contratos derivados de compras corporativas</td>
+                <td class="text-center">07/01/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">02</td>
+                <td>Opinión N.° D000002-2025-OECE-DTN</td>
+                <td>Pago de tarifas en contrato de supervisión durante recepción de obra</td>
+                <td class="text-center">14/01/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">03</td>
+                <td>Opinión N.° D000003-2025-OECE-DTN</td>
+                <td>Solicitud de ampliación de plazo</td>
+                <td class="text-center">21/01/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">04</td>
+                <td>Opinión N.° D000004-2025-OECE-DTN</td>
+                <td>Contratación de prestaciones pendientes derivadas de un contrato resuelto</td>
+                <td class="text-center">28/01/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">05</td>
+                <td>Opinión N.° D000005-2025-OECE-DTN</td>
+                <td>Experiencia del personal clave</td>
+                <td class="text-center">04/02/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">06</td>
+                <td>Opinión N.° D000006-2025-OECE-DTN</td>
+                <td>Procedimiento de conformidad</td>
+                <td class="text-center">11/02/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">07</td>
+                <td>Opinión N.° D000007-2025-OECE-DTN</td>
+                <td>Procedimiento para la aprobación de ampliaciones del plazo</td>
+                <td class="text-center">18/02/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">08</td>
+                <td>Opinión N.° D000008-2025-OECE-DTN</td>
+                <td>Intervención Económica de la Obra</td>
+                <td class="text-center">25/02/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">09</td>
+                <td>Opinión N.° D000009-2025-OECE-DTN</td>
+                <td>Proveedores extranjeros no domiciliados</td>
+                <td class="text-center">04/03/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="text-center">10</td>
+                <td>Opinión N.° D000010-2025-OECE-DTN</td>
+                <td>Impedimentos</td>
+                <td class="text-center">11/03/2025</td>
+                <td class="text-center">
+                    <a href="#" class="pdf-button" title="Ver PDF">
+                        <i class="bi bi-file-earmark-pdf-fill"></i>
+                    </a>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+</div>
+
+<!-- INFORMACIÓN Y PAGINACIÓN -->
+
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-3">
+
+
+    <!-- INFORMACIÓN -->
+    <div class="text-muted small" id="infoPaginacion">
+        Mostrando 1 - 5 de 10 opiniones
+    </div>
+
+    <!-- PAGINACIÓN -->
+    <nav aria-label="Paginación de opiniones">
+
+        <ul class="pagination pagination-sm mb-0" id="paginacion">
+
+            <!-- JS GENERARÁ LOS BOTONES -->
+
+        </ul>
+
+    </nav>
+
+
+</div>
+
+<!-- ESTILOS -->
+
+<style>
+    /* Botón PDF */
+    .pdf-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 38px;
+        height: 38px;
+
+        border-radius: 8px;
+
+        color: #dc3545;
+        background-color: #fff;
+
+        font-size: 1.25rem;
+
+        text-decoration: none;
+
+        transition: all 0.2s ease;
+    }
+
+    .pdf-button:hover {
+        color: #fff;
+        background-color: #dc3545;
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .15);
+    }
+
+
+    /* Paginación */
+    #paginacion .page-link {
+        border: 1px solid #dee2e6;
+
+        color: #495057;
+
+        min-width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 8px;
+
+        margin: 0 3px;
+
+        transition: all 0.2s ease;
+    }
+
+
+    #paginacion .page-link:hover {
+        background-color: #f1f3f5;
+
+        color: #212529;
+
+        transform: translateY(-1px);
+    }
+
+
+    #paginacion .page-item.active .page-link {
+        background-color: #212529;
+
+        border-color: #212529;
+
+        color: #fff;
+
+        font-weight: 600;
+
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .15);
+    }
+
+
+    #paginacion .page-item.disabled .page-link {
+        color: #adb5bd;
+
+        background-color: #f8f9fa;
+
+        cursor: not-allowed;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 576px) {
+
+        #paginacion .page-link {
+            min-width: 34px;
+            height: 34px;
+
+            margin: 0 1px;
+        }
+
+        #infoPaginacion {
+            text-align: center;
+        }
+
+    }
+</style>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const tabla = document.getElementById("tablaOpiniones");
+        const tbody = tabla.querySelector("tbody");
+
+        const filas = Array.from(tbody.querySelectorAll("tr"));
+
+        const filtro = document.getElementById("filtroOpiniones");
+        const limpiar = document.getElementById("limpiarFiltro");
+
+        const paginacion = document.getElementById("paginacion");
+        const info = document.getElementById("infoPaginacion");
+
+
+        /* CONFIGURACIÓN */
+
+        const porPagina = 5;
+
+        let paginaActual = 1;
+
+        let filasFiltradas = [...filas];
+
+
+        /* MOSTRAR TABLA */
+
+        function mostrarPagina() {
+
+            const total = filasFiltradas.length;
+
+            const totalPaginas = Math.ceil(total / porPagina);
+
+
+            /* Ajustar página actual */
+
+            if (paginaActual > totalPaginas && totalPaginas > 0) {
+                paginaActual = totalPaginas;
+            }
+
+
+            /* Ocultar todas */
+
+            filas.forEach(fila => {
+                fila.style.display = "none";
+            });
+
+
+            /* Calcular posiciones */
+
+            const inicio = (paginaActual - 1) * porPagina;
+            const fin = inicio + porPagina;
+
+
+            /* Mostrar filas */
+
+            filasFiltradas
+                .slice(inicio, fin)
+                .forEach(fila => {
+                    fila.style.display = "";
+                });
+
+
+            /* Información */
+
+            if (total === 0) {
+
+                info.textContent = "No se encontraron opiniones";
+
+            } else {
+
+                const desde = inicio + 1;
+                const hasta = Math.min(fin, total);
+
+                info.textContent =
+                    `Mostrando ${desde} - ${hasta} de ${total} opiniones`;
+
+            }
+
+
+            /* Crear paginación */
+
+            crearPaginacion(totalPaginas);
+
+        }
+
+
+        /* CREAR PAGINACIÓN */
+
+        function crearPaginacion(totalPaginas) {
+
+            paginacion.innerHTML = "";
+
+
+            if (totalPaginas <= 1) {
+                return;
+            }
+
+
+            /* ANTERIOR */
+
+            const anterior = document.createElement("li");
+
+            anterior.className =
+                `page-item ${paginaActual === 1 ? "disabled" : ""}`;
+
+            anterior.innerHTML = `
+            <a class="page-link" href="#" aria-label="Anterior">
+                <i class="bi bi-chevron-left"></i>
+            </a>
+        `;
+
+
+            anterior.addEventListener("click", function (e) {
+
+                e.preventDefault();
+
+                if (paginaActual > 1) {
+
+                    paginaActual--;
+
+                    mostrarPagina();
+
+                }
+
+            });
+
+
+            paginacion.appendChild(anterior);
+
+
+            /* NÚMEROS */
+
+            for (let i = 1; i <= totalPaginas; i++) {
+
+                const item = document.createElement("li");
+
+                item.className =
+                    `page-item ${i === paginaActual ? "active" : ""}`;
+
+
+                item.innerHTML = `
+                <a class="page-link" href="#">${i}</a>
+            `;
+
+
+                item.addEventListener("click", function (e) {
+
+                    e.preventDefault();
+
+                    paginaActual = i;
+
+                    mostrarPagina();
+
+                });
+
+
+                paginacion.appendChild(item);
+
+            }
+
+
+            /* SIGUIENTE */
+
+            const siguiente = document.createElement("li");
+
+            siguiente.className =
+                `page-item ${paginaActual === totalPaginas ? "disabled" : ""}`;
+
+            siguiente.innerHTML = `
+            <a class="page-link" href="#" aria-label="Siguiente">
+                <i class="bi bi-chevron-right"></i>
+            </a>
+        `;
+
+
+            siguiente.addEventListener("click", function (e) {
+
+                e.preventDefault();
+
+                if (paginaActual < totalPaginas) {
+
+                    paginaActual++;
+
+                    mostrarPagina();
+
+                }
+
+            });
+
+
+            paginacion.appendChild(siguiente);
+
+        }
+
+
+        /* BUSCADOR */
+
+        filtro.addEventListener("input", function () {
+
+            const texto = this.value
+                .toLowerCase()
+                .trim();
+
+
+            filasFiltradas = filas.filter(fila => {
+
+                return fila.textContent
+                    .toLowerCase()
+                    .includes(texto);
+
+            });
+
+
+            paginaActual = 1;
+
+            mostrarPagina();
+
+        });
+
+
+        /* LIMPIAR */
+
+        limpiar.addEventListener("click", function () {
+
+            filtro.value = "";
+
+            filasFiltradas = [...filas];
+
+            paginaActual = 1;
+
+            mostrarPagina();
+
+            filtro.focus();
+
+        });
+
+
+        /* INICIALIZAR */
+
+        mostrarPagina();
+
+    });
+
+</script>
+
+{% endblock %}

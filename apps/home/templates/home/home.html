@@ -1,50 +1,515 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+
 {% block title %}
     Inicio | IAGP
 {% endblock %}
 
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'home/css/hero.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/eventosenvivo.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/docentes.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/conferenciasenvivo.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/testimonios.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/logros.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/convenios.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/beneficios.css' %}">
+
+{% endblock %}
+
+
 {% block content %}
 
+
+<!-- ========================================= -->
+<!-- HERO -->
+<!-- ========================================= -->
+
 <section class="section-hero">
+
     {% include "home/sections/1hero.html" %}
+
 </section>
 
-<section class="home-section">
-    {% include "home/sections/2eventosenvivo.html" %}
-</section>
+
+
+<!-- ========================================= -->
+<!-- CURSOS -->
+<!-- ========================================= -->
 
 <section class="home-section">
-    {% include "home/sections/3eventosvirtuales.html" %}
+
+    <div class="section-header text-center mb-5">
+
+        <h2 class="section-title">
+            Cursos
+        </h2>
+
+    </div>
+
+
+    <!-- PESTAÑAS -->
+
+    <ul class="nav nav-pills justify-content-center mb-4"
+        id="eventosTab"
+        role="tablist">
+
+        <li class="nav-item">
+
+            <button class="nav-link active"
+                    data-bs-toggle="pill"
+                    data-bs-target="#presenciales"
+                    type="button">
+
+                Eventos en Vivo
+
+            </button>
+
+        </li>
+
+
+        <li class="nav-item">
+
+            <button class="nav-link"
+                    data-bs-toggle="pill"
+                    data-bs-target="#virtuales"
+                    type="button">
+
+                Eventos Virtuales
+
+            </button>
+
+        </li>
+
+    </ul>
+
+
+
+    <div class="tab-content container">
+
+
+        <!-- ========================================= -->
+        <!-- EVENTOS EN VIVO -->
+        <!-- ========================================= -->
+
+        <div class="tab-pane fade show active"
+             id="presenciales">
+
+
+            <!-- BUSCADOR -->
+
+            <div class="row justify-content-center mb-4">
+
+                <div class="col-lg-6">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            <i class="bi bi-search"></i>
+
+                        </span>
+
+
+                        <input type="text"
+                               id="buscarVivo"
+                               class="form-control"
+                               placeholder="Buscar curso en vivo...">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CURSOS -->
+
+            <div class="row g-4"
+                 id="listaVivo">
+
+
+                {% for curso in cursos_vivo %}
+
+
+                <div class="col-lg-4 col-md-6 curso-item">
+
+
+                    <div class="course-card">
+
+
+                        <!-- IMAGEN -->
+
+                        <div class="course-image-wrapper">
+
+                            <img src="{{ curso.imagen.url }}"
+                                 class="course-image"
+                                 alt="{{ curso.titulo }}">
+
+                        </div>
+
+
+
+                        <!-- CONTENIDO -->
+
+                        <div class="course-body">
+
+
+                            <span class="course-status">
+
+                                Evento en Vivo
+
+                            </span>
+
+
+                            <h5 class="course-title">
+
+                                {{ curso.titulo }}
+
+                            </h5>
+
+
+
+                            <div class="course-info">
+
+
+                                <span>
+
+                                    <i class="bi bi-clock-fill text-danger me-1"></i>
+
+                                    {{ curso.horas }} H
+
+                                </span>
+
+
+                                <span>
+
+                                    <i class="bi bi-calendar-week-fill text-success me-1"></i>
+
+                                    {{ curso.semanas }} semanas
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <div class="course-date">
+
+                                <i class="bi bi-calendar-event-fill text-warning me-1"></i>
+
+                                {{ curso.fecha_inicio|date:"d/m/Y" }}
+
+                            </div>
+
+
+
+                            <!-- FOOTER -->
+
+                            <div class="course-footer">
+
+                                <img src="{% static 'assets/img/logo.png' %}"
+                                     width="98"
+                                     alt="Logo IAGP">
+
+                                <span>
+
+                                    IAGP
+
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                {% empty %}
+
+
+                <div class="col-12 text-center">
+
+                    <p class="text-muted">
+
+                        No hay cursos en vivo disponibles.
+
+                    </p>
+
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ========================================= -->
+        <!-- EVENTOS VIRTUALES -->
+        <!-- ========================================= -->
+
+        <div class="tab-pane fade"
+             id="virtuales">
+
+
+            <!-- BUSCADOR -->
+
+            <div class="row justify-content-center mb-4">
+
+                <div class="col-lg-6">
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            <i class="bi bi-search"></i>
+
+                        </span>
+
+
+                        <input type="text"
+                               id="buscarVirtual"
+                               class="form-control"
+                               placeholder="Buscar curso virtual...">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CURSOS -->
+
+            <div class="row g-4"
+                 id="listaVirtual">
+
+
+                {% for curso in cursos_virtual %}
+
+
+                <div class="col-lg-4 col-md-6 curso-item">
+
+
+                    <div class="course-card">
+
+
+                        <!-- IMAGEN -->
+
+                        <div class="course-image-wrapper">
+
+                            <img src="{{ curso.imagen.url }}"
+                                 class="course-image"
+                                 alt="{{ curso.titulo }}">
+
+                        </div>
+
+
+
+                        <!-- CONTENIDO -->
+
+                        <div class="course-body">
+
+
+                            <span class="course-status">
+
+                                Evento Virtual
+
+                            </span>
+
+
+                            <h5 class="course-title">
+
+                                {{ curso.titulo }}
+
+                            </h5>
+
+
+
+                            <div class="course-info">
+
+
+                                <span>
+
+                                    <i class="bi bi-clock-fill text-danger me-1"></i>
+
+                                    {{ curso.horas }} H
+
+                                </span>
+
+
+                                <span>
+
+                                    <i class="bi bi-calendar-week-fill text-success me-1"></i>
+
+                                    {{ curso.semanas }} semanas
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <div class="course-date">
+
+                                <i class="bi bi-calendar-event-fill text-warning me-1"></i>
+
+                                {{ curso.fecha_inicio|date:"d/m/Y" }}
+
+                            </div>
+
+
+
+                            <!-- FOOTER -->
+
+                            <div class="course-footer">
+
+                                <img src="{% static 'assets/img/logo.png' %}"
+                                     width="98"
+                                     alt="Logo IAGP">
+
+                                <span>
+
+                                    IAGP
+
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                {% empty %}
+
+
+                <div class="col-12 text-center">
+
+                    <p class="text-muted">
+
+                        No hay cursos virtuales disponibles.
+
+                    </p>
+
+                </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
 </section>
 
+
+
+<!-- ========================================= -->
+<!-- BENEFICIOS -->
+<!-- ========================================= -->
+
 <section class="home-section">
+
     {% include "home/sections/4beneficios.html" %}
+
 </section>
 
+
+
+<!-- ========================================= -->
+<!-- DOCENTES -->
+<!-- ========================================= -->
+
 <section class="home-section">
+
     {% include "home/sections/5docentes.html" %}
+
 </section>
 
+
+
+<!-- ========================================= -->
+<!-- CONVENIOS -->
+<!-- ========================================= -->
+
 <section class="home-section">
+
     {% include "home/sections/6convenios.html" %}
+
 </section>
 
+
+
+<!-- ========================================= -->
+<!-- CONFERENCIAS -->
+<!-- ========================================= -->
+
 <section class="home-section">
+
     {% include "home/sections/7conferenciasenvivo.html" %}
+
 </section>
 
+
+
+<!-- ========================================= -->
+<!-- TESTIMONIOS -->
+<!-- ========================================= -->
+
 <section class="home-section">
+
     {% include "home/sections/8testimonios.html" %}
+
 </section>
+
+
+
+<!-- ========================================= -->
+<!-- LOGROS -->
+<!-- ========================================= -->
 
 <section class="home-section">
-    {% include "home/sections/9logros.html" %}
-</section>
 
+    {% include "home/sections/9logros.html" %}
+
+</section>
 
 
 {% endblock %}
 
 
 
+{% block extra_js %}
+
+<script src="{% static 'home/js/hero.js' %}"></script>
+
+{% endblock %}

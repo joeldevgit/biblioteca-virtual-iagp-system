@@ -16,6 +16,7 @@ urlpatterns = [
     path("preinscripcion/", include("apps.preinscripcion.urls")),
 
     path("biblioteca/", include("apps.biblioteca.urls")),
+    path("opiniones-osce/", include("apps.opiniones_osce.urls")),
 
 ]
 

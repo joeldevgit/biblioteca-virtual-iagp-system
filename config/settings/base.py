@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     "apps.preinscripcion",
 
     "apps.biblioteca",
+    "apps.opiniones_osce",
 ]
 
 
