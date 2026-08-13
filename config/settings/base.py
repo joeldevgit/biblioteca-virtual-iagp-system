@@ -13,15 +13,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     "apps.home",
-    
-    "apps.nosotros",
-    "apps.catalogo_academico",
+    "apps.institucional",
+    "apps.cursos",
     "apps.blog",
-    "apps.contactanos",
-    "apps.preinscripcion",
-
+    "apps.contacto",
+    "apps.inscripciones",
     "apps.biblioteca",
-    "apps.opiniones_osce",
+    "apps.opiniones",
+    "apps.docentes",
 ]
 
 

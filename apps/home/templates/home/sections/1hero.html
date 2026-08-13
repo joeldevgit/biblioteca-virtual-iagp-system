@@ -10,7 +10,7 @@
 
                 <div class="video-box mb-4">
                     <video autoplay muted loop playsinline>
-                        <source src="{% static 'home/img/iagp_video.mp4' %}" type="video/mp4">
+                        <source src="{% static 'home/img/hero/iagp_video.mp4' %}" type="video/mp4">
                     </video>
                 </div>
 
@@ -19,7 +19,7 @@
 
                     <div class="col-md-6">
                         <div class="info-card">
-                            <img src="{% static 'home/img/capacitacion.jpg' %}" alt="">
+                            <img src="{% static 'home/img/hero/capacitacion.jpg' %}" alt="">
                             <div class="overlay">
                                 <h3>Líderes en capacitación a nivel Nacional</h3>
                             </div>
@@ -28,7 +28,7 @@
 
                     <div class="col-md-6">
                         <div class="info-card">
-                            <img src="{% static 'home/img/consultoria.jpg' %}" alt="">
+                            <img src="{% static 'home/img/hero/consultoria.jpg' %}" alt="">
                             <div class="overlay">
                                 <h3>Consultoría y Asesoría Legal</h3>
                             </div>
@@ -50,7 +50,7 @@
 
 
 
-                <a href="{% url 'opiniones_osce:opiniones' %}" class="menu-item">
+                <a href="{% url 'opiniones:opiniones' %}" class="menu-item">
                     <i class="bi bi-chat-square-text-fill"></i>
                     Opiniones OSCE
                 </a>
@@ -73,7 +73,7 @@
                     Orientación Legal sin Cargo
                 </a>
 
-                <a href="{% url 'biblioteca' %}" class="menu-item">
+                <a href="{% url 'biblioteca:biblioteca' %}" class="menu-item">
                     <i class="bi bi-book-half me-3"></i>
                     Biblioteca Virtual
                 </a>

@@ -9,14 +9,16 @@ urlpatterns = [
 
     path("", include("apps.home.urls")),
 
-    path("nosotros/", include("apps.nosotros.urls")),
-    path("catalogo-academico/", include("apps.catalogo_academico.urls")),
+    path("institucional/", include("apps.institucional.urls")),
+
+
+    path("cursos/", include("apps.cursos.urls")),
     path("blog/", include("apps.blog.urls")),
-    path("contactanos/", include("apps.contactanos.urls")),
-    path("preinscripcion/", include("apps.preinscripcion.urls")),
+    path("contacto/", include("apps.contacto.urls")),
+    path("inscripciones/", include("apps.inscripciones.urls")),
 
     path("biblioteca/", include("apps.biblioteca.urls")),
-    path("opiniones-osce/", include("apps.opiniones_osce.urls")),
+    path("opiniones/", include("apps.opiniones.urls")),
 
 ]
 

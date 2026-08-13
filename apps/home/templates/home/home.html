@@ -4,7 +4,7 @@
 
 
 {% block title %}
-    Inicio | IAGP
+Inicio | IAGP
 {% endblock %}
 
 
@@ -22,17 +22,14 @@
 {% endblock %}
 
 
-{% block content %}
 
+{% block content %}
 
 <!-- ========================================= -->
 <!-- HERO -->
 <!-- ========================================= -->
-
 <section class="section-hero">
-
     {% include "home/sections/1hero.html" %}
-
 </section>
 
 
@@ -40,7 +37,6 @@
 <!-- ========================================= -->
 <!-- CURSOS -->
 <!-- ========================================= -->
-
 <section class="home-section">
 
     <div class="section-header text-center mb-5">
@@ -53,17 +49,11 @@
 
 
     <!-- PESTAÑAS -->
-
-    <ul class="nav nav-pills justify-content-center mb-4"
-        id="eventosTab"
-        role="tablist">
+    <ul class="nav nav-pills justify-content-center mb-4" id="eventosTab" role="tablist">
 
         <li class="nav-item">
 
-            <button class="nav-link active"
-                    data-bs-toggle="pill"
-                    data-bs-target="#presenciales"
-                    type="button">
+            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#presenciales" type="button">
 
                 Eventos en Vivo
 
@@ -74,10 +64,7 @@
 
         <li class="nav-item">
 
-            <button class="nav-link"
-                    data-bs-toggle="pill"
-                    data-bs-target="#virtuales"
-                    type="button">
+            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#virtuales" type="button">
 
                 Eventos Virtuales
 
@@ -90,18 +77,12 @@
 
 
     <div class="tab-content container">
-
-
         <!-- ========================================= -->
         <!-- EVENTOS EN VIVO -->
         <!-- ========================================= -->
-
-        <div class="tab-pane fade show active"
-             id="presenciales">
-
+        <div class="tab-pane fade show active" id="presenciales">
 
             <!-- BUSCADOR -->
-
             <div class="row justify-content-center mb-4">
 
                 <div class="col-lg-6">
@@ -115,10 +96,7 @@
                         </span>
 
 
-                        <input type="text"
-                               id="buscarVivo"
-                               class="form-control"
-                               placeholder="Buscar curso en vivo...">
+                        <input type="text" id="buscarVivo" class="form-control" placeholder="Buscar curso en vivo...">
 
                     </div>
 
@@ -129,9 +107,7 @@
 
 
             <!-- CURSOS -->
-
-            <div class="row g-4"
-                 id="listaVivo">
+            <div class="row g-4" id="listaVivo">
 
 
                 {% for curso in cursos_vivo %}
@@ -147,9 +123,7 @@
 
                         <div class="course-image-wrapper">
 
-                            <img src="{{ curso.imagen.url }}"
-                                 class="course-image"
-                                 alt="{{ curso.titulo }}">
+                            <img src="{{ curso.imagen.url }}" class="course-image" alt="{{ curso.titulo }}">
 
                         </div>
 
@@ -214,9 +188,7 @@
 
                             <div class="course-footer">
 
-                                <img src="{% static 'assets/img/logo.png' %}"
-                                     width="98"
-                                     alt="Logo IAGP">
+                                <img src="{% static 'assets/img/logo.png' %}" width="98" alt="Logo IAGP">
 
                                 <span>
 
@@ -263,9 +235,7 @@
         <!-- ========================================= -->
         <!-- EVENTOS VIRTUALES -->
         <!-- ========================================= -->
-
-        <div class="tab-pane fade"
-             id="virtuales">
+        <div class="tab-pane fade" id="virtuales">
 
 
             <!-- BUSCADOR -->
@@ -283,10 +253,8 @@
                         </span>
 
 
-                        <input type="text"
-                               id="buscarVirtual"
-                               class="form-control"
-                               placeholder="Buscar curso virtual...">
+                        <input type="text" id="buscarVirtual" class="form-control"
+                            placeholder="Buscar curso virtual...">
 
                     </div>
 
@@ -298,8 +266,7 @@
 
             <!-- CURSOS -->
 
-            <div class="row g-4"
-                 id="listaVirtual">
+            <div class="row g-4" id="listaVirtual">
 
 
                 {% for curso in cursos_virtual %}
@@ -315,9 +282,7 @@
 
                         <div class="course-image-wrapper">
 
-                            <img src="{{ curso.imagen.url }}"
-                                 class="course-image"
-                                 alt="{{ curso.titulo }}">
+                            <img src="{{ curso.imagen.url }}" class="course-image" alt="{{ curso.titulo }}">
 
                         </div>
 
@@ -382,9 +347,7 @@
 
                             <div class="course-footer">
 
-                                <img src="{% static 'assets/img/logo.png' %}"
-                                     width="98"
-                                     alt="Logo IAGP">
+                                <img src="{% static 'assets/img/logo.png' %}" width="98" alt="Logo IAGP">
 
                                 <span>
 
@@ -433,38 +396,612 @@
 
 
 
+
+
+
+
+
 <!-- ========================================= -->
 <!-- BENEFICIOS -->
 <!-- ========================================= -->
-
 <section class="home-section">
-
     {% include "home/sections/4beneficios.html" %}
-
 </section>
+
+
+
+
 
 
 
 <!-- ========================================= -->
 <!-- DOCENTES -->
 <!-- ========================================= -->
+<section class="py-5">
+    <div class="container">
 
-<section class="home-section">
+        <!-- DOCENTES -->
+        <section class="py-5">
+            <div class="container">
 
-    {% include "home/sections/5docentes.html" %}
+                <!-- TÍTULO -->
+                <div class="text-center mb-5">
+                    <h2 class="fw-bold">Nuestros Docentes</h2>
 
+                    <p class="text-muted">
+                        Profesionales que forman parte de nuestra institución.
+                    </p>
+                </div>
+
+                <div class="docentes-slider">
+
+                    <!-- FLECHA IZQUIERDA -->
+                    <button class="docentes-btn docentes-prev" type="button">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+
+                    <!-- CONTENEDOR -->
+                    <div class="docentes-viewport">
+
+                        <div class="docentes-track">
+
+                            {% for docente in docentes %}
+
+                            <div class="docente-item">
+
+                                <div class="card docente-card h-100 border-0 shadow-sm">
+
+                                    <!-- FOTO -->
+                                    <div class="docente-imagen">
+
+                                        {% if docente.foto %}
+
+                                        <img src="{{ docente.foto.url }}" alt="{{ docente.nombre }}" class="img-fluid">
+
+                                        {% else %}
+
+                                        <div class="docente-sin-foto">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+
+                                        {% endif %}
+
+                                    </div>
+
+                                    <!-- INFORMACIÓN -->
+                                    <div class="card-body text-center">
+
+                                        <!-- LOGO -->
+                                        <div class="docente-logo">
+
+                                            <img src="{% static 'home/img/logo.png' %}" alt="Logo del Instituto">
+
+                                        </div>
+
+                                        <!-- NOMBRE -->
+                                        <h4 class="mb-2">
+                                            {{ docente.nombre }}
+                                        </h4>
+
+                                        <!-- CARGO -->
+                                        <span class="docente-cargo mt-1">
+                                            <i class="bi bi-mortarboard-fill"></i>
+                                            Docente
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            {% empty %}
+
+                            <div class="text-center w-100">
+                                <p class="text-muted">
+                                    No hay docentes disponibles.
+                                </p>
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                    <!-- FLECHA DERECHA -->
+                    <button class="docentes-btn docentes-next" type="button">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+        </section>
+
+    </div>
 </section>
+
+<style>
+    /* ================================
+   TARJETA DOCENTE
+================================ */
+
+    .docente-card {
+        border-radius: 20px;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #e8eee9 !important;
+        transition: all 0.3s ease;
+    }
+
+    .docente-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+    }
+
+
+    /* ================================
+   FOTO
+================================ */
+
+    .docente-imagen {
+        height: 280px;
+        overflow: hidden;
+        background: #f3f7f4;
+    }
+
+    .docente-imagen img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .docente-card:hover .docente-imagen img {
+        transform: scale(1.05);
+    }
+
+
+    /* ================================
+   LOGO DEL INSTITUTO
+================================ */
+
+    .docente-logo {
+        width: 80px;
+        height: 80px;
+        margin: -38px auto 12px;
+        background: #ffffff;
+        border-radius: 50%;
+        padding: 7px;
+        position: relative;
+        z-index: 2;
+        border: 3px solid #198754;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .docente-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+
+    /* ================================
+   NOMBRE
+================================ */
+
+    .docente-card h5 {
+        color: #212529;
+        font-size: 1.05rem;
+    }
+
+
+    /* ================================
+   ETIQUETA DOCENTE
+================================ */
+
+    .docente-cargo {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+
+        padding: 6px 14px;
+
+        border: 1px solid #198754;
+        border-radius: 50px;
+
+        background: #f0fff7;
+        color: #198754;
+
+        font-size: 0.85rem;
+        font-weight: 600;
+
+        transition: all 0.3s ease;
+    }
+
+    .docente-cargo i {
+        font-size: 0.9rem;
+    }
+
+    .docente-card:hover .docente-cargo {
+        background: #198754;
+        color: #ffffff;
+    }
+
+
+    /* =================================
+   CARRUSEL DE DOCENTES
+================================= */
+
+    .docentes-carrusel {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 15px 5px 25px;
+
+        scroll-behavior: smooth;
+
+        scrollbar-width: thin;
+    }
+
+    .docentes-track {
+        display: flex;
+        gap: 24px;
+    }
+
+    /* Cada docente */
+
+    .docente-item {
+        flex: 0 0 calc(25% - 18px);
+        min-width: 250px;
+    }
+
+    /* Tablet */
+
+    @media (max-width: 992px) {
+
+        .docente-item {
+            flex: 0 0 calc(33.333% - 16px);
+        }
+
+    }
+
+    /* Móvil */
+
+    @media (max-width: 768px) {
+
+        .docente-item {
+            flex: 0 0 calc(50% - 12px);
+        }
+
+    }
+
+    /* Celular pequeño */
+
+    @media (max-width: 576px) {
+
+        .docente-item {
+            flex: 0 0 85%;
+        }
+
+    }
+
+    /* =========================================
+   SLIDER DOCENTES
+========================================= */
+
+    .docentes-slider {
+        position: relative;
+        width: 100%;
+        padding: 0 65px;
+    }
+
+    .docentes-viewport {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .docentes-track {
+        display: flex;
+        gap: 24px;
+        transition: transform 0.6s ease;
+        will-change: transform;
+    }
+
+    .docente-item {
+        flex: 0 0 calc(25% - 18px);
+    }
+
+    /* =========================================
+   BOTONES
+========================================= */
+
+    .docentes-btn {
+        position: absolute;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 42px;
+        height: 42px;
+
+        border: none;
+        border-radius: 50%;
+
+        background: #198754;
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 20px;
+
+        z-index: 10;
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+        transition: all 0.3s ease;
+    }
+
+    .docentes-btn:hover {
+        background: #146c43;
+        transform: translateY(-50%) scale(1.08);
+    }
+
+    .docentes-prev {
+        left: 0;
+    }
+
+    .docentes-next {
+        right: 0;
+    }
+
+
+    /* =========================================
+   TABLET
+========================================= */
+
+    @media (max-width: 992px) {
+
+        .docente-item {
+            flex: 0 0 calc(33.333% - 16px);
+        }
+
+    }
+
+
+    /* =========================================
+   MÓVIL
+========================================= */
+
+    @media (max-width: 768px) {
+
+        .docentes-slider {
+            padding: 0 35px;
+        }
+
+        .docente-item {
+            flex: 0 0 calc(50% - 12px);
+        }
+
+    }
+
+
+    /* =========================================
+   CELULAR PEQUEÑO
+========================================= */
+
+    @media (max-width: 576px) {
+
+        .docentes-slider {
+            padding: 0 30px;
+        }
+
+        .docente-item {
+            flex: 0 0 100%;
+        }
+
+        .docentes-btn {
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+        }
+
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const track = document.querySelector(".docentes-track");
+        const slider = document.querySelector(".docentes-slider");
+        const nextBtn = document.querySelector(".docentes-next");
+        const prevBtn = document.querySelector(".docentes-prev");
+
+        if (!track) return;
+
+        const items = Array.from(
+            track.querySelectorAll(".docente-item")
+        );
+
+        if (items.length === 0) return;
+
+        let currentIndex = 0;
+        let autoSlide;
+
+        function getVisibleItems() {
+
+            if (window.innerWidth <= 576) {
+                return 1;
+            }
+
+            if (window.innerWidth <= 768) {
+                return 2;
+            }
+
+            if (window.innerWidth <= 992) {
+                return 3;
+            }
+
+            return 4;
+        }
+
+        function updateSlider() {
+
+            const visibleItems = getVisibleItems();
+
+            const maxIndex = Math.max(
+                0,
+                items.length - visibleItems
+            );
+
+            if (currentIndex > maxIndex) {
+                currentIndex = 0;
+            }
+
+            const itemWidth = items[0].offsetWidth;
+            const gap = 24;
+
+            const movement =
+                currentIndex * (itemWidth + gap);
+
+            track.style.transform =
+                `translateX(-${movement}px)`;
+        }
+
+        function nextSlide() {
+
+            const visibleItems = getVisibleItems();
+
+            const maxIndex = Math.max(
+                0,
+                items.length - visibleItems
+            );
+
+            currentIndex++;
+
+            if (currentIndex > maxIndex) {
+                currentIndex = 0;
+            }
+
+            updateSlider();
+        }
+
+        function previousSlide() {
+
+            const visibleItems = getVisibleItems();
+
+            const maxIndex = Math.max(
+                0,
+                items.length - visibleItems
+            );
+
+            currentIndex--;
+
+            if (currentIndex < 0) {
+                currentIndex = maxIndex;
+            }
+
+            updateSlider();
+        }
+
+        function startAutoSlide() {
+
+            stopAutoSlide();
+
+            if (items.length > getVisibleItems()) {
+
+                autoSlide = setInterval(
+                    nextSlide,
+                    4000
+                );
+
+            }
+        }
+
+        function stopAutoSlide() {
+
+            if (autoSlide) {
+                clearInterval(autoSlide);
+            }
+
+        }
+
+        /* BOTÓN SIGUIENTE */
+
+        nextBtn.addEventListener(
+            "click",
+            function () {
+
+                nextSlide();
+                startAutoSlide();
+
+            }
+        );
+
+        /* BOTÓN ANTERIOR */
+
+        prevBtn.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+                startAutoSlide();
+
+            }
+        );
+
+        /* PAUSA AL PASAR EL MOUSE */
+
+        slider.addEventListener(
+            "mouseenter",
+            stopAutoSlide
+        );
+
+        slider.addEventListener(
+            "mouseleave",
+            startAutoSlide
+        );
+
+        /* RESPONSIVE */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                updateSlider();
+                startAutoSlide();
+
+            }
+        );
+
+        /* INICIAR */
+
+        updateSlider();
+        startAutoSlide();
+
+    });
+</script>
+
+
+
+
+
+
 
 
 
 <!-- ========================================= -->
 <!-- CONVENIOS -->
 <!-- ========================================= -->
-
 <section class="home-section">
-
     {% include "home/sections/6convenios.html" %}
-
 </section>
 
 
@@ -472,11 +1009,8 @@
 <!-- ========================================= -->
 <!-- CONFERENCIAS -->
 <!-- ========================================= -->
-
 <section class="home-section">
-
     {% include "home/sections/7conferenciasenvivo.html" %}
-
 </section>
 
 
@@ -484,11 +1018,8 @@
 <!-- ========================================= -->
 <!-- TESTIMONIOS -->
 <!-- ========================================= -->
-
 <section class="home-section">
-
     {% include "home/sections/8testimonios.html" %}
-
 </section>
 
 
@@ -496,20 +1027,15 @@
 <!-- ========================================= -->
 <!-- LOGROS -->
 <!-- ========================================= -->
-
 <section class="home-section">
-
     {% include "home/sections/9logros.html" %}
-
 </section>
-
 
 {% endblock %}
 
 
 
+
 {% block extra_js %}
-
 <script src="{% static 'home/js/hero.js' %}"></script>
-
 {% endblock %}

@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="estructura py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="badge bg-primary px-3 py-2">
+                Organización
+            </span>
+
+            <h1 class="display-5 fw-bold mt-3">
+                Estructura Organizacional
+            </h1>
+
+            <div class="linea-titulo mx-auto"></div>
+
+            <p class="text-muted mt-3">
+                Nuestro equipo está conformado por profesionales comprometidos
+                con la excelencia académica y administrativa.
+            </p>
+
+        </div>
+
+
+        <!-- Nivel superior -->
+
+        <div class="row justify-content-center mb-5">
+
+            <div class="col-md-5">
+
+                <div class="card-persona principal">
+
+                    <div class="avatar">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+
+                    <h3>
+                        Leyli Aguilar Ventura
+                    </h3>
+
+                    <span>
+                        Apoderado
+                    </span>
+
+                    <p>
+                        <i class="bi bi-envelope"></i>
+                        laguilar@iagp.edu.pe
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Línea de conexión -->
+
+        <div class="conexion"></div>
+
+
+
+        <!-- Áreas -->
+
+        <div class="row justify-content-center g-4">
+
+
+            <div class="col-md-5">
+
+                <div class="card-persona">
+
+                    <div class="avatar">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+
+                    <h3>
+                        Karol Stefhany León Paredes
+                    </h3>
+
+                    <span>
+                        Área Académica
+                    </span>
+
+                    <p>
+                        <i class="bi bi-envelope"></i>
+                        academico@iagp.edu.pe
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="col-md-5">
+
+                <div class="card-persona">
+
+                    <div class="avatar">
+                        <i class="bi bi-building"></i>
+                    </div>
+
+                    <h3>
+                        Área Administrativa
+                    </h3>
+
+                    <span>
+                        Gestión y soporte institucional
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- Imagen de Estructura Organizacional -->
+
+        <div class="estructura-imagen mt-5">
+
+            <div class="text-center mb-4">
+
+                <h2 class="fw-bold">
+                    Organigrama Institucional
+                </h2>
+
+                <p class="text-muted">
+                    Representación gráfica de nuestra estructura organizacional.
+                </p>
+
+            </div>
+
+
+            <div class="imagen-organigrama">
+
+                <img src="{% static 'institucional/img/estructura-organizacional.png' %}" class="img-fluid rounded-4 shadow"
+                    alt="Estructura Organizacional">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<style>
+    .estructura {
+
+        background: #f8fafc;
+
+    }
+
+
+    .linea-titulo {
+
+        width: 80px;
+        height: 4px;
+        background: #0d4b8e;
+        border-radius: 10px;
+
+    }
+
+
+
+    .card-persona {
+
+        background: white;
+        padding: 35px;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        transition: .3s;
+
+    }
+
+
+    .card-persona:hover {
+
+        transform: translateY(-8px);
+
+    }
+
+
+
+    .card-persona.principal {
+
+        border-top: 5px solid #0d4b8e;
+
+    }
+
+
+
+    .avatar {
+
+        width: 80px;
+        height: 80px;
+        margin: auto;
+        border-radius: 50%;
+        background: #eef5ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        color: #0d4b8e;
+        margin-bottom: 20px;
+
+    }
+
+
+
+    .card-persona h3 {
+
+        font-size: 22px;
+        font-weight: 700;
+        color: #1f2937;
+
+    }
+
+
+
+    .card-persona span {
+
+        display: block;
+        color: #0d4b8e;
+        font-weight: 600;
+        margin-bottom: 15px;
+
+    }
+
+
+
+    .card-persona p {
+
+        color: #6b7280;
+
+    }
+
+
+
+    .conexion {
+
+        width: 2px;
+        height: 60px;
+        background: #0d4b8e;
+        margin: auto;
+
+    }
+
+
+    .estructura-imagen {
+
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.imagen-organigrama {
+
+    text-align:center;
+
+}
+
+
+.imagen-organigrama img {
+
+    max-width:100%;
+    height:auto;
+    border-radius:15px;
+
+}
+</style>
+
+
+{% endblock %}

@@ -1,0 +1,1038 @@
+{% extends "base.html" %}
+
+{% block title %}
+Opiniones OECE
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+    /* ========================================================= */
+    /* CONTENEDOR PRINCIPAL */
+    /* ========================================================= */
+
+    .jurisprudencia-page {
+        background: #ffffff;
+        min-height: 100vh;
+    }
+
+
+    /* ========================================================= */
+    /* LAYOUT */
+    /* ========================================================= */
+
+    .jurisprudencia-layout {
+        display: flex;
+        gap: 35px;
+        padding: 40px 0;
+    }
+
+
+    /* ========================================================= */
+    /* MENU IZQUIERDO */
+    /* ========================================================= */
+
+    .jurisprudencia-sidebar {
+        width: 320px;
+        flex-shrink: 0;
+    }
+
+    .jurisprudencia-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .jurisprudencia-menu a {
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+        padding: 12px 18px;
+        background: #087caf;
+        color: #ffffff;
+        border: 1px solid #075d87;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 1.2;
+        transition: all .25s ease;
+    }
+
+    .jurisprudencia-menu a:hover {
+        background: #075f8a;
+        transform: translateX(3px);
+    }
+
+    .jurisprudencia-menu a.active {
+        background: #092d63;
+        border-color: #092d63;
+        box-shadow: 0 4px 12px rgba(9, 45, 99, .15);
+    }
+
+
+    /* ========================================================= */
+    /* CONTENIDO */
+    /* ========================================================= */
+
+    .jurisprudencia-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+
+    /* ========================================================= */
+    /* ENCABEZADO INSTITUCIÓN */
+    /* ========================================================= */
+
+    .jurisprudencia-header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 28px;
+        padding: 20px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .jurisprudencia-header-icon {
+        width: 90px;
+        height: 90px;
+        flex-shrink: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #f7f9fc;
+        border: 1px solid #e1e5ea;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .jurisprudencia-header-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 8px;
+    }
+
+    .jurisprudencia-header-icon i {
+        font-size: 42px;
+        color: #092d63;
+    }
+
+    .jurisprudencia-header h2 {
+        margin: 0 0 6px;
+        color: #092d63;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .jurisprudencia-header p {
+        margin: 0;
+        color: #6c757d;
+        font-size: 16px;
+    }
+
+
+    /* ========================================================= */
+    /* BUSCADOR */
+    /* ========================================================= */
+
+    .jurisprudencia-search {
+        display: flex;
+        align-items: stretch;
+        margin-bottom: 28px;
+    }
+
+    .jurisprudencia-search .search-box {
+        flex: 1;
+        position: relative;
+    }
+
+    .jurisprudencia-search .search-box i {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 24px;
+        color: #555;
+        z-index: 2;
+    }
+
+    .jurisprudencia-search input {
+        width: 100%;
+        height: 58px;
+
+        border: 1px solid #ddd;
+        border-radius: 7px 0 0 7px;
+
+        padding: 0 18px 0 58px;
+
+        font-size: 17px;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+    }
+
+    .jurisprudencia-search input:focus {
+        outline: none;
+        border-color: #123d7a;
+        box-shadow: 0 0 0 3px rgba(18, 61, 122, .08);
+    }
+
+    .jurisprudencia-search button {
+        width: 130px;
+
+        border: none;
+        border-radius: 0 7px 7px 0;
+
+        background: #092d63;
+        color: #ffffff;
+
+        font-size: 17px;
+        font-weight: 600;
+
+        transition: .25s ease;
+    }
+
+    .jurisprudencia-search button:hover {
+        background: #061f45;
+    }
+
+
+    /* ========================================================= */
+    /* FILTROS */
+    /* ========================================================= */
+
+    .filtro-titulo {
+        margin-bottom: 10px;
+
+        color: #333;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .jurisprudencia-filtros {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .filtro-btn {
+        height: 46px;
+
+        padding: 0 20px;
+
+        border: 1px solid #d7dce2;
+        border-radius: 5px;
+
+        background: #ffffff;
+        color: #193b72;
+
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: .25s ease;
+    }
+
+    .filtro-btn:hover {
+        background: #f0f4f9;
+        border-color: #b9c4d1;
+    }
+
+    .filtro-btn.active {
+        background: #092d63;
+        color: #ffffff;
+        border-color: #092d63;
+    }
+
+
+    /* ========================================================= */
+    /* TABLA */
+    /* ========================================================= */
+
+    .jurisprudencia-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        border-radius: 5px;
+    }
+
+    .jurisprudencia-table {
+        width: 100%;
+        min-width: 950px;
+
+        border-collapse: collapse;
+        background: #ffffff;
+    }
+
+
+    /* ========================================================= */
+    /* CABECERA */
+    /* ========================================================= */
+
+    .jurisprudencia-table thead th {
+        padding: 14px 12px;
+
+        background: #092d63;
+        color: #ffffff;
+
+        text-align: center;
+
+        font-size: 15px;
+        font-weight: 700;
+
+        border-right: 1px solid rgba(255, 255, 255, .25);
+    }
+
+    .jurisprudencia-table thead th:last-child {
+        border-right: none;
+    }
+
+
+    /* ========================================================= */
+    /* ANCHO COLUMNAS */
+    /* ========================================================= */
+
+    .jurisprudencia-table th:nth-child(1) {
+        width: 70px;
+    }
+
+    .jurisprudencia-table th:nth-child(2) {
+        width: 36%;
+        text-align: left;
+    }
+
+    .jurisprudencia-table th:nth-child(3) {
+        width: 18%;
+    }
+
+    .jurisprudencia-table th:nth-child(4) {
+        width: 24%;
+        text-align: left;
+    }
+
+    .jurisprudencia-table th:nth-child(5) {
+        width: 120px;
+    }
+
+    .jurisprudencia-table th:nth-child(6) {
+        width: 80px;
+    }
+
+
+    /* ========================================================= */
+    /* CELDAS */
+    /* ========================================================= */
+
+    .jurisprudencia-table tbody td {
+        padding: 14px 15px;
+
+        border: 1px solid #e0e0e0;
+
+        color: #333;
+        font-size: 15px;
+
+        vertical-align: middle;
+    }
+
+
+    /* ========================================================= */
+    /* DOCUMENTO */
+    /* ========================================================= */
+
+    .jurisprudencia-opinion {
+        font-weight: 500;
+        line-height: 1.45;
+    }
+
+
+    /* ========================================================= */
+    /* TIPO */
+    /* ========================================================= */
+
+    .jurisprudencia-tipo {
+        text-align: center;
+        font-weight: 600;
+        color: #193b72;
+    }
+
+
+    /* ========================================================= */
+    /* TEMA */
+    /* ========================================================= */
+
+    .jurisprudencia-tema {
+        line-height: 1.4;
+    }
+
+
+    /* ========================================================= */
+    /* FECHA */
+    /* ========================================================= */
+
+    .jurisprudencia-fecha {
+        text-align: center;
+        white-space: nowrap;
+    }
+
+
+    /* ========================================================= */
+    /* NUMERO */
+    /* ========================================================= */
+
+    .jurisprudencia-numero {
+        text-align: center;
+        font-weight: 700;
+        color: #333;
+    }
+
+
+    /* ========================================================= */
+    /* PDF */
+    /* ========================================================= */
+
+    .jurisprudencia-pdf {
+        text-align: center;
+    }
+
+    .jurisprudencia-pdf a {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        color: #d71920;
+
+        font-size: 29px;
+
+        text-decoration: none;
+
+        transition: .2s ease;
+    }
+
+    .jurisprudencia-pdf a:hover {
+        transform: scale(1.15);
+        color: #a90000;
+    }
+
+
+    /* ========================================================= */
+    /* HOVER FILAS */
+    /* ========================================================= */
+
+    .jurisprudencia-table tbody tr {
+        transition: background .2s ease;
+    }
+
+    .jurisprudencia-table tbody tr:hover {
+        background: #f6f9fc;
+    }
+
+
+    /* ========================================================= */
+    /* SIN RESULTADOS */
+    /* ========================================================= */
+
+    .jurisprudencia-empty {
+        text-align: center;
+        padding: 40px !important;
+        color: #777;
+    }
+
+
+    /* ========================================================= */
+    /* RESPONSIVE */
+    /* ========================================================= */
+
+    @media (max-width: 1100px) {
+
+        .jurisprudencia-layout {
+            flex-direction: column;
+        }
+
+        .jurisprudencia-sidebar {
+            width: 100%;
+        }
+
+        .jurisprudencia-menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 768px) {
+
+        .jurisprudencia-layout {
+            padding: 25px 10px;
+        }
+
+        .jurisprudencia-menu {
+            grid-template-columns: 1fr;
+        }
+
+        .jurisprudencia-header {
+            align-items: flex-start;
+        }
+
+        .jurisprudencia-header-icon {
+            width: 70px;
+            height: 70px;
+        }
+
+        .jurisprudencia-header h2 {
+            font-size: 24px;
+        }
+
+        .jurisprudencia-search {
+            flex-direction: column;
+        }
+
+        .jurisprudencia-search input {
+            border-radius: 7px;
+        }
+
+        .jurisprudencia-search button {
+            width: 100%;
+            height: 52px;
+            margin-top: 8px;
+            border-radius: 7px;
+        }
+
+    }
+
+
+    .jurisprudencia-tipos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .tipo-btn {
+        height: 46px;
+        padding: 0 20px;
+
+        border: 1px solid #d7dce2;
+        border-radius: 5px;
+
+        background: #ffffff;
+        color: #193b72;
+
+        font-weight: 600;
+        cursor: pointer;
+
+        transition: .25s ease;
+    }
+
+    .tipo-btn:hover {
+        background: #f0f4f9;
+    }
+
+    .tipo-btn.active {
+        background: #092d63;
+        color: #ffffff;
+        border-color: #092d63;
+    }
+</style>
+
+
+
+<section class="jurisprudencia-page">
+
+    <div class="container-fluid px-4">
+
+        <div class="jurisprudencia-layout">
+
+
+            <!-- ================================================= -->
+            <!-- MENU IZQUIERDO -->
+            <!-- ================================================= -->
+            <aside class="jurisprudencia-sidebar">
+
+                <div class="jurisprudencia-menu">
+
+                    <!-- ================================================= -->
+                    <!-- OPINIONES -->
+                    <!-- ================================================= -->
+
+                    <a href="?tipo=opinion" class="{% if tipo == 'opinion' %}active{% endif %}">
+                        Opiniones {{ institucion.nombre }}
+                    </a>
+
+
+                    <!-- ================================================= -->
+                    <!-- PRONUNCIAMIENTOS -->
+                    <!-- ================================================= -->
+
+                    <a href="?tipo=pronunciamiento" class="{% if tipo == 'pronunciamiento' %}active{% endif %}">
+                        Pronunciamientos {{ institucion.nombre }}
+                    </a>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ================================================= -->
+            <!-- CONTENIDO -->
+            <!-- ================================================= -->
+            <main class="jurisprudencia-content">
+
+
+                <!-- ================================================= -->
+                <!-- BOTÓN ATRÁS -->
+                <!-- ================================================= -->
+                <div class="mb-4">
+
+                    <a href="{% url 'biblioteca:biblioteca' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-left"></i>
+                        Atrás
+                    </a>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- ENCABEZADO -->
+                <!-- ================================================= -->
+                <div class="jurisprudencia-header">
+
+                    <div class="jurisprudencia-header-icon">
+
+                        {% if institucion.imagen_url %}
+
+                        <img src="{{ institucion.imagen_url }}" alt="{{ institucion.nombre }}">
+
+                        {% else %}
+
+                        <i class="bi bi-bank"></i>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            {{ institucion.nombre }}
+                        </h2>
+
+                        <p>
+                            Documentos de {{ institucion.nombre }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- BUSCADOR -->
+                <!-- ================================================= -->
+                <div class="jurisprudencia-search">
+
+                    <div class="search-box">
+
+                        <i class="bi bi-search"></i>
+
+                        <input type="text" id="buscarJurisprudencia" placeholder="Buscar por palabra clave...">
+
+                    </div>
+
+
+                    <button type="button" id="btnBuscarJurisprudencia">
+
+                        Buscar
+
+                    </button>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- FILTRO POR TEMA -->
+                <!-- ================================================= -->
+                <div class="filtro-titulo">
+
+                    Filtrar por tema:
+
+                </div>
+
+                <div class="jurisprudencia-tipos">
+
+                    <button type="button" class="tipo-btn active" data-tipo="todos">
+                        Todos
+                    </button>
+
+                 
+
+                </div>
+
+
+             
+
+
+                <!-- ================================================= -->
+                <!-- TABLA -->
+                <!-- ================================================= -->
+                <div class="jurisprudencia-table-wrapper">
+
+                    <table class="jurisprudencia-table" id="tablaJurisprudencia">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    N.°
+                                </th>
+
+                                <th>
+                                    DOCUMENTO
+                                </th>
+
+                                <th>
+                                    TIPO
+                                </th>
+
+                                <th>
+                                    TEMA
+                                </th>
+
+                                <th>
+                                    FECHA
+                                </th>
+
+                                <th>
+                                    PDF
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for documento in jurisprudencias %}
+
+                            <tr class="jurisprudencia-row" data-tema="{{ documento.tema|default:''|lower }}"
+                                data-tipo="{{ documento.tipo }}">
+
+                                <!-- NÚMERO -->
+
+                                <td class="jurisprudencia-numero">
+
+                                    {{ forloop.counter|stringformat:"02d" }}
+
+                                </td>
+
+
+                                <!-- DOCUMENTO -->
+
+                                <td class="jurisprudencia-opinion">
+
+                                    {{ documento.titulo }}
+
+                                </td>
+
+
+                                <!-- TIPO -->
+
+                                <td class="jurisprudencia-tipo">
+
+                                    {{ documento.get_tipo_display }}
+
+                                </td>
+
+
+                                <!-- TEMA -->
+
+                                <td class="jurisprudencia-tema">
+
+                                    {{ documento.tema|default:"-" }}
+
+                                </td>
+
+
+                                <!-- FECHA -->
+
+                                <td class="jurisprudencia-fecha">
+
+                                    {% if documento.fecha %}
+
+                                    {{ documento.fecha|date:"d/m/Y" }}
+
+                                    {% elif documento.año %}
+
+                                    {{ documento.año }}
+
+                                    {% else %}
+
+                                    -
+
+                                    {% endif %}
+
+                                </td>
+
+
+                                <!-- PDF -->
+
+                                <td class="jurisprudencia-pdf">
+
+                                    {% if documento.pdf_url %}
+
+                                    <a href="{{ documento.pdf_url }}" target="_blank" rel="noopener noreferrer"
+                                        title="Ver PDF">
+
+                                        <i class="bi bi-file-earmark-pdf-fill"></i>
+
+                                    </a>
+
+                                    {% else %}
+
+                                    <span class="text-muted">
+                                        -
+                                    </span>
+
+                                    {% endif %}
+
+                                </td>
+
+                            </tr>
+
+
+                            {% empty %}
+
+                            <tr>
+
+                                <td colspan="6" class="jurisprudencia-empty">
+
+                                    No hay documentos disponibles para
+                                    {{ institucion.nombre }}.
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const buscador = document.getElementById(
+            "buscarJurisprudencia"
+        );
+
+        const botonBuscar = document.getElementById(
+            "btnBuscarJurisprudencia"
+        );
+
+        const filas = document.querySelectorAll(
+            ".jurisprudencia-row"
+        );
+
+        const botonesFiltro = document.querySelectorAll(
+            ".filtro-btn"
+        );
+
+        const botonesTipo = document.querySelectorAll(
+            ".tipo-btn"
+        );
+
+
+        let filtroActual = "todos";
+        let tipoActual = "todos";
+
+
+        function filtrarTabla() {
+
+            const texto = buscador
+                ? buscador.value.toLowerCase().trim()
+                : "";
+
+
+            filas.forEach(function (fila) {
+
+                const contenido =
+                    fila.innerText.toLowerCase();
+
+                const tema =
+                    fila.dataset.tema || "";
+
+                const tipo =
+                    fila.dataset.tipo || "";
+
+
+                const coincideTexto =
+                    contenido.includes(texto);
+
+
+                const coincideTema =
+                    filtroActual === "todos" ||
+                    tema.includes(filtroActual);
+
+
+                const coincideTipo =
+                    tipoActual === "todos" ||
+                    tipo === tipoActual;
+
+
+                if (
+                    coincideTexto &&
+                    coincideTema &&
+                    coincideTipo
+                ) {
+
+                    fila.style.display = "";
+
+                } else {
+
+                    fila.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+
+        /* BUSCADOR */
+
+        if (botonBuscar) {
+
+            botonBuscar.addEventListener(
+                "click",
+                filtrarTabla
+            );
+
+        }
+
+
+        if (buscador) {
+
+            buscador.addEventListener(
+                "input",
+                filtrarTabla
+            );
+
+            buscador.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Enter") {
+
+                        event.preventDefault();
+
+                        filtrarTabla();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* FILTRO POR TEMA */
+
+        botonesFiltro.forEach(function (boton) {
+
+            boton.addEventListener(
+                "click",
+                function () {
+
+                    botonesFiltro.forEach(
+                        function (btn) {
+
+                            btn.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+                    this.classList.add("active");
+
+                    filtroActual =
+                        this.dataset.filtro
+                            .toLowerCase()
+                            .trim();
+
+                    filtrarTabla();
+
+                }
+            );
+
+        });
+
+
+        /* FILTRO POR TIPO */
+
+        botonesTipo.forEach(function (boton) {
+
+            boton.addEventListener(
+                "click",
+                function () {
+
+                    botonesTipo.forEach(
+                        function (btn) {
+
+                            btn.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+                    this.classList.add("active");
+
+                    tipoActual =
+                        this.dataset.tipo
+                            .toLowerCase()
+                            .trim();
+
+                    filtrarTabla();
+
+                }
+            );
+
+        });
+
+
+        filtrarTabla();
+
+    });
+
+</script>
+
+{% endblock %}
