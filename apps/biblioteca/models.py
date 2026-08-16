@@ -1,174 +1,126 @@
 from django.db import models
-from django.utils.text import slugify
-import re
 
 
-# =========================================================
-# INSTITUCIÓN
-# =========================================================
-class Institucion(models.Model):
-
-    nombre = models.CharField(
-        max_length=100,
-        verbose_name="Nombre"
-    )
-
-    slug = models.SlugField(
-        max_length=100,
-        unique=True,
-        blank=True
-    )
-
-    imagen_url = models.URLField(
-        blank=True,
-        verbose_name="URL de imagen Google Drive"
-    )
-
-    activo = models.BooleanField(
-        default=True,
-        verbose_name="Activo"
-    )
-
-    orden = models.PositiveIntegerField(
-        default=0,
-        verbose_name="Orden"
-    )
+class Categoria(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=120, unique=True)
+    descripcion = models.TextField(blank=True)
+    activo = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = "Institución"
-        verbose_name_plural = "Instituciones"
-        ordering = ["orden", "nombre"]
-
-    def save(self, *args, **kwargs):
-
-        # Generar slug automáticamente
-        if not self.slug:
-            self.slug = slugify(self.nombre)
-
-        # Convertir automáticamente Google Drive
-        if self.imagen_url:
-
-            match = re.search(
-                r"/file/d/([^/]+)",
-                self.imagen_url
-            )
-
-            if match:
-
-                archivo_id = match.group(1)
-
-                self.imagen_url = (
-                    f"https://drive.google.com/thumbnail"
-                    f"?id={archivo_id}&sz=w1000"
-                )
-
-        super().save(*args, **kwargs)
+        verbose_name = "Categoría"
+        verbose_name_plural = "Categorías"
+        ordering = ["nombre"]
 
     def __str__(self):
         return self.nombre
 
 
-# =========================================================
-# JURISPRUDENCIA
-# =========================================================
-class Jurisprudencia(models.Model):
+class Institucion(models.Model):
+    nombre = models.CharField(max_length=150, unique=True)
+    sigla = models.CharField(max_length=30, blank=True)
 
-    TIPOS = [
-        ("opinion", "Opinión"),
-        ("pronunciamiento", "Pronunciamiento"),
-    ]
+    imagen = models.ImageField(
+        upload_to="biblioteca/instituciones/",
+        blank=True,
+        null=True
+    )
 
-    # ==========================================
-    # INSTITUCIÓN
-    # ==========================================
+    descripcion = models.TextField(blank=True)
+    activo = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = "Institución"
+        verbose_name_plural = "Instituciones"
+        ordering = ["nombre"]
+
+    def __str__(self):
+        if self.sigla:
+            return f"{self.nombre} ({self.sigla})"
+        return self.nombre
+
+
+class TipoDocumento(models.Model):
+    nombre = models.CharField(max_length=100)
+    categoria = models.ForeignKey(
+        Categoria,
+        on_delete=models.CASCADE,
+        related_name="tipos_documento"
+    )
+    descripcion = models.TextField(blank=True)
+    activo = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = "Tipo de documento"
+        verbose_name_plural = "Tipos de documento"
+        ordering = ["categoria", "nombre"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["categoria", "nombre"],
+                name="unique_tipo_documento_categoria"
+            )
+        ]
+
+    def __str__(self):
+        return f"{self.categoria.nombre} → {self.nombre}"
+
+
+class Documento(models.Model):
+    titulo = models.CharField(max_length=300)
+
+    categoria = models.ForeignKey(
+        Categoria,
+        on_delete=models.PROTECT,
+        related_name="documentos"
+    )
+
     institucion = models.ForeignKey(
         Institucion,
-        on_delete=models.CASCADE,
-        related_name="jurisprudencias",
-        verbose_name="Institución"
+        on_delete=models.PROTECT,
+        related_name="documentos",
+        blank=True,
+        null=True
     )
 
-    # ==========================================
-    # TIPO DE DOCUMENTO
-    # ==========================================
-    tipo = models.CharField(
-        max_length=30,
-        choices=TIPOS,
-        default="opinion",
-        verbose_name="Tipo"
+    tipo = models.ForeignKey(
+        TipoDocumento,
+        on_delete=models.PROTECT,
+        related_name="documentos"
     )
 
-    # ==========================================
-    # INFORMACIÓN
-    # ==========================================
-    titulo = models.CharField(
-        max_length=255,
-        verbose_name="Título"
+    autor = models.CharField(max_length=200, blank=True)
+
+    tema = models.CharField(max_length=300, blank=True)
+
+    descripcion = models.TextField(blank=True)
+
+    fecha = models.DateField(blank=True, null=True)
+
+    anio = models.PositiveIntegerField(
+        blank=True,
+        null=True
     )
 
-    slug = models.SlugField(
-        max_length=255,
-        unique=True,
+    pdf = models.FileField(
+        upload_to="biblioteca/documentos/",
+        blank=True,
+        null=True
+    )
+
+    pdf_url = models.URLField(
         blank=True
     )
 
-    tema = models.CharField(
-        max_length=255,
-        blank=True,
-        verbose_name="Tema"
-    )
+    activo = models.BooleanField(default=True)
 
-    descripcion = models.TextField(
-        blank=True,
-        verbose_name="Descripción"
-    )
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    # ==========================================
-    # PDF
-    # ==========================================
-    pdf_url = models.URLField(
-        verbose_name="URL del PDF"
-    )
-
-    # ==========================================
-    # FECHA
-    # ==========================================
-    fecha = models.DateField(
-        null=True,
-        blank=True,
-        verbose_name="Fecha"
-    )
-
-    año = models.PositiveIntegerField(
-        null=True,
-        blank=True,
-        verbose_name="Año"
-    )
-
-    # ==========================================
-    # ESTADO
-    # ==========================================
-    activo = models.BooleanField(
-        default=True,
-        verbose_name="Activo"
-    )
-
-    created_at = models.DateTimeField(
-        auto_now_add=True
-    )
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = "Jurisprudencia"
-        verbose_name_plural = "Jurisprudencias"
-        ordering = ["-año", "-created_at"]
-
-    def save(self, *args, **kwargs):
-
-        # Generar slug automáticamente
-        if not self.slug:
-            self.slug = slugify(self.titulo)
-
-        super().save(*args, **kwargs)
+        verbose_name = "Documento"
+        verbose_name_plural = "Documentos"
+        ordering = ["-anio", "-fecha", "-id"]
 
     def __str__(self):
         return self.titulo

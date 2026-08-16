@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="card shadow-sm">
+
+        <div class="card-body p-4 p-lg-5">
+
+            <span class="badge bg-primary mb-3">
+                {{ documento.categoria.nombre }}
+            </span>
+
+            <h1 class="fw-bold mb-4">
+                {{ documento.titulo }}
+            </h1>
+
+
+            <div class="row g-3 mb-4">
+
+                <div class="col-md-4">
+
+                    <strong>
+                        Tipo
+                    </strong>
+
+                    <div>
+                        {{ documento.tipo.nombre }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <strong>
+                        Institución
+                    </strong>
+
+                    <div>
+
+                        {% if documento.institucion %}
+                            {{ documento.institucion.nombre }}
+                        {% else %}
+                            —
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+
+                    <strong>
+                        Año
+                    </strong>
+
+                    <div>
+                        {{ documento.anio|default:"—" }}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            {% if documento.tema %}
+
+            <div class="mb-4">
+
+                <strong>
+                    Tema
+                </strong>
+
+                <p>
+                    {{ documento.tema }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            {% if documento.descripcion %}
+
+            <div class="mb-4">
+
+                <strong>
+                    Descripción
+                </strong>
+
+                <p>
+                    {{ documento.descripcion }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            {% if documento.autor %}
+
+            <div class="mb-4">
+
+                <strong>
+                    Autor
+                </strong>
+
+                <p>
+                    {{ documento.autor }}
+                </p>
+
+            </div>
+
+            {% endif %}
+
+
+            <div class="d-flex gap-2 flex-wrap">
+
+                {% if documento.pdf %}
+
+                <a
+                    href="{{ documento.pdf.url }}"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+                    📄 Ver PDF
+                </a>
+
+                <a
+                    href="{{ documento.pdf.url }}"
+                    download
+                    class="btn btn-outline-primary"
+                >
+                    ⬇️ Descargar PDF
+                </a>
+
+                {% endif %}
+
+
+                {% if documento.pdf_url %}
+
+                <a
+                    href="{{ documento.pdf_url }}"
+                    target="_blank"
+                    class="btn btn-outline-dark"
+                >
+                    🔗 Abrir documento
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

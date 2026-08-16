@@ -1,0 +1,1674 @@
+[
+  {
+    "model": "opiniones.opinion",
+    "pk": 1,
+    "fields": {
+      "opinion": "Opinión N° D000001-2025-OECE-DTN",
+      "tema": "El pago en los contratos derivados de compras corporativas",
+      "fecha": "2025-04-24",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/7987511/6714686-opinion-d001-2025-oece-dtn.pdf?v=1745772713"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 2,
+    "fields": {
+      "opinion": "Opinión N° D000002-2025-OECE-DTN",
+      "tema": "Pago de tarifas en contrato de supervisión durante recepción de obra",
+      "fecha": "2025-04-29",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131873/6812167-opinion-d002-2025-oece-dtn.pdf?v=1748393194"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 3,
+    "fields": {
+      "opinion": "Opinión N° D000003-2025-OECE-DTN",
+      "tema": "Solicitud de ampliación de plazo",
+      "fecha": "2025-04-29",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131881/6812168-opinion-d003-2025-oece-dtn.pdf?v=1748393376"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 4,
+    "fields": {
+      "opinion": "Opinión N° D000004-2025-OECE-DTN",
+      "tema": "Contratación de prestaciones pendientes derivadas de un contrato resuelto",
+      "fecha": "2025-05-13",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131883/6812169-opinion-d004-2025-oece-dtn.pdf?v=1748393577"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 5,
+    "fields": {
+      "opinion": "Opinión N° D000005-2025-OECE-DTN",
+      "tema": "Experiencia del personal clave",
+      "fecha": "2025-05-14",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131886/6812170-opinion-d005-2025-oece-dtn.pdf?v=1748393832"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 6,
+    "fields": {
+      "opinion": "Opinión N° D000006-2025-OECE-DTN",
+      "tema": "Procedimiento de conformidad",
+      "fecha": "2025-05-16",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131891/6812171-opinion-d006-2025-oece-dtn.pdf?v=1748394069"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 7,
+    "fields": {
+      "opinion": "Opinión N° D000007-2025-OECE-DTN",
+      "tema": "Procedimiento para la aprobación de ampliaciones del plazo.",
+      "fecha": "2025-05-22",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131897/6812173-opinion-d007-2025-oece-dtn.pdf?v=1748394367"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 8,
+    "fields": {
+      "opinion": "Opinión N° D000008-2025-OECE-DTN",
+      "tema": "Intervención Económica de la Obra",
+      "fecha": "2025-05-27",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8131902/6812174-opinion-d008-2025-oece-dtn.pdf?v=1748394549"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 9,
+    "fields": {
+      "opinion": "Opinión N° D000009-2025-OECE-DTN",
+      "tema": "Proveedores extranjeros no domiciliados",
+      "fecha": "2025-06-03",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8295703/6917561-opinion-d009-2025-oece-dtn.pdf?v=1751322290"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 10,
+    "fields": {
+      "opinion": "Opinión N° D000010-2025-OECE-DTN",
+      "tema": "Impedimentos",
+      "fecha": "2025-06-10",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8295719/6917570-opinion-d010-2025-oece-dtn.pdf?v=1751322447"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 11,
+    "fields": {
+      "opinion": "Opinión N° D000011-2025-OECE-DTN",
+      "tema": "Impedimentos",
+      "fecha": "2025-06-20",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8295734/6917576-opinion-d011-2025-oece-dtn.pdf?v=1751322607"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 12,
+    "fields": {
+      "opinion": "Opinión N° D000012-2025-OECE-DTN",
+      "tema": "Monto vigente del contrato y aplicación de penalidades",
+      "fecha": "2025-06-24",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8295748/6917588-opinion-d012-2025-oece-dtn.pdf?v=1751322737"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 13,
+    "fields": {
+      "opinion": "Opinión N° D000013-2025-OECE-DTN",
+      "tema": "Supuestos excluidos del ámbito de aplicación de la Ley N° 32069",
+      "fecha": "2025-06-27",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8295764/6917598-opinion-d013-2025-oece-dtn.pdf?v=1751322861"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 14,
+    "fields": {
+      "opinion": "Opinión N° D000014-2025-OECE-DTN",
+      "tema": "Subsanación de ofertas",
+      "fecha": "2025-06-30",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8330944/6939052-opinion-d014-2025-oece-dtn.pdf?v=1751942413"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 15,
+    "fields": {
+      "opinion": "Opinión N° D000015-2025-OECE-DTN",
+      "tema": "Deberes del comité de selección y Fiscalización posterior",
+      "fecha": "2025-07-02",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8330947/6939053-opinion-d015-2025-oece-dtn.pdf?v=1751942529"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 16,
+    "fields": {
+      "opinion": "Opinión N° D000016-2025-OECE-DTN",
+      "tema": "Impedimentos",
+      "fecha": "2025-07-03",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8330949/6939054-opinion-d016-2025-oece-dtn.pdf?v=1751942639"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 17,
+    "fields": {
+      "opinion": "Opinión N° D000017-2025-OECE-DTN",
+      "tema": "Requisitos de calificación",
+      "fecha": "2025-07-07",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8330950/6939055-opinion-d017-2025-oece-dtn.pdf?v=1751942741"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 18,
+    "fields": {
+      "opinion": "Opinión N° D000018-2025-OECE-DTN",
+      "tema": "Obligación del contratista de ejecutar el contrato con el personal ofertado",
+      "fecha": "2025-07-11",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8392993/6978496-opinion-d018-2025-oece-dtn.pdf?v=1753124377"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 19,
+    "fields": {
+      "opinion": "Opinión N° D000019-2025-OECE-DTN",
+      "tema": "Gastos generales variables y reducción de plazo",
+      "fecha": "2025-07-16",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8393001/6978501-opinion-d019-2025-oece-dtn.pdf?v=1753374354"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 20,
+    "fields": {
+      "opinion": "Opinión N° D000020-2025-OECE-DTN",
+      "tema": "Compradores públicos",
+      "fecha": "2025-07-18",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8393024/6978513-opinion-d020-2025-oece-dtn.pdf?v=1753124799"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 21,
+    "fields": {
+      "opinion": "Opinión N° D000021-2025-OECE-DTN",
+      "tema": "Alcance de la Décima Primera Disposición Complementaria Transitoria del Reglamento.",
+      "fecha": "2025-08-04",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8550814/7082998-opinion-d021-2025-oece-dtn.pdf?v=1756223872"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 22,
+    "fields": {
+      "opinion": "Opinión N° D000022-2025-OECE-DTN",
+      "tema": "Funciones del Supervisor de Obra",
+      "fecha": "2025-08-04",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8550834/7083022-opinion-d022-2025-oece-dtn.pdf?v=1756224020"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 23,
+    "fields": {
+      "opinion": "Opinión N° D000023-2025-OECE-DTN",
+      "tema": "Oficial de compra",
+      "fecha": "2025-08-11",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8550845/7083042-opinion-d023-2025-oece-dtn.pdf?v=1756224152"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 24,
+    "fields": {
+      "opinion": "Opinión N° D000024-2025-OECE-DTN",
+      "tema": "Procedimiento de selección no competitivo",
+      "fecha": "2025-08-11",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8550972/7083068-opinion-d024-2025-oece-dtn.pdf?v=1756224346"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 25,
+    "fields": {
+      "opinion": "Opinión N° D000025-2025-OECE-DTN",
+      "tema": "Alcance de la Directiva N° 004-2025-OECE-CD",
+      "fecha": "2025-08-15",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661868/7168930-opinion-d025-2025-oece-dtn.pdf?v=1757983043"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 26,
+    "fields": {
+      "opinion": "Opinión N° D000026-2025-OECE-DTN",
+      "tema": "Licitación pública abreviada derivada de una subasta inversa electrónica desierta",
+      "fecha": "2025-08-28",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661874/7168935-opinion-d026-2025-oece-dtn.pdf?v=1757983197"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 27,
+    "fields": {
+      "opinion": "Opinión N° D000027-2025-OECE-DTN",
+      "tema": "Formulación de los presupuestos deductivos vinculados",
+      "fecha": "2025-08-28",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661886/7168940-opinion-d027-2025-oece-dtn.pdf?v=1757983318"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 28,
+    "fields": {
+      "opinion": "Opinión N° D000028-2025-OECE-DTN",
+      "tema": "Artículo 167 del Decreto Supremo N° 344-2018-EF",
+      "fecha": "2025-08-28",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661895/7168943-opinion-d028-2025-oece-dtn.pdf?v=1757983457"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 29,
+    "fields": {
+      "opinion": "Opinión N° D000029-2025-OECE-DTN",
+      "tema": "Ámbito de aplicación de la normativa de contratación pública",
+      "fecha": "2025-09-02",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661896/7168944-opinion-d029-2025-oece-dtn.pdf?v=1757983567"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 30,
+    "fields": {
+      "opinion": "Opinión N° D000030-2025-OECE-DTN",
+      "tema": "Comité Especial",
+      "fecha": "2025-09-02",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661898/7168946-opinion-d030-2025-oece-dtn.pdf?v=1757983713"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 31,
+    "fields": {
+      "opinion": "Opinión N° D000031-2025-OECE-DTN",
+      "tema": "Ejecución de obras bajo modalidad “fast track”",
+      "fecha": "2025-09-02",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661904/7168947-opinion-d031-2025-oece-dtn.pdf?v=1757984036"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 32,
+    "fields": {
+      "opinion": "Opinión N° D000032-2025-OECE-DTN",
+      "tema": "Contratación de prestaciones pendientes de ejecución derivadas de contrato resuelto o nulo por las causales previstas en el literal a) y b) del numeral 71.1 del artículo 71 de la Ley",
+      "fecha": "2025-09-05",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661906/7168949-opinion-d032-2025-oece-dtn.pdf?v=1757984160"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 33,
+    "fields": {
+      "opinion": "Opinión N° D000033-2025-OECE-DTN",
+      "tema": "Aplicación de penalidad por mora",
+      "fecha": "2025-09-10",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661907/7168950-opinion-d033-2025-oece-dtn.pdf?v=1757984267"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 34,
+    "fields": {
+      "opinion": "Opinión N° D000034-2025-OECE-DTN",
+      "tema": "Autoridad de la Gestión Administrativa",
+      "fecha": "2025-09-15",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8661908/7168951-opinion-d034-2025-oece-dtn.pdf?v=1757984440"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 35,
+    "fields": {
+      "opinion": "Opinión N° D000035-2025-OECE-DTN",
+      "tema": "Aplicación de penalidad por mora",
+      "fecha": "2025-09-22",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8708078/7203854-opinion-d035-2025-oece-dtn.pdf?v=1758734298"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 36,
+    "fields": {
+      "opinion": "Opinión N° D000036-2025-OECE-DTN",
+      "tema": "Verificación posterior",
+      "fecha": "2025-09-22",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8708103/7203872-opinion-d036-2025-oece-dtn.pdf?v=1758734457"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 37,
+    "fields": {
+      "opinion": "Opinión N° D000037-2025-OECE-DTN",
+      "tema": "Contratación de prestaciones pendientes de ejecución derivadas de contrato resuelto o nulo",
+      "fecha": "2025-09-24",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8720477/7217387-opinion-d037-2025-oece-dtn.pdf?v=1758831772"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 38,
+    "fields": {
+      "opinion": "Opinión N° D000038-2025-OECE-DTN",
+      "tema": "Plazos y procedimiento para la suscripción del contrato",
+      "fecha": "2025-09-24",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8720534/7217427-opinion-d038-2025-oece-dtn.pdf?v=1758831892"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 39,
+    "fields": {
+      "opinion": "Opinión N° D000039-2025-OECE-DTN",
+      "tema": "Requerimiento y documentos del procedimiento de selección",
+      "fecha": "2025-09-25",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8720643/7217604-opinion-d039-2025-oece-dtn.pdf?v=1758832409"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 40,
+    "fields": {
+      "opinion": "Opinión N° D000040-2025-OECE-DTN",
+      "tema": "Contratación de prestaciones pendientes de ejecución derivadas de contrato resuelto o nulo.",
+      "fecha": "2025-09-30",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8787017/7262440-opinion-d040-2025-oece-dtn.pdf?v=1759783458"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 41,
+    "fields": {
+      "opinion": "Opinión N° D000041-2025-OECE-DTN",
+      "tema": "Comprador público",
+      "fecha": "2025-10-01",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8787051/7262462-opinion-d041-2025-oece-dtn.pdf?v=1759783584"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 42,
+    "fields": {
+      "opinion": "Opinión N° D000042-2025-OECE-DTN",
+      "tema": "Procedimiento de selección no competitivo por situación de desabastecimiento",
+      "fecha": "2025-10-03",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8787115/7262499-opinion-d042-2025-oece-dtn.pdf?v=1759783942"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 43,
+    "fields": {
+      "opinion": "Opinión N° D000043-2025-OECE-DTN",
+      "tema": "Comparación de precios",
+      "fecha": "2025-10-03",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8787127/7262504-opinion-d043-2025-oece-dtn.pdf?v=1759784010"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 44,
+    "fields": {
+      "opinion": "Opinión N° D000044-2025-OECE-DTN",
+      "tema": "Suspensión del plazo de ejecución contractual",
+      "fecha": "2025-10-03",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8788395/7263108-opinion-d044-2025-oece-dtn.pdf?v=1759792421"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 45,
+    "fields": {
+      "opinion": "Opinión N° D000045-2025-OECE-DTN",
+      "tema": "Impedimentos para ser árbitro o adjudicador",
+      "fecha": "2025-10-10",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8843945/7298187-opinion-d045-2025-oece-dtn.pdf?v=1760715037"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 46,
+    "fields": {
+      "opinion": "Opinión N° D000046-2025-OECE-DTN",
+      "tema": "Factores de Evaluación",
+      "fecha": "2025-10-16",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8843978/7298214-opinion-d046-2025-oece-dtn.pdf?v=1760715247"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 47,
+    "fields": {
+      "opinion": "Opinión N° D000047-2025-OECE-DTN",
+      "tema": "Desafectación de los impedimentos en razón del parentesco",
+      "fecha": "2025-10-16",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8844193/7298276-opinion-d047-2025-oece-dtn.pdf?v=1760715725"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 48,
+    "fields": {
+      "opinion": "Opinión N° D000048-2025-OECE-DTN",
+      "tema": "Contratación complementaria",
+      "fecha": "2025-10-17",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8865524/7312290-opinion-d048-2025-oece-dtn.pdf?v=1761089323"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 49,
+    "fields": {
+      "opinion": "Opinión N° D000049-2025-OECE-DTN",
+      "tema": "Admisión de las ofertas",
+      "fecha": "2025-10-23",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8884631/7324523-opinion-d049-2025-oece-dtn.pdf?v=1761348185"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 50,
+    "fields": {
+      "opinion": "Opinión N° D000050-2025-OECE-DTN",
+      "tema": "Alcances sobre mayores metrados en contratos a precios unitarios",
+      "fecha": "2025-10-27",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8899398/7334972-opinion-d050-2025-oece-dtn.pdf?v=1761664514"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 51,
+    "fields": {
+      "opinion": "Opinión N° D000051-2025-OECE-DTN",
+      "tema": "Procedimiento de selección no competitivo por situación de desabastecimiento",
+      "fecha": "2025-10-29",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8924535/7351387-opinion-d051-2025-oece-dtn.pdf?v=1761875953"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 52,
+    "fields": {
+      "opinion": "Opinión N° D000052-2025-OECE-DTN",
+      "tema": "Resolución contractual",
+      "fecha": "2025-10-30",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8924536/7351388-opinion-d052-2025-oece-dtn.pdf?v=1761876087"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 53,
+    "fields": {
+      "opinion": "Opinión N° D000053-2025-OECE-DTN",
+      "tema": "Supuestos excluidos",
+      "fecha": "2025-10-30",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8924538/7351389-opinion-d053-2025-oece-dtn.pdf?v=1761876207"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 54,
+    "fields": {
+      "opinion": "Opinión N° D000054-2025-OECE-DTN",
+      "tema": "Impedimentos",
+      "fecha": "2025-11-06",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8983452/7390825-opinion-d054-2025-oece-dtn.pdf?v=1762960282"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 55,
+    "fields": {
+      "opinion": "Opinión N° D000055-2025-OECE-DTN",
+      "tema": "Prestaciones adicionales en contratos de supervisión de obras",
+      "fecha": "2025-11-07",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8983509/7390850-opinion-d055-2025-oece-dtn.pdf?v=1762960650"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 56,
+    "fields": {
+      "opinion": "Opinión N° D000056-2025-OECE-DTN",
+      "tema": "Experiencia del postor",
+      "fecha": "2025-11-07",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8983535/7390864-opinion-d056-2025-oece-dtn.pdf?v=1762960810"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 57,
+    "fields": {
+      "opinion": "Opinión N° D000057-2025-OECE-DTN",
+      "tema": "Desafectación de los impedimentos en razón del parentesco",
+      "fecha": "2025-11-07",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8983814/7391040-opinion-d057-2025-oece-dtn.pdf?v=1762962237"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 58,
+    "fields": {
+      "opinion": "Opinión N° D000058-2025-OECE-DTN",
+      "tema": "Retribución, costos y gastos de la Junta de prevención y resolución de disputas",
+      "fecha": "2025-11-11",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/8983956/7391143-opinion-d058-2025-oece-dtn.pdf?v=1762963037"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 59,
+    "fields": {
+      "opinion": "Opinión N° D000059-2025-OECE-DTN",
+      "tema": "Estrategia de contratación",
+      "fecha": "2025-11-17",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9012372/7411334-opinion-d059-2025-oece-dtn.pdf?v=1763478017"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 60,
+    "fields": {
+      "opinion": "Opinión N° D000060-2025-OECE-DTN",
+      "tema": "Competencia para evaluar decisión de conciliar.",
+      "fecha": "2025-11-21",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9034939/7427135-opinion-d060-2025-oece-dtn.pdf?v=1763758289"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 61,
+    "fields": {
+      "opinion": "Opinión N° D000061-2025-OECE-DTN",
+      "tema": "Autorización de mayores metrados",
+      "fecha": "2025-12-02",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9094791/7467037-opinion-d061-2025-oece-dtn.pdf?v=1764776043"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 62,
+    "fields": {
+      "opinion": "Opinión N° D000062-2025-OECE-DTN",
+      "tema": "Delegación de facultades",
+      "fecha": "2025-12-02",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9094808/7467052-opinion-d062-2025-oece-dtn.pdf?v=1764776151"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 63,
+    "fields": {
+      "opinion": "Opinión N° D000063-2025-OECE-DTN",
+      "tema": "Contrataciones Complementarias",
+      "fecha": "2025-12-03",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9111394/7479411-opinion-d063-2025-oece-dtn.pdf?v=1764954091"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 64,
+    "fields": {
+      "opinion": "Opinión N° D000064-2025-OECE-DTN",
+      "tema": "Nulidad de contrato",
+      "fecha": "2025-12-04",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9111422/7479424-opinion-d064-2025-oece-dtn.pdf?v=1764954213"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 65,
+    "fields": {
+      "opinion": "Opinión N° D000065-2025-OECE-DTN",
+      "tema": "Contratación de prestaciones pendientes de ejecución derivadas de contrato resuelto o nulo por las causales previstas en el literal a) y b) del numeral 71.1 del artículo 71 de la Ley",
+      "fecha": "2025-12-04",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9111435/7479436-opinion-d065-2025-oece-dtn.pdf?v=1764954298"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 66,
+    "fields": {
+      "opinion": "Opinión N° D000066-2025-OECE-DTN",
+      "tema": "Alcances de la resolución parcial del contrato",
+      "fecha": "2025-12-11",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9147617/7504340-opinion-d066-2025-oece-dtn.pdf?v=1765830723"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 67,
+    "fields": {
+      "opinion": "Opinión N° D000067-2025-OECE-DTN",
+      "tema": "Aplicación de la normativa de contrataciones públicas en el tiempo",
+      "fecha": "2025-12-16",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9224574/7570936-opinion-d067-2025-oece-dtn.pdf?v=1767130396"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 68,
+    "fields": {
+      "opinion": "Opinión N° D000068-2025-OECE-DTN",
+      "tema": "Contrataciones Complementarias e inaplicacion temporal de impedimentos.",
+      "fecha": "2025-12-29",
+      "anio": 2025,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9224594/7570946-opinion-d068-2025-oece-dtn.pdf?v=1767130470"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 69,
+    "fields": {
+      "opinion": "Opinión N° D000001-2026-OECE-DTN",
+      "tema": "Facultades del Órgano Encargado de las Contrataciones en la Ley Nº 30225",
+      "fecha": "2026-01-05",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9299678/7626891-opinion-d001-2026-oece-dtn.pdf?v=1768596643"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 70,
+    "fields": {
+      "opinion": "Opinión N° D000002-2026-OECE-DTN",
+      "tema": "Ejecución y pago de mayores metrados en contrato de obra bajo sistema de precios unitarios",
+      "fecha": "2026-01-05",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9299696/7626904-opinion-d002-2026-oece-dtn.pdf?v=1768596743"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 71,
+    "fields": {
+      "opinion": "Opinión N° D000003-2026-OECE-DTN",
+      "tema": "Cómputo de plazos para solicitar la entrega de adelantos directos en la ejecución de obra",
+      "fecha": "2026-01-08",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301416/7631009-opinion-d003-2026-oece-dtn.pdf?v=1768616418"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 72,
+    "fields": {
+      "opinion": "Opinión N° D000004-2026-OECE-DTN",
+      "tema": "Solución de controversias y liquidación de contrato",
+      "fecha": "2026-01-13",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301459/7631028-opinion-d004-2026-oece-dtn.pdf?v=1768616562"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 73,
+    "fields": {
+      "opinion": "Opinión N° D000005-2026-OECE-DTN",
+      "tema": "Alcance del concepto de Comprador Público",
+      "fecha": "2026-01-13",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301484/7631039-opinion-d005-2026-oece-dtn.pdf?v=1768616662"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 74,
+    "fields": {
+      "opinion": "Opinión N° D000006-2026-OECE-DTN",
+      "tema": "Evaluadores",
+      "fecha": "2026-01-13",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301513/7631060-opinion-d006-2026-oece-dtn.pdf?v=1768616807"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 75,
+    "fields": {
+      "opinion": "Opinión N° D000007-2026-OECE-DTN",
+      "tema": "Resolución contractual en contratos menores",
+      "fecha": "2026-01-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301514/7631098-opinion-d007-2026-oece-dtn.pdf?v=1768616976"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 76,
+    "fields": {
+      "opinion": "Opinión N° D000008-2026-OECE-DTN",
+      "tema": "Oportunidad de la acreditación del requisito de calificación referido al equipamiento estratégico.",
+      "fecha": "2026-01-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301570/7631107-opinion-d008-2026-oece-dtn.pdf?v=1768617138"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 77,
+    "fields": {
+      "opinion": "Opinión N° D000009-2026-OECE-DTN",
+      "tema": "Experiencia del postor",
+      "fecha": "2026-01-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9301595/7631112-opinion-d009-2026-oece-dtn.pdf?v=1768617240"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 78,
+    "fields": {
+      "opinion": "Opinión N° D000010-2026-OECE-DTN",
+      "tema": "Alcance de la Décima Primera Disposición Complementaria Transitoria del Reglamento",
+      "fecha": "2026-01-21",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9333262/7653443-opinion-d010-2026-oece-dtn.pdf?v=1769176736"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 79,
+    "fields": {
+      "opinion": "Opinión N° D000011-2026-OECE-DTN",
+      "tema": "Comité",
+      "fecha": "2026-01-22",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9333285/7653453-opinion-d011-2026-oece-dtn.pdf?v=1769176858"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 80,
+    "fields": {
+      "opinion": "Opinión N° D000012-2026-OECE-DTN",
+      "tema": "Alcances sobre las reglas aplicables a la conciliación",
+      "fecha": "2026-01-23",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9343437/7660623-opinion-d012-2026-oece-dtn.pdf?v=1769456432"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 81,
+    "fields": {
+      "opinion": "Opinión N° D000013-2026-OECE-DTN",
+      "tema": "Aplicabilidad del numeral 186.6 del artículo 186 del Reglamento",
+      "fecha": "2026-01-27",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9369446/7679492-opinion-d013-2026-oece-dtn.pdf?v=1769810074"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 82,
+    "fields": {
+      "opinion": "Opinión N° D000014-2026-OECE-DTN",
+      "tema": "Supervisión de obras",
+      "fecha": "2026-02-03",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9455847/7743543-opinion-d014-2026-oece-dtn.pdf?v=1771280938"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 83,
+    "fields": {
+      "opinion": "Opinión N° D000015-2026-OECE-DTN",
+      "tema": "Servicio de publicación de normas legales en “El Peruano”",
+      "fecha": "2026-02-05",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9455866/7743559-opinion-d015-2026-oece-dtn.pdf?v=1771281050"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 84,
+    "fields": {
+      "opinion": "Opinión N° D000016-2026-OECE-DTN",
+      "tema": "Aprobación de la solicitud de ampliación de plazo por falta de pronunciamiento de la Entidad",
+      "fecha": "2026-02-11",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9455904/7743584-opinion-d016-2026-oece-dtn.pdf?v=1771281340"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 85,
+    "fields": {
+      "opinion": "Opinión N° D000017-2026-OECE-DTN",
+      "tema": "Fast Track",
+      "fecha": "2026-02-16",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9459111/7746102-opinion-d017-2026-oece-dtn.pdf?v=1771342521"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 86,
+    "fields": {
+      "opinion": "Opinión N° D000018-2026-OECE-DTN",
+      "tema": "Aplicación de la normativa en materia de arbitraje",
+      "fecha": "2026-02-16",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9459275/7746113-opinion-d018-2026-oece-dtn.pdf?v=1771342625"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 87,
+    "fields": {
+      "opinion": "Opinión N° D000019-2026-OECE-DTN",
+      "tema": "Constancia de prestación",
+      "fecha": "2026-02-17",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9478799/7760863-opinion-d019-2026-oece-dtn.pdf?v=1771604447"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 88,
+    "fields": {
+      "opinion": "Opinión N° D000020-2026-OECE-DTN",
+      "tema": "Modificaciones al contrato de supervisión",
+      "fecha": "2026-02-23",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9492857/7771265-opinion-d020-2026-oece-dtn.pdf?v=1771890187"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 89,
+    "fields": {
+      "opinion": "Opinión N° D000021-2026-OECE-DTN",
+      "tema": "Sistemas de contratación",
+      "fecha": "2026-02-23",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9492866/7771270-opinion-d021-2026-oece-dtn.pdf?v=1771890286"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 90,
+    "fields": {
+      "opinion": "Opinión N° D000022-2026-OECE-DTN",
+      "tema": "Procedimiento de selección no competitivo",
+      "fecha": "2026-06-23",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9493558/7771661-opinion-d022-2026-oece-dtn.pdf?v=1771941313"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 91,
+    "fields": {
+      "opinion": "Opinión N° D000023-2026-OECE-DTN",
+      "tema": "Alcance de los impedimentos para contratar con el Estado",
+      "fecha": "2026-03-02",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9562935/7825257-opinion-d023-2026-oece-dtn.pdf?v=1772812831"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 92,
+    "fields": {
+      "opinion": "Opinión N° D000024-2026-OECE-DTN",
+      "tema": "Designación de institución arbitral",
+      "fecha": "2026-03-10",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9597632/7856376-opinion-d024-2026-oece-dtn.pdf?v=1773342663"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 93,
+    "fields": {
+      "opinion": "Opinión N° D000025-2026-OECE-DTN",
+      "tema": "Contratación directa por situación de emergencia",
+      "fecha": "2026-03-12",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9600778/7858396-opinion-d025-2026-oece-dtn.pdf?v=1773363366"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 94,
+    "fields": {
+      "opinion": "Opinión N° D000026-2026-OECE-DTN",
+      "tema": "Impedimentos",
+      "fecha": "2026-03-20",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9706812/7940881-opinion-d026-2026-oece-dtn.pdf?v=1774654055"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 95,
+    "fields": {
+      "opinion": "Opinión N° D000027-2026-OECE-DTN",
+      "tema": "Sustitución de integrante del plantel técnico en obras o consultoría de obras",
+      "fecha": "2026-03-24",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9706827/7940887-opinion-d027-2026-oece-dtn.pdf?v=1774654209"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 96,
+    "fields": {
+      "opinion": "Opinión N° D000028-2026-OECE-DTN",
+      "tema": "Penalidades",
+      "fecha": "2026-03-24",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9706849/7940895-opinion-d028-2026-oece-dtn.pdf?v=1774654427"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 97,
+    "fields": {
+      "opinion": "Opinión N° D000029-2026-OECE-DTN",
+      "tema": "Impedimentos para contratar con el Estado",
+      "fecha": "2026-03-26",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9706859/7940900-opinion-d029-2026-oece-dtn.pdf?v=1774654578"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 98,
+    "fields": {
+      "opinion": "Opinión N° D000030-2026-OECE-DTN",
+      "tema": "Impedimentos para ser participante, postor o contratista",
+      "fecha": "2026-03-26",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9706878/7940906-opinion-d030-2026-oece-dtn.pdf?v=1774654728"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 99,
+    "fields": {
+      "opinion": "Opinión N° D000031-2026-OECE-DTN",
+      "tema": "Cancelación del procedimiento de selección",
+      "fecha": "2026-03-30",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9718819/7948935-opinion-d031-2026-oece-dtn.pdf?v=1774972155"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 100,
+    "fields": {
+      "opinion": "Opinión N° D000032-2026-OECE-DTN",
+      "tema": "Acreditación de experiencia del postor",
+      "fecha": "2026-04-06",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9805326/8014598-opinion-d032-2026-oece-dtn.pdf?v=1776202862"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 101,
+    "fields": {
+      "opinion": "Opinión N° D000033-2026-OECE-DTN",
+      "tema": "Experiencia del postor adquirida en consorcio",
+      "fecha": "2026-04-10",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9805336/8014606-opinion-d033-2026-oece-dtn.pdf?v=1776202959"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 102,
+    "fields": {
+      "opinion": "Opinión N° D000034-2026-OECE-DTN",
+      "tema": "Alcance del término “entidad contratante” respecto a la autoridad o servidor competente para resolver ampliaciones de plazo en obras, así como aprobar o denegar subcontrataciones",
+      "fecha": "2026-04-14",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9805347/8014617-opinion-d034-2026-oece-dtn.pdf?v=1776203081"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 103,
+    "fields": {
+      "opinion": "Opinión N° D000035-2026-OECE-DTN",
+      "tema": "Impedimentos",
+      "fecha": "2026-04-14",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9805360/8014628-opinion-d035-2026-oece-dtn.pdf?v=1776203190"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 104,
+    "fields": {
+      "opinion": "Opinión N° D000036-2026-OECE-DTN",
+      "tema": "Aplicación de penalidades por ausencia de personal en obra",
+      "fecha": "2026-04-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9839136/8039386-opinion-d036-2026-oece-dtn.pdf?v=1776725183"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 105,
+    "fields": {
+      "opinion": "Opinión N° D000037-2026-OECE-DTN",
+      "tema": "Alcance de la Décima Primera Disposición Complementaria Transitoria del Reglamento",
+      "fecha": "2026-04-16",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9839163/8039397-opinion-d037-2026-oece-dtn.pdf?v=1776725332"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 106,
+    "fields": {
+      "opinion": "Opinión N° D000038-2026-OECE-DTN",
+      "tema": "Designación de adjudicadores",
+      "fecha": "2026-04-20",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9839209/8039407-opinion-d038-2026-oece-dtn.pdf?v=1776725669"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 107,
+    "fields": {
+      "opinion": "Opinión N° D000039-2026-OECE-DTN",
+      "tema": "Procedimiento de liquidación de contratos de obra y consultoría de obra",
+      "fecha": "2026-04-20",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9840940/8040737-opinion-d039-2026-oece-dtn.pdf?v=1776781235"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 108,
+    "fields": {
+      "opinion": "Opinión N° D000040-2026-OECE-DTN",
+      "tema": "Impedimentos para ser participante, postor o contratista",
+      "fecha": "2026-04-27",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9877286/8066010-opinion-d040-2026-oece-dtn.pdf?v=1777328688"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 109,
+    "fields": {
+      "opinion": "Opinión N° D000041-2026-OECE-DTN",
+      "tema": "Evaluación de ofertas",
+      "fecha": "2026-04-29",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9889916/8073940-opinion-d041-2026-oece-dtn.pdf?v=1777492025"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 110,
+    "fields": {
+      "opinion": "Opinión N° D000042-2026-OECE-DTN",
+      "tema": "Procedimiento de recepción de obra",
+      "fecha": "2026-05-04",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9907634/8085096-opinion-d042-2026-oece-dtn.pdf?v=1777933583"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 111,
+    "fields": {
+      "opinion": "Opinión N° D000043-2026-OECE-DTN",
+      "tema": "Actuación y suplencia de los miembros del Comité de selección",
+      "fecha": "2026-05-06",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9940128/8110750-opinion-d043-2026-oece-dtn.pdf?v=1778278964"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 112,
+    "fields": {
+      "opinion": "Opinión N° D000044-2026-OECE-DTN",
+      "tema": "Décima Cuarta Disposición Complementaria Final de la Ley",
+      "fecha": "2026-05-07",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/9940144/8110760-opinion-d044-2026-oece-dtn.pdf?v=1778279163"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 113,
+    "fields": {
+      "opinion": "Opinión N° D000045-2026-OECE-DTN",
+      "tema": "Autorización previa para la ejecución y pago de mayores metrados en contratos de obras bajo el sistema de precios unitarios.",
+      "fecha": "2026-05-12",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10004903/8159582-opinion-d045-2026-oece-dtn.pdf?v=1779289612"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 114,
+    "fields": {
+      "opinion": "Opinión N° D000046-2026-OECE-DTN",
+      "tema": "Reemplazo de los miembros del Comité",
+      "fecha": "2026-05-13",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10004939/8159604-opinion-d046-2026-oece-dtn.pdf?v=1779289767"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 115,
+    "fields": {
+      "opinion": "Opinión N° D000047-2026-OECE-DTN",
+      "tema": "Notificación de laudo arbitral",
+      "fecha": "2026-05-14",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10004964/8159621-opinion-d047-2026-oece-dtn.pdf?v=1779289907"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 116,
+    "fields": {
+      "opinion": "Opinión N° D000048-2026-OECE-DTN",
+      "tema": "Desafectación de impedimentos",
+      "fecha": "2026-05-19",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10005005/8159643-opinion-d048-2026-oece-dtn.pdf?v=1779290053"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 117,
+    "fields": {
+      "opinion": "Opinión N° D000049-2026-OECE-DTN",
+      "tema": "Consorcio y el representante común en procedimientos de selección no competitivos.",
+      "fecha": "2026-05-22",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10058097/8195842-opinion-d049-2026-oece-dtn.pdf?v=1780007214"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 118,
+    "fields": {
+      "opinion": "Opinión N° D000050-2026-OECE-DTN",
+      "tema": "Actualización del Programa de Ejecución de Obra",
+      "fecha": "2026-05-28",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10061645/8198263-opinion-d050-2026-oece-dtn.pdf?v=1780073085"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 119,
+    "fields": {
+      "opinion": "Opinión N° D000051-2026-OECE-DTN",
+      "tema": "Consorcios",
+      "fecha": "2026-05-29",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10064533/8199953-opinion-d051-2026-oece-dtn.pdf?v=1780094404"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 120,
+    "fields": {
+      "opinion": "Opinión N° D000052-2026-OECE-DTN",
+      "tema": "Normativa aplicable a los procedimientos de selección no competitivos",
+      "fecha": "2026-06-01",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10076139/8208505-opinion-d052-2026-oece-dtn.pdf?v=1780356590"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 121,
+    "fields": {
+      "opinion": "Opinión N° D000053-2026-OECE-DTN",
+      "tema": "Reconocimiento de gastos generales en obras culminadas antes de la fecha programada",
+      "fecha": "2026-06-09",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10160804/8269404-opinion-d053-2026-oece-dtn.pdf?v=1781564817"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 122,
+    "fields": {
+      "opinion": "Opinión N° D000054-2026-OECE-DTN",
+      "tema": "Pago por adelantado",
+      "fecha": "2026-06-09",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10160813/8269408-opinion-d054-2026-oece-dtn.pdf?v=1781564952"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 123,
+    "fields": {
+      "opinion": "Opinión N° D000055-2026-OECE-DTN",
+      "tema": "Normativa aplicable al contrato de supervisión celebrado bajo un régimen distinto al que rige el contrato de obra.",
+      "fecha": "2026-06-16",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10176752/8279560-opinion-d055-2026-oece-dtn.pdf?v=1781800569"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 124,
+    "fields": {
+      "opinion": "Opinión N° D000056-2026-OECE-DTN",
+      "tema": "Autoridad encargada de aprobación de ampliación de plazo",
+      "fecha": "2026-06-17",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10176784/8279580-opinion-d056-2026-oece-dtn.pdf?v=1781800692"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 125,
+    "fields": {
+      "opinion": "Opinión N° D000057-2026-OECE-DTN",
+      "tema": "Sustitución de integrante del plantel técnico en obras o consultoría de obras",
+      "fecha": "2026-06-17",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10176826/8279598-opinion-d057-2026-oece-dtn.pdf?v=1781800833"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 126,
+    "fields": {
+      "opinion": "Opinión N° D000058-2026-OECE-DTN",
+      "tema": "Posibilidad de iniciar la ejecución de trabajos de la obra antes del cumplimiento de las condiciones previstas en el numeral 176.1 del artículo 176 del Reglamento.",
+      "fecha": "2026-06-18",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10186591/8286555-opinion-d058-2026-oece-dtn.pdf?v=1781908792"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 127,
+    "fields": {
+      "opinion": "Opinión N° D000059-2026-OECE-DTN",
+      "tema": "Valorizaciones y aplicación de reajustes",
+      "fecha": "2026-06-18",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10186610/8286566-opinion-d059-2026-oece-dtn.pdf?v=1781908955"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 128,
+    "fields": {
+      "opinion": "Opinión N° D000060-2026-OECE-DTN",
+      "tema": "Monitoreo y control de obras",
+      "fecha": "2026-06-19",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10186621/8286573-opinion-d060-2026-oece-dtn.pdf?v=1781909082"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 129,
+    "fields": {
+      "opinion": "Opinión N° D000061-2026-OECE-DTN",
+      "tema": "Nulidad de contrato",
+      "fecha": "2026-06-22",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10280170/8353810-opinion-d061-2026-oece-dtn.pdf?v=1783545244"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 130,
+    "fields": {
+      "opinion": "Opinión N° D000062-2026-OECE-DTN",
+      "tema": "Compras corporativas",
+      "fecha": "2026-06-24",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10280197/8353829-opinion-d062-2026-oece-dtn.pdf?v=1783545408"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 131,
+    "fields": {
+      "opinion": "Opinión N° D000063-2026-OECE-DTN",
+      "tema": "Aplicación de penalidades",
+      "fecha": "2026-06-30",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10280227/8353852-opinion-d063-2026-oece-dtn.pdf?v=1783545606"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 132,
+    "fields": {
+      "opinion": "Opinión N° D000064-2026-OECE-DTN",
+      "tema": "Factores de evaluación",
+      "fecha": "2026-07-06",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10280298/8353897-opinion-d064-2026-oece-dtn.pdf?v=1783545982"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 133,
+    "fields": {
+      "opinion": "Opinión N° D000065-2026-OECE-DTN",
+      "tema": "Oportunidad de solicitud de adelantos directo",
+      "fecha": "2026-07-07",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10280347/8353929-opinion-d065-2026-oece-dtn.pdf?v=1783546244"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 134,
+    "fields": {
+      "opinion": "Opinión N° D000066-2026-OECE-DTN",
+      "tema": "Alcances del numeral 116.1 del artículo 116 del Reglamento respecto a la garantía de fiel cumplimiento mediante fideicomiso",
+      "fecha": "2026-07-09",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10321684/8386274-opinion-d066-2026-oece-dtn.pdf?v=1784154208"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 135,
+    "fields": {
+      "opinion": "Opinión N° D000067-2026-OECE-DTN",
+      "tema": "Aplicación de la normativa de contrataciones públicas en el tiempo.",
+      "fecha": "2026-07-14",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10321713/8386293-opinion-d067-2026-oece-dtn.pdf?v=1784154360"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 136,
+    "fields": {
+      "opinion": "Opinión N° D000068-2026-OECE-DTN",
+      "tema": "Procedimiento para aprobación de adicionales de obra",
+      "fecha": "2026-07-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10321767/8386347-opinion-d068-2026-oece-dtn.pdf?v=1784154732"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 137,
+    "fields": {
+      "opinion": "Opinión N° D000069-2026-OECE-DTN",
+      "tema": "Plazos aplicables durante la ejecución contractual",
+      "fecha": "2026-07-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10326467/8393072-opinion-d069-2026-oece-dtn.pdf?v=1784218954"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 138,
+    "fields": {
+      "opinion": "Opinión N° D000070-2026-OECE-DTN",
+      "tema": "Declaratoria de nulidad del contrato y el principio de presunción de veracidad",
+      "fecha": "2026-07-15",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10326505/8393096-opinion-d070-2026-oece-dtn.pdf?v=1784219097"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 139,
+    "fields": {
+      "opinion": "Opinión N° D000071-2026-OECE-DTN",
+      "tema": "Procedimiento de resolución de contrato",
+      "fecha": "2026-07-16",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10368043/8420934-opinion-d071-2026-oece-dtn.pdf?v=1784932300"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 140,
+    "fields": {
+      "opinion": "Opinión N° D000072-2026-OECE-DTN",
+      "tema": "Experiencia del postor adquirida en consorcio",
+      "fecha": "2026-07-16",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10368076/8420944-opinion-d072-2026-oece-dtn.pdf?v=1784932339"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 141,
+    "fields": {
+      "opinion": "Opinión N° D000073-2026-OECE-DTN",
+      "tema": "Metodología de evaluación de oferta económica fija en obras bajo sistema de entrega de solo construcción",
+      "fecha": "2026-07-21",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10368107/8420955-opinion-d073-2026-oece-dtn.pdf?v=1784932443"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 142,
+    "fields": {
+      "opinion": "Opinión N° D000074-2026-OECE-DTN",
+      "tema": "Presentación de documentos extendidos en el extranjero",
+      "fecha": "2026-07-22",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10368121/8420961-opinion-d074-2026-oece-dtn.pdf?v=1784932581"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 143,
+    "fields": {
+      "opinion": "Opinión N° D000075-2026-OECE-DTN",
+      "tema": "Alcances sobre el fideicomiso de adelantos en contratos de obra bajo el sistema de entrega de diseño y construcción",
+      "fecha": "2026-07-22",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10368145/8420974-opinion-d075-2026-oece-dtn.pdf?v=1784932770"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 144,
+    "fields": {
+      "opinion": "Opinión N° D000076-2026-OECE-DTN",
+      "tema": "Anuncio de contratación futura",
+      "fecha": "2026-07-30",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10380818/8428700-opinion-d076-2026-oece-dtn.pdf?v=1785508664"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 145,
+    "fields": {
+      "opinion": "Opinión N° D000077-2026-OECE-DTN",
+      "tema": "Impedimentos para ser participante, postor, contratista o subcontratista",
+      "fecha": "2026-07-30",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10380850/8428725-opinion-d077-2026-oece-dtn.pdf?v=1785508845"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 146,
+    "fields": {
+      "opinion": "Opinión N° D000078-2026-OECE-DTN",
+      "tema": "Alcance y exigibilidad de la certificación de los compradores públicos",
+      "fecha": "2026-07-30",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10380886/8428754-opinion-d078-2026-oece-dtn.pdf?v=1785509066"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 147,
+    "fields": {
+      "opinion": "Opinión N° D000079-2026-OECE-DTN",
+      "tema": "Aplicación de las disposiciones incorporadas por el Decreto Supremo Nº 278-2024-EF al Decreto Supremo Nº 344-2018-EF",
+      "fecha": "2026-07-30",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10380947/8428793-opinion-d079-2026-oece-dtn.pdf?v=1785509322"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 148,
+    "fields": {
+      "opinion": "Opinión N° D000080-2026-OECE-DTN",
+      "tema": "Procedimiento de recepción de obra",
+      "fecha": "2026-07-31",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10406239/8446791-opinion-d080-2026-oece-dtn.pdf?v=1785942281"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 149,
+    "fields": {
+      "opinion": "Opinión N° D000081-2026-OECE-DTN",
+      "tema": "Contratación directa de saldo contractual",
+      "fecha": "2026-08-03",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10406260/8446810-opinion-d081-2026-oece-dtn.pdf?v=1785942428"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 150,
+    "fields": {
+      "opinion": "Opinión N° D000082-2026-OECE-DTN",
+      "tema": "Aplicación de beneficios para las MYPES en el procedimiento de licitación pública abreviada para la adquisición De bienes homologados",
+      "fecha": "2026-08-04",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10406294/8446837-opinion-d082-2026-oece-dtn.pdf?v=1785942679"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 151,
+    "fields": {
+      "opinion": "Opinión N° D000083-2026-OECE-DTN",
+      "tema": "Consultas sobre incidencias en la obra",
+      "fecha": "2026-08-04",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10406304/8446845-opinion-d083-2026-oece-dtn.pdf?v=1785942762"
+    }
+  },
+  {
+    "model": "opiniones.opinion",
+    "pk": 152,
+    "fields": {
+      "opinion": "Opinión N° D000084-2026-OECE-DTN",
+      "tema": "Monitoreo y Control de la Obra",
+      "fecha": "2026-08-05",
+      "anio": 2026,
+      "pdf": "https://cdn.www.gob.pe/uploads/document/file/10406688/8447104-opinion-d084-2026-oece-dtn.pdf?v=1785944405"
+    }
+  }
+]

@@ -1,16 +1,18 @@
 from django.contrib import admin
-from .models import Institucion, Jurisprudencia
+
+from .models import (
+    Categoria,
+    Institucion,
+    TipoDocumento,
+    Documento,
+)
 
 
-# =========================================================
-# INSTITUCIONES
-# =========================================================
-@admin.register(Institucion)
-class InstitucionAdmin(admin.ModelAdmin):
-
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
     list_display = (
         "nombre",
-        "orden",
+        "slug",
         "activo",
     )
 
@@ -20,40 +22,69 @@ class InstitucionAdmin(admin.ModelAdmin):
 
     search_fields = (
         "nombre",
+        "descripcion",
     )
 
     prepopulated_fields = {
         "slug": ("nombre",)
     }
 
-    ordering = (
-        "orden",
-        "nombre",
-    )
 
-    list_per_page = 20
-
-
-# =========================================================
-# JURISPRUDENCIAS
-# =========================================================
-@admin.register(Jurisprudencia)
-class JurisprudenciaAdmin(admin.ModelAdmin):
+@admin.register(Institucion)
+class InstitucionAdmin(admin.ModelAdmin):
 
     list_display = (
-        "titulo",
-        "institucion",
-        "tipo",
-        "tema",
-        "fecha",
-        "año",
+        "nombre",
+        "sigla",
         "activo",
     )
 
     list_filter = (
+        "activo",
+    )
+
+    search_fields = (
+        "nombre",
+        "sigla",
+    )
+
+
+@admin.register(TipoDocumento)
+class TipoDocumentoAdmin(admin.ModelAdmin):
+    list_display = (
+        "nombre",
+        "categoria",
+        "activo",
+    )
+
+    list_filter = (
+        "categoria",
+        "activo",
+    )
+
+    search_fields = (
+        "nombre",
+        "descripcion",
+    )
+
+
+@admin.register(Documento)
+class DocumentoAdmin(admin.ModelAdmin):
+    list_display = (
+        "titulo",
+        "categoria",
         "institucion",
         "tipo",
-        "año",
+        "anio",
+        "fecha",
+        "activo",
+    )
+
+    list_filter = (
+        "categoria",
+        "institucion",
+        "tipo",
+        "anio",
         "activo",
     )
 
@@ -61,15 +92,18 @@ class JurisprudenciaAdmin(admin.ModelAdmin):
         "titulo",
         "tema",
         "descripcion",
+        "autor",
     )
 
-    prepopulated_fields = {
-        "slug": ("titulo",)
-    }
+    list_select_related = (
+        "categoria",
+        "institucion",
+        "tipo",
+    )
+
+    date_hierarchy = "fecha"
 
     ordering = (
-        "-año",
+        "-anio",
         "-fecha",
     )
-
-    list_per_page = 20

@@ -10,7 +10,7 @@
     <!-- ===================================================== -->
 
     <div class="text-center mb-4">
-        <h2 class="fw-bold">Opiniones OSCE</h2>
+        <h2 class="fw-bold">Opiniones OECE</h2>
 
         <p class="text-muted mb-0">
             Opiniones emitidas por el Organismo Especializado
@@ -43,7 +43,6 @@
     <!-- ===================================================== -->
     <!-- TABLA -->
     <!-- ===================================================== -->
-
     <div class="table-responsive">
 
         <table class="table table-bordered table-hover align-middle mb-0" id="tablaOpiniones">
@@ -137,18 +136,63 @@
     </div>
 
 
+
+
     <!-- ===================================================== -->
     <!-- INFORMACIÓN + PAGINACIÓN -->
     <!-- ===================================================== -->
-
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 gap-3">
 
-        <div id="infoPaginacion" class="text-muted small"></div>
+        <!-- INFORMACIÓN -->
+        <div class="text-muted small">
+            Mostrando {{ opiniones.start_index }} - {{ opiniones.end_index }}
+            de {{ opiniones.paginator.count }} opiniones
+        </div>
 
-
+        <!-- PAGINACIÓN -->
         <nav aria-label="Paginación de opiniones">
 
-            <ul class="pagination pagination-sm mb-0" id="paginacion"></ul>
+            <ul class="pagination pagination-sm mb-0">
+
+                {% if opiniones.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ opiniones.previous_page_number }}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% for num in opiniones.paginator.page_range %}
+
+                {% if opiniones.number == num %}
+
+                <li class="page-item active">
+                    <span class="page-link">
+                        {{ num }}
+                    </span>
+                </li>
+
+                {% else %}
+
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">
+                        {{ num }}
+                    </a>
+                </li>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% if opiniones.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ opiniones.next_page_number }}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+            </ul>
 
         </nav>
 
@@ -200,7 +244,7 @@
     /* PAGINACIÓN */
     /* ===================================================== */
 
-    #paginacion .page-link {
+    .pagination .page-link {
 
         display: flex;
         align-items: center;
@@ -285,317 +329,6 @@
 <!-- JAVASCRIPT -->
 <!-- ========================================================= -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
 
-        const tabla = document.getElementById("tablaOpiniones");
-        const tbody = tabla.querySelector("tbody");
-
-        const filas = [...tbody.querySelectorAll("tr")];
-
-        const filtro = document.getElementById("filtroOpiniones");
-        const limpiar = document.getElementById("limpiarFiltro");
-
-        const paginacion = document.getElementById("paginacion");
-        const info = document.getElementById("infoPaginacion");
-
-
-        /* ===================================================== */
-        /* CONFIGURACIÓN */
-        /* ===================================================== */
-
-        const POR_PAGINA = 5;
-
-        let paginaActual = 1;
-        let filasFiltradas = [...filas];
-
-
-        /* ===================================================== */
-        /* MOSTRAR PÁGINA */
-        /* ===================================================== */
-
-        function mostrarPagina() {
-
-            const total = filasFiltradas.length;
-
-            const totalPaginas = Math.ceil(
-                total / POR_PAGINA
-            );
-
-
-            /* Ajustar página */
-
-            if (totalPaginas === 0) {
-                paginaActual = 1;
-            }
-
-            else if (paginaActual > totalPaginas) {
-                paginaActual = totalPaginas;
-            }
-
-
-            /* Ocultar todas las filas */
-
-            filas.forEach(fila => {
-                fila.hidden = true;
-            });
-
-
-            /* Calcular registros */
-
-            const inicio =
-                (paginaActual - 1) * POR_PAGINA;
-
-            const fin =
-                inicio + POR_PAGINA;
-
-
-            /* Mostrar registros */
-
-            filasFiltradas
-                .slice(inicio, fin)
-                .forEach(fila => {
-                    fila.hidden = false;
-                });
-
-
-            /* Información */
-
-            if (total === 0) {
-
-                info.textContent =
-                    "No se encontraron opiniones";
-
-            } else {
-
-                const desde = inicio + 1;
-
-                const hasta =
-                    Math.min(fin, total);
-
-                info.textContent =
-                    `Mostrando ${desde} - ${hasta} de ${total} opiniones`;
-            }
-
-
-            /* Paginación */
-
-            crearPaginacion(totalPaginas);
-
-        }
-
-
-        /* ===================================================== */
-        /* CREAR PAGINACIÓN */
-        /* ===================================================== */
-
-        function crearPaginacion(totalPaginas) {
-
-            paginacion.innerHTML = "";
-
-
-            if (totalPaginas <= 1) {
-                return;
-            }
-
-
-            /* ------------------------------------------------- */
-            /* ANTERIOR */
-            /* ------------------------------------------------- */
-
-            agregarBoton(
-                "Anterior",
-                "bi-chevron-left",
-                paginaActual - 1,
-                paginaActual === 1
-            );
-
-
-            /* ------------------------------------------------- */
-            /* NÚMEROS */
-            /* ------------------------------------------------- */
-
-            for (let pagina = 1; pagina <= totalPaginas; pagina++) {
-
-                agregarNumero(pagina);
-
-            }
-
-
-            /* ------------------------------------------------- */
-            /* SIGUIENTE */
-            /* ------------------------------------------------- */
-
-            agregarBoton(
-                "Siguiente",
-                "bi-chevron-right",
-                paginaActual + 1,
-                paginaActual === totalPaginas
-            );
-
-        }
-
-
-        /* ===================================================== */
-        /* BOTÓN ANTERIOR / SIGUIENTE */
-        /* ===================================================== */
-
-        function agregarBoton(
-            label,
-            icono,
-            pagina,
-            deshabilitado
-        ) {
-
-            const li = document.createElement("li");
-
-            li.className =
-                `page-item ${deshabilitado ? "disabled" : ""}`;
-
-
-            const button = document.createElement("button");
-
-            button.type = "button";
-
-            button.className = "page-link";
-
-            button.setAttribute(
-                "aria-label",
-                label
-            );
-
-            button.innerHTML =
-                `<i class="bi ${icono}"></i>`;
-
-
-            if (!deshabilitado) {
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        paginaActual = pagina;
-
-                        mostrarPagina();
-
-                    }
-                );
-
-            }
-
-
-            li.appendChild(button);
-
-            paginacion.appendChild(li);
-
-        }
-
-
-        /* ===================================================== */
-        /* NÚMERO DE PÁGINA */
-        /* ===================================================== */
-
-        function agregarNumero(pagina) {
-
-            const li = document.createElement("li");
-
-            li.className =
-                `page-item ${pagina === paginaActual ? "active" : ""}`;
-
-
-            const button = document.createElement("button");
-
-            button.type = "button";
-
-            button.className = "page-link";
-
-            button.textContent = pagina;
-
-
-            if (pagina === paginaActual) {
-
-                button.setAttribute(
-                    "aria-current",
-                    "page"
-                );
-
-            }
-
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    paginaActual = pagina;
-
-                    mostrarPagina();
-
-                }
-            );
-
-
-            li.appendChild(button);
-
-            paginacion.appendChild(li);
-
-        }
-
-
-        /* ===================================================== */
-        /* BUSCADOR */
-        /* ===================================================== */
-
-        filtro.addEventListener("input", () => {
-
-            const texto =
-                filtro.value
-                    .toLowerCase()
-                    .trim();
-
-
-            filasFiltradas = filas.filter(fila => {
-
-                return fila.textContent
-                    .toLowerCase()
-                    .includes(texto);
-
-            });
-
-
-            paginaActual = 1;
-
-            mostrarPagina();
-
-        });
-
-
-        /* ===================================================== */
-        /* LIMPIAR */
-        /* ===================================================== */
-
-        limpiar.addEventListener("click", () => {
-
-            filtro.value = "";
-
-            filasFiltradas = [...filas];
-
-            paginaActual = 1;
-
-            mostrarPagina();
-
-            filtro.focus();
-
-        });
-
-
-        /* ===================================================== */
-        /* INICIALIZAR */
-        /* ===================================================== */
-
-        mostrarPagina();
-
-    });
-
-</script>
 
 {% endblock %}

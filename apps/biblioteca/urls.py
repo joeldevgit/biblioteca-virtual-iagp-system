@@ -1,20 +1,27 @@
 from django.urls import path
+
 from . import views
+
 
 app_name = "biblioteca"
 
-urlpatterns = [
 
+urlpatterns = [
     path(
         "",
         views.biblioteca,
-        name="biblioteca"
+        name="biblioteca",
     ),
 
     path(
-        "jurisprudencia/<str:institucion>/",
-        views.detalle_jurisprudencia,
-        name="detalle_jurisprudencia"
+        "documentos/",
+        views.listado_documentos,
+        name="listado",
     ),
 
+    path(
+        "documento/<int:pk>/",
+        views.detalle_documento,
+        name="detalle",
+    ),
 ]

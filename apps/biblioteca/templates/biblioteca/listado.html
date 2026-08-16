@@ -1,0 +1,522 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="mb-4">
+
+        <h2 class="fw-bold">
+            📚 Documentos jurídicos
+        </h2>
+
+        <!-- <p class="text-muted">
+            Consulta normativa, jurisprudencia y doctrina.
+        </p> -->
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- FILTROS AUTOMÁTICOS -->
+    <!-- ===================================================== -->
+    <form method="get" class="card shadow-sm mb-4" id="filtrosBiblioteca">
+
+        <!-- ================================================= -->
+        <!-- CONTEXTO FIJO -->
+        <!-- ================================================= -->
+
+        <input type="hidden" name="categoria" value="{{ categoria_seleccionada }}">
+
+        <input type="hidden" name="institucion" value="{{ institucion_seleccionada }}">
+
+
+        <div class="card-body">
+
+            <div class="row g-3 align-items-end">
+
+
+                <!-- ========================================= -->
+                <!-- BUSCAR -->
+                <!-- ========================================= -->
+                <div class="col-lg-6">
+
+                    <label class="form-label fw-semibold">
+                        Buscar
+                    </label>
+
+                    <input type="text" name="buscar" id="buscar" class="form-control"
+                        placeholder="Buscar por título, tema..." value="{{ buscar_seleccionado|default:'' }}"
+                        autocomplete="off">
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- TIPO -->
+                <!-- ========================================= -->
+                <div class="col-lg-3">
+
+                    <label class="form-label fw-semibold">
+                        Tipo
+                    </label>
+
+                    <select name="tipo" id="tipo" class="form-select">
+
+                        <option value="">
+                            Todos
+                        </option>
+
+
+                        {% for tipo in tipos %}
+
+                        <option value="{{ tipo.id }}" {% if tipo.id == tipo_seleccionado %} selected {% endif %}>
+                            {{ tipo.nombre }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- AÑO -->
+                <!-- ========================================= -->
+                <div class="col-lg-3">
+
+                    <label class="form-label fw-semibold">
+                        Año
+                    </label>
+
+                    <select name="anio" id="anio" class="form-select">
+
+                        <option value="">
+                            Todos
+                        </option>
+
+
+                        {% for anio_item in anios %}
+
+                        <option value="{{ anio_item }}" {% if anio_item == anio_seleccionado %} selected {% endif %}>
+                            {{ anio_item }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- ========================================= -->
+                <!-- LIMPIAR -->
+                <!-- ========================================= -->
+                <div class="col-12">
+
+                    <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_seleccionada }}&institucion={{ institucion_seleccionada }}"
+                        class="btn btn-outline-secondary">
+                        Limpiar filtros
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+
+    <!-- ===================================================== -->
+    <!-- TOTAL DE REGISTROS -->
+    <!-- ===================================================== -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <div>
+
+            <span class="fw-semibold">
+                📄 {{ documentos|length }}
+            </span>
+
+            <span class="text-muted">
+                documentos encontrados
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- RESULTADOS -->
+    <!-- ===================================================== -->
+
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <!-- ID -->
+                    <th style="width: 80px;">
+                        ID
+                    </th>
+
+                    <!-- TÍTULO -->
+                    <th>
+                        Título
+                    </th>
+
+                    <!-- TEMA -->
+                    <th>
+                        Tema
+                    </th>
+
+                    <!-- INSTITUCIÓN -->
+                    <th>
+                        Institución
+                    </th>
+
+                    <!-- TIPO -->
+                    <th>
+                        Tipo
+                    </th>
+
+                    <!-- AÑO -->
+                    <th>
+                        Año
+                    </th>
+
+                    <!-- ACCIÓN -->
+                    <th>
+                        Acción
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for documento in documentos %}
+
+                <tr>
+
+                    <!-- ===================================== -->
+                    <!-- ID -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        <span class="badge bg-secondary">
+                            {{ documento.id }}
+                        </span>
+
+                    </td>
+
+
+                    <!-- ===================================== -->
+                    <!-- TÍTULO -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        <strong>
+                            {{ documento.titulo }}
+                        </strong>
+
+                    </td>
+
+
+                    <!-- ===================================== -->
+                    <!-- TEMA -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        {% if documento.tema %}
+
+                        {{ documento.tema }}
+
+                        {% else %}
+
+                        —
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- ===================================== -->
+                    <!-- INSTITUCIÓN -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        {% if documento.institucion %}
+
+                        {{ documento.institucion.sigla|default:documento.institucion.nombre }}
+
+                        {% else %}
+
+                        —
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- ===================================== -->
+                    <!-- TIPO -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        {% if documento.tipo %}
+
+                        {{ documento.tipo.nombre }}
+
+                        {% else %}
+
+                        —
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- ===================================== -->
+                    <!-- AÑO -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        {{ documento.anio|default:"—" }}
+
+                    </td>
+
+
+                    <!-- ===================================== -->
+                    <!-- ACCIÓN -->
+                    <!-- ===================================== -->
+
+                    <td>
+
+                        <a href="{% url 'biblioteca:detalle' documento.pk %}" class="btn btn-sm btn-primary">
+                            Ver
+                        </a>
+
+                    </td>
+
+                </tr>
+
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="7" class="text-center py-5">
+
+                        <div class="text-muted">
+
+                            📭 No se encontraron documentos.
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+        
+
+        <!-- ===================================================== -->
+        <!-- PAGINACIÓN -->
+        <!-- ===================================================== -->
+
+        {% if documentos.has_other_pages %}
+
+        <nav aria-label="Paginación de documentos">
+
+            <ul class="pagination justify-content-center">
+
+
+                <!-- ============================================= -->
+                <!-- ANTERIOR -->
+                <!-- ============================================= -->
+
+                {% if documentos.has_previous %}
+
+                <li class="page-item">
+
+                    <a
+                        class="page-link"
+                        href="?{% if request.GET.categoria %}categoria={{ request.GET.categoria }}&{% endif %}{% if request.GET.institucion %}institucion={{ request.GET.institucion }}&{% endif %}{% if request.GET.buscar %}buscar={{ request.GET.buscar|urlencode }}&{% endif %}{% if request.GET.tipo %}tipo={{ request.GET.tipo }}&{% endif %}{% if request.GET.anio %}anio={{ request.GET.anio }}&{% endif %}page={{ documentos.previous_page_number }}"
+                    >
+                        « Anterior
+                    </a>
+
+                </li>
+
+                {% else %}
+
+                <li class="page-item disabled">
+
+                    <span class="page-link">
+                        « Anterior
+                    </span>
+
+                </li>
+
+                {% endif %}
+
+
+                <!-- ============================================= -->
+                <!-- NÚMEROS -->
+                <!-- ============================================= -->
+
+                {% for num in documentos.paginator.page_range %}
+
+                    {% if documentos.number == num %}
+
+                    <li class="page-item active">
+
+                        <span class="page-link">
+                            {{ num }}
+                        </span>
+
+                    </li>
+
+                    {% elif num > documentos.number|add:"-3" and num < documentos.number|add:"3" %}
+
+                    <li class="page-item">
+
+                        <a
+                            class="page-link"
+                            href="?{% if request.GET.categoria %}categoria={{ request.GET.categoria }}&{% endif %}{% if request.GET.institucion %}institucion={{ request.GET.institucion }}&{% endif %}{% if request.GET.buscar %}buscar={{ request.GET.buscar|urlencode }}&{% endif %}{% if request.GET.tipo %}tipo={{ request.GET.tipo }}&{% endif %}{% if request.GET.anio %}anio={{ request.GET.anio }}&{% endif %}page={{ num }}"
+                        >
+                            {{ num }}
+                        </a>
+
+                    </li>
+
+                    {% endif %}
+
+                {% endfor %}
+
+
+                <!-- ============================================= -->
+                <!-- SIGUIENTE -->
+                <!-- ============================================= -->
+
+                {% if documentos.has_next %}
+
+                <li class="page-item">
+
+                    <a
+                        class="page-link"
+                        href="?{% if request.GET.categoria %}categoria={{ request.GET.categoria }}&{% endif %}{% if request.GET.institucion %}institucion={{ request.GET.institucion }}&{% endif %}{% if request.GET.buscar %}buscar={{ request.GET.buscar|urlencode }}&{% endif %}{% if request.GET.tipo %}tipo={{ request.GET.tipo }}&{% endif %}{% if request.GET.anio %}anio={{ request.GET.anio }}&{% endif %}page={{ documentos.next_page_number }}"
+                    >
+                        Siguiente »
+                    </a>
+
+                </li>
+
+                {% else %}
+
+                <li class="page-item disabled">
+
+                    <span class="page-link">
+                        Siguiente »
+                    </span>
+
+                </li>
+
+                {% endif %}
+
+            </ul>
+
+        </nav>
+
+        {% endif %}
+
+
+    </div>
+
+</div>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const formulario = document.getElementById(
+            "filtrosBiblioteca"
+        );
+
+        const buscar = document.getElementById(
+            "buscar"
+        );
+
+        const tipo = document.getElementById(
+            "tipo"
+        );
+
+        const anio = document.getElementById(
+            "anio"
+        );
+
+
+        // =====================================================
+        // TIPO
+        // =====================================================
+        tipo.addEventListener("change", function () {
+
+            formulario.submit();
+
+        });
+
+
+        // =====================================================
+        // AÑO
+        // =====================================================
+        anio.addEventListener("change", function () {
+
+            formulario.submit();
+
+        });
+
+
+        // =====================================================
+        // BÚSQUEDA
+        // =====================================================
+        let temporizador = null;
+
+        buscar.addEventListener("input", function () {
+
+            clearTimeout(temporizador);
+
+            temporizador = setTimeout(function () {
+
+                formulario.submit();
+
+            }, 500);
+
+        });
+
+    });
+</script>
+
+{% endblock %}
