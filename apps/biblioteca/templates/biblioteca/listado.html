@@ -132,391 +132,149 @@
 
 
     <!-- ===================================================== -->
-    <!-- TOTAL DE REGISTROS -->
-    <!-- ===================================================== -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-
-        <div>
-
-            <span class="fw-semibold">
-                📄 {{ documentos|length }}
-            </span>
-
-            <span class="text-muted">
-                documentos encontrados
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- ===================================================== -->
     <!-- RESULTADOS -->
     <!-- ===================================================== -->
 
-    <div class="table-responsive">
+    <div id="contenedorResultados">
 
-        <table class="table table-hover align-middle">
-
-            <thead class="table-dark">
-
-                <tr>
-
-                    <!-- ID -->
-                    <th style="width: 80px;">
-                        ID
-                    </th>
-
-                    <!-- TÍTULO -->
-                    <th>
-                        Título
-                    </th>
-
-                    <!-- TEMA -->
-                    <th>
-                        Tema
-                    </th>
-
-                    <!-- INSTITUCIÓN -->
-                    <th>
-                        Institución
-                    </th>
-
-                    <!-- TIPO -->
-                    <th>
-                        Tipo
-                    </th>
-
-                    <!-- AÑO -->
-                    <th>
-                        Año
-                    </th>
-
-                    <!-- ACCIÓN -->
-                    <th>
-                        Acción
-                    </th>
-
-                </tr>
-
-            </thead>
-
-
-            <tbody>
-
-                {% for documento in documentos %}
-
-                <tr>
-
-                    <!-- ===================================== -->
-                    <!-- ID -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        <span class="badge bg-secondary">
-                            {{ documento.id }}
-                        </span>
-
-                    </td>
-
-
-                    <!-- ===================================== -->
-                    <!-- TÍTULO -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        <strong>
-                            {{ documento.titulo }}
-                        </strong>
-
-                    </td>
-
-
-                    <!-- ===================================== -->
-                    <!-- TEMA -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        {% if documento.tema %}
-
-                        {{ documento.tema }}
-
-                        {% else %}
-
-                        —
-
-                        {% endif %}
-
-                    </td>
-
-
-                    <!-- ===================================== -->
-                    <!-- INSTITUCIÓN -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        {% if documento.institucion %}
-
-                        {{ documento.institucion.sigla|default:documento.institucion.nombre }}
-
-                        {% else %}
-
-                        —
-
-                        {% endif %}
-
-                    </td>
-
-
-                    <!-- ===================================== -->
-                    <!-- TIPO -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        {% if documento.tipo %}
-
-                        {{ documento.tipo.nombre }}
-
-                        {% else %}
-
-                        —
-
-                        {% endif %}
-
-                    </td>
-
-
-                    <!-- ===================================== -->
-                    <!-- AÑO -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        {{ documento.anio|default:"—" }}
-
-                    </td>
-
-
-                    <!-- ===================================== -->
-                    <!-- ACCIÓN -->
-                    <!-- ===================================== -->
-
-                    <td>
-
-                        <a href="{% url 'biblioteca:detalle' documento.pk %}" class="btn btn-sm btn-primary">
-                            Ver
-                        </a>
-
-                    </td>
-
-                </tr>
-
-
-                {% empty %}
-
-                <tr>
-
-                    <td colspan="7" class="text-center py-5">
-
-                        <div class="text-muted">
-
-                            📭 No se encontraron documentos.
-
-                        </div>
-
-                    </td>
-
-                </tr>
-
-                {% endfor %}
-
-            </tbody>
-
-        </table>
-        
-
-        <!-- ===================================================== -->
-        <!-- PAGINACIÓN -->
-        <!-- ===================================================== -->
-
-        {% if documentos.has_other_pages %}
-
-        <nav aria-label="Paginación de documentos">
-
-            <ul class="pagination justify-content-center">
-
-
-                <!-- ============================================= -->
-                <!-- ANTERIOR -->
-                <!-- ============================================= -->
-
-                {% if documentos.has_previous %}
-
-                <li class="page-item">
-
-                    <a
-                        class="page-link"
-                        href="?{% if request.GET.categoria %}categoria={{ request.GET.categoria }}&{% endif %}{% if request.GET.institucion %}institucion={{ request.GET.institucion }}&{% endif %}{% if request.GET.buscar %}buscar={{ request.GET.buscar|urlencode }}&{% endif %}{% if request.GET.tipo %}tipo={{ request.GET.tipo }}&{% endif %}{% if request.GET.anio %}anio={{ request.GET.anio }}&{% endif %}page={{ documentos.previous_page_number }}"
-                    >
-                        « Anterior
-                    </a>
-
-                </li>
-
-                {% else %}
-
-                <li class="page-item disabled">
-
-                    <span class="page-link">
-                        « Anterior
-                    </span>
-
-                </li>
-
-                {% endif %}
-
-
-                <!-- ============================================= -->
-                <!-- NÚMEROS -->
-                <!-- ============================================= -->
-
-                {% for num in documentos.paginator.page_range %}
-
-                    {% if documentos.number == num %}
-
-                    <li class="page-item active">
-
-                        <span class="page-link">
-                            {{ num }}
-                        </span>
-
-                    </li>
-
-                    {% elif num > documentos.number|add:"-3" and num < documentos.number|add:"3" %}
-
-                    <li class="page-item">
-
-                        <a
-                            class="page-link"
-                            href="?{% if request.GET.categoria %}categoria={{ request.GET.categoria }}&{% endif %}{% if request.GET.institucion %}institucion={{ request.GET.institucion }}&{% endif %}{% if request.GET.buscar %}buscar={{ request.GET.buscar|urlencode }}&{% endif %}{% if request.GET.tipo %}tipo={{ request.GET.tipo }}&{% endif %}{% if request.GET.anio %}anio={{ request.GET.anio }}&{% endif %}page={{ num }}"
-                        >
-                            {{ num }}
-                        </a>
-
-                    </li>
-
-                    {% endif %}
-
-                {% endfor %}
-
-
-                <!-- ============================================= -->
-                <!-- SIGUIENTE -->
-                <!-- ============================================= -->
-
-                {% if documentos.has_next %}
-
-                <li class="page-item">
-
-                    <a
-                        class="page-link"
-                        href="?{% if request.GET.categoria %}categoria={{ request.GET.categoria }}&{% endif %}{% if request.GET.institucion %}institucion={{ request.GET.institucion }}&{% endif %}{% if request.GET.buscar %}buscar={{ request.GET.buscar|urlencode }}&{% endif %}{% if request.GET.tipo %}tipo={{ request.GET.tipo }}&{% endif %}{% if request.GET.anio %}anio={{ request.GET.anio }}&{% endif %}page={{ documentos.next_page_number }}"
-                    >
-                        Siguiente »
-                    </a>
-
-                </li>
-
-                {% else %}
-
-                <li class="page-item disabled">
-
-                    <span class="page-link">
-                        Siguiente »
-                    </span>
-
-                </li>
-
-                {% endif %}
-
-            </ul>
-
-        </nav>
-
-        {% endif %}
-
+    {% include "biblioteca/_resultados.html" %}
 
     </div>
+
+
+
+
 
 </div>
 
 
 
 
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        const formulario = document.getElementById(
-            "filtrosBiblioteca"
+    const formulario = document.getElementById("filtrosBiblioteca");
+    const buscar = document.getElementById("buscar");
+    const tipo = document.getElementById("tipo");
+    const anio = document.getElementById("anio");
+
+    let temporizador = null;
+
+
+    // =====================================================
+    // FUNCIÓN AJAX
+    // =====================================================
+
+    function cargarResultados(pagina = 1) {
+
+        const parametros = new URLSearchParams(
+            new FormData(formulario)
         );
 
-        const buscar = document.getElementById(
-            "buscar"
-        );
-
-        const tipo = document.getElementById(
-            "tipo"
-        );
-
-        const anio = document.getElementById(
-            "anio"
-        );
+        // Página solicitada
+        parametros.set("page", pagina);
 
 
-        // =====================================================
-        // TIPO
-        // =====================================================
-        tipo.addEventListener("change", function () {
+        fetch(
+            "{% url 'biblioteca:listado' %}?" + parametros.toString(),
+            {
+                method: "GET",
 
-            formulario.submit();
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            }
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+                throw new Error("Error al cargar resultados");
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            document.getElementById("contenedorResultados").innerHTML = html;
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                "Error:",
+                error
+            );
 
         });
 
-
-        // =====================================================
-        // AÑO
-        // =====================================================
-        anio.addEventListener("change", function () {
-
-            formulario.submit();
-
-        });
+    }
 
 
-        // =====================================================
-        // BÚSQUEDA
-        // =====================================================
-        let temporizador = null;
+    // =====================================================
+    // BÚSQUEDA AUTOMÁTICA
+    // =====================================================
 
-        buscar.addEventListener("input", function () {
+    buscar.addEventListener("input", function () {
 
-            clearTimeout(temporizador);
+        clearTimeout(temporizador);
 
-            temporizador = setTimeout(function () {
+        temporizador = setTimeout(function () {
 
-                formulario.submit();
+            cargarResultados(1);
 
-            }, 500);
-
-        });
+        }, 300);
 
     });
+
+
+    // =====================================================
+    // PAGINACIÓN AJAX
+    // =====================================================
+
+    document.addEventListener("click", function (event) {
+
+        const enlace = event.target.closest(".pagina-ajax");
+
+        if (!enlace) {
+            return;
+        }
+
+        event.preventDefault();
+
+        const pagina = enlace.dataset.page;
+
+        cargarResultados(pagina);
+
+    });
+
+
+    // =====================================================
+    // FILTRO TIPO
+    // =====================================================
+
+    tipo.addEventListener("change", function () {
+
+        cargarResultados(1);
+
+    });
+
+
+    // =====================================================
+    // FILTRO AÑO
+    // =====================================================
+
+    anio.addEventListener("change", function () {
+
+        cargarResultados(1);
+
+    });
+
+});
 </script>
 
 {% endblock %}

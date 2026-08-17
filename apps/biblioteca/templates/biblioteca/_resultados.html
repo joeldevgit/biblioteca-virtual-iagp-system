@@ -1,0 +1,396 @@
+<!-- ===================================================== -->
+<!-- RESULTADOS AJAX -->
+<!-- ===================================================== -->
+
+<div id="resultadosDocumentos">
+
+
+    <!-- ================================================= -->
+    <!-- TOTAL DE REGISTROS -->
+    <!-- ================================================= -->
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <div>
+
+            <span class="fw-semibold">
+                📄 {{ total_documentos }}
+            </span>
+
+            <span class="text-muted">
+                documentos encontrados
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- TABLA -->
+    <!-- ================================================= -->
+
+    <div class="table-responsive">
+
+        <table class="table table-hover align-middle">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th style="width: 70px;" class="text-center">
+                        N°
+                    </th>
+
+                    <th>
+                        Título
+                    </th>
+
+                    <th>
+                        Tema
+                    </th>
+
+                    <th style="width: 130px;">
+                        Fecha
+                    </th>
+
+                    <th style="width: 100px;" class="text-center">
+                        PDF
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for documento in documentos %}
+
+                <tr>
+
+                    <!-- N° -->
+
+                    <td class="text-center">
+
+                        <span class="badge bg-secondary">
+
+                            {{ forloop.counter|add:documentos.start_index|add:"-1" }}
+
+                        </span>
+
+                    </td>
+
+
+                    <!-- TÍTULO -->
+
+                    <td>
+
+                        <strong>
+                            {{ documento.titulo }}
+                        </strong>
+
+                    </td>
+
+
+                    <!-- TEMA -->
+
+                    <td>
+
+                        {% if documento.tema %}
+
+                            {{ documento.tema }}
+
+                        {% else %}
+
+                            —
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- FECHA -->
+
+                    <td>
+
+                        {% if documento.fecha %}
+
+                            {{ documento.fecha|date:"d/m/Y" }}
+
+                        {% else %}
+
+                            —
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <!-- PDF -->
+
+                    <td class="text-center">
+
+                        {% if documento.pdf_url %}
+
+                            <a href="{{ documento.pdf_url }}"
+                               target="_blank"
+                               class="btn btn-sm btn-danger">
+
+                                <i class="bi bi-file-earmark-pdf-fill"></i>
+                                PDF
+
+                            </a>
+
+                        {% else %}
+
+                            —
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="5"
+                        class="text-center py-5">
+
+                        <div class="text-muted">
+
+                            📭 No se encontraron documentos.
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- PAGINACIÓN -->
+    <!-- ================================================= -->
+
+    {% if documentos.has_other_pages %}
+
+    <nav aria-label="Paginación de documentos">
+
+        <ul class="pagination justify-content-center">
+
+
+            <!-- ========================================= -->
+            <!-- ANTERIOR -->
+            <!-- ========================================= -->
+
+            {% if documentos.has_previous %}
+
+            <li class="page-item">
+
+                <a href="#"
+                   class="page-link pagina-ajax"
+                   data-page="{{ documentos.previous_page_number }}">
+
+                    « Anterior
+
+                </a>
+
+            </li>
+
+            {% else %}
+
+            <li class="page-item disabled">
+
+                <span class="page-link">
+                    « Anterior
+                </span>
+
+            </li>
+
+            {% endif %}
+
+
+            <!-- ========================================= -->
+            <!-- PRIMERA PÁGINA -->
+            <!-- ========================================= -->
+
+            <li class="page-item
+                {% if documentos.number == 1 %}active{% endif %}">
+
+                {% if documentos.number == 1 %}
+
+                    <span class="page-link">
+                        1
+                    </span>
+
+                {% else %}
+
+                    <a href="#"
+                       class="page-link pagina-ajax"
+                       data-page="1">
+
+                        1
+
+                    </a>
+
+                {% endif %}
+
+            </li>
+
+
+            <!-- ========================================= -->
+            <!-- PUNTOS -->
+            <!-- ========================================= -->
+
+            {% if documentos.number > 4 %}
+
+            <li class="page-item disabled">
+
+                <span class="page-link">
+                    ...
+                </span>
+
+            </li>
+
+            {% endif %}
+
+
+            <!-- ========================================= -->
+            <!-- PÁGINAS CERCANAS -->
+            <!-- ========================================= -->
+
+            {% for num in documentos.paginator.page_range %}
+
+                {% if num > 1 and num < documentos.paginator.num_pages %}
+
+                    {% if num >= documentos.number|add:"-2" and num <= documentos.number|add:"2" %}
+
+                    <li class="page-item
+                        {% if documentos.number == num %}active{% endif %}">
+
+                        {% if documentos.number == num %}
+
+                            <span class="page-link">
+                                {{ num }}
+                            </span>
+
+                        {% else %}
+
+                            <a href="#"
+                               class="page-link pagina-ajax"
+                               data-page="{{ num }}">
+
+                                {{ num }}
+
+                            </a>
+
+                        {% endif %}
+
+                    </li>
+
+                    {% endif %}
+
+                {% endif %}
+
+            {% endfor %}
+
+
+            <!-- ========================================= -->
+            <!-- PUNTOS -->
+            <!-- ========================================= -->
+
+            {% if documentos.number < documentos.paginator.num_pages|add:"-3" %}
+
+            <li class="page-item disabled">
+
+                <span class="page-link">
+                    ...
+                </span>
+
+            </li>
+
+            {% endif %}
+
+
+            <!-- ========================================= -->
+            <!-- ÚLTIMA -->
+            <!-- ========================================= -->
+
+            {% if documentos.paginator.num_pages > 1 %}
+
+            <li class="page-item
+                {% if documentos.number == documentos.paginator.num_pages %}active{% endif %}">
+
+                {% if documentos.number == documentos.paginator.num_pages %}
+
+                    <span class="page-link">
+
+                        {{ documentos.paginator.num_pages }}
+
+                    </span>
+
+                {% else %}
+
+                    <a href="#"
+                       class="page-link pagina-ajax"
+                       data-page="{{ documentos.paginator.num_pages }}">
+
+                        {{ documentos.paginator.num_pages }}
+
+                    </a>
+
+                {% endif %}
+
+            </li>
+
+            {% endif %}
+
+
+            <!-- ========================================= -->
+            <!-- SIGUIENTE -->
+            <!-- ========================================= -->
+
+            {% if documentos.has_next %}
+
+            <li class="page-item">
+
+                <a href="#"
+                   class="page-link pagina-ajax"
+                   data-page="{{ documentos.next_page_number }}">
+
+                    Siguiente »
+
+                </a>
+
+            </li>
+
+            {% else %}
+
+            <li class="page-item disabled">
+
+                <span class="page-link">
+                    Siguiente »
+                </span>
+
+            </li>
+
+            {% endif %}
+
+        </ul>
+
+    </nav>
+
+    {% endif %}
+
+</div>

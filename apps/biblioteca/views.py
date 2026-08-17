@@ -146,6 +146,13 @@ def listado_documentos(request):
             | Q(tema__icontains=buscar)
         )
 
+
+    # =====================================================
+    # TOTAL DE DOCUMENTOS FILTRADOS
+    # =====================================================
+    total_documentos = documentos.count()
+
+
     # =====================================================
     # CATEGORÍAS
     # =====================================================
@@ -259,6 +266,19 @@ def listado_documentos(request):
     documentos = paginator.get_page(pagina)
 
 
+    # =====================================================
+    # RESPUESTA AJAX
+    # =====================================================
+    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+
+        return render(
+            request,
+            "biblioteca/_resultados.html",
+            {
+                "documentos": documentos,
+                "total_documentos": total_documentos,
+            }
+        )
 
     # =====================================================
     # VALORES SELECCIONADOS
@@ -296,6 +316,8 @@ def listado_documentos(request):
     context = {
 
         "documentos": documentos,
+
+        "total_documentos": total_documentos,
 
         "categorias": categorias,
 
