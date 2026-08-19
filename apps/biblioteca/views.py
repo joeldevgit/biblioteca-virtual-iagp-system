@@ -11,6 +11,8 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 
+
+
 def biblioteca(request):
 
     categorias = Categoria.objects.filter(
@@ -18,8 +20,6 @@ def biblioteca(request):
     )
 
     categoria_slug = request.GET.get("categoria")
-
-    categoria_activa = None
 
     if categoria_slug:
         categoria_activa = get_object_or_404(
@@ -29,11 +29,57 @@ def biblioteca(request):
     else:
         categoria_activa = categorias.first()
 
+
+    # =====================================================
+    # TIPOS
+    # =====================================================
+
+    tipos = (
+        TipoDocumento.objects
+        .filter(
+            activo=True,
+            categoria=categoria_activa,
+        )
+        .order_by("nombre")
+    )
+
+
+    # =====================================================
+    # OPINIONES POR DEFECTO
+    # =====================================================
+
+    tipo_opiniones = tipos.filter(
+        nombre__iexact="Opiniones"
+    ).first()
+
+    if not tipo_opiniones:
+
+        tipo_opiniones = tipos.filter(
+            nombre__iexact="Opinión"
+        ).first()
+
+
+    # =====================================================
+    # TIPO SELECCIONADO
+    # =====================================================
+
+    tipo_seleccionado = (
+        tipo_opiniones.id
+        if tipo_opiniones
+        else None
+    )
+
+
+    # =====================================================
+    # DOCUMENTOS
+    # =====================================================
+
     documentos = (
         Documento.objects
         .filter(
             activo=True,
-            categoria=categoria_activa
+            categoria=categoria_activa,
+            tipo_id=tipo_seleccionado,
         )
         .select_related(
             "categoria",
@@ -41,6 +87,11 @@ def biblioteca(request):
             "tipo",
         )
     )
+
+
+    # =====================================================
+    # INSTITUCIONES
+    # =====================================================
 
     instituciones = (
         Institucion.objects
@@ -53,14 +104,6 @@ def biblioteca(request):
         .order_by("nombre")
     )
 
-    tipos = (
-        TipoDocumento.objects
-        .filter(
-            activo=True,
-            categoria=categoria_activa,
-        )
-        .order_by("nombre")
-    )
 
     return render(
         request,
@@ -71,8 +114,11 @@ def biblioteca(request):
             "documentos": documentos,
             "instituciones": instituciones,
             "tipos": tipos,
+
+            "tipo_seleccionado": tipo_seleccionado,
         }
     )
+
 
 
 
@@ -81,15 +127,45 @@ def listado_documentos(request):
     # =====================================================
     # PARÁMETROS
     # =====================================================
+
     categoria_slug = request.GET.get("categoria", "").strip()
     institucion_id = request.GET.get("institucion", "").strip()
     tipo_id = request.GET.get("tipo", "").strip()
     anio = request.GET.get("anio", "").strip()
     buscar = request.GET.get("buscar", "").strip()
 
+
+    # =====================================================
+    # TIPO POR DEFECTO: OPINIONES
+    # =====================================================
+
+    if not tipo_id:
+
+        tipos_opiniones = (
+            TipoDocumento.objects
+            .filter(
+                activo=True,
+                documentos__activo=True,
+                documentos__categoria__slug=categoria_slug,
+                documentos__institucion_id=institucion_id,
+            )
+            .filter(
+                Q(nombre__iexact="Opiniones") |
+                Q(nombre__iexact="Opinión")
+            )
+            .distinct()
+            .order_by("id")
+        )
+
+        tipo_opiniones = tipos_opiniones.first()
+
+        if tipo_opiniones:
+            tipo_id = str(tipo_opiniones.id)
+
     # =====================================================
     # DOCUMENTOS BASE
     # =====================================================
+
     documentos = (
         Documento.objects
         .filter(activo=True)
@@ -100,45 +176,55 @@ def listado_documentos(request):
         )
     )
 
+
     # =====================================================
     # CATEGORÍA
     # =====================================================
+
     if categoria_slug:
 
         documentos = documentos.filter(
             categoria__slug=categoria_slug
         )
 
+
     # =====================================================
     # INSTITUCIÓN
     # =====================================================
+
     if institucion_id:
 
         documentos = documentos.filter(
             institucion_id=institucion_id
         )
 
+
     # =====================================================
     # TIPO
     # =====================================================
+
     if tipo_id:
 
         documentos = documentos.filter(
             tipo_id=tipo_id
         )
 
+
     # =====================================================
     # AÑO
     # =====================================================
+
     if anio:
 
         documentos = documentos.filter(
             anio=anio
         )
 
+
     # =====================================================
     # BÚSQUEDA
     # =====================================================
+
     if buscar:
 
         documentos = documentos.filter(
@@ -150,22 +236,26 @@ def listado_documentos(request):
     # =====================================================
     # TOTAL DE DOCUMENTOS FILTRADOS
     # =====================================================
+
     total_documentos = documentos.count()
 
 
     # =====================================================
     # CATEGORÍAS
     # =====================================================
+
     categorias = (
         Categoria.objects
         .filter(activo=True)
         .order_by("nombre")
     )
 
+
     # =====================================================
     # INSTITUCIONES DISPONIBLES
     # DEPENDEN DE LA CATEGORÍA
     # =====================================================
+
     instituciones = (
         Institucion.objects
         .filter(
@@ -187,11 +277,11 @@ def listado_documentos(request):
     )
 
 
-
     # =====================================================
     # TIPOS DISPONIBLES
     # DEPENDEN DE CATEGORÍA + INSTITUCIÓN
     # =====================================================
+
     tipos = (
         TipoDocumento.objects
         .filter(
@@ -201,11 +291,13 @@ def listado_documentos(request):
     )
 
     if categoria_slug:
+
         tipos = tipos.filter(
             documentos__categoria__slug=categoria_slug
         )
 
     if institucion_id:
+
         tipos = tipos.filter(
             documentos__institucion_id=institucion_id
         )
@@ -221,6 +313,7 @@ def listado_documentos(request):
     # AÑOS DISPONIBLES
     # DEPENDEN DE CATEGORÍA + INSTITUCIÓN + TIPO
     # =====================================================
+
     documentos_para_anios = (
         Documento.objects
         .filter(activo=True)
@@ -238,8 +331,7 @@ def listado_documentos(request):
             institucion_id=institucion_id
         )
 
-    # IMPORTANTE:
-    # El tipo SÍ puede afectar los años disponibles.
+    # El tipo seleccionado también afecta los años
     if tipo_id:
 
         documentos_para_anios = documentos_para_anios.filter(
@@ -255,10 +347,10 @@ def listado_documentos(request):
     )
 
 
-
     # =====================================================
     # PAGINACIÓN
     # =====================================================
+
     paginator = Paginator(documentos, 10)
 
     pagina = request.GET.get("page")
@@ -267,9 +359,55 @@ def listado_documentos(request):
 
 
     # =====================================================
+    # VALORES SELECCIONADOS
+    # =====================================================
+
+    try:
+
+        institucion_seleccionada = (
+            int(institucion_id)
+            if institucion_id
+            else None
+        )
+
+    except ValueError:
+
+        institucion_seleccionada = None
+
+
+    try:
+
+        tipo_seleccionado = (
+            int(tipo_id)
+            if tipo_id
+            else None
+        )
+
+    except ValueError:
+
+        tipo_seleccionado = None
+
+
+    try:
+
+        anio_seleccionado = (
+            int(anio)
+            if anio
+            else None
+        )
+
+    except ValueError:
+
+        anio_seleccionado = None
+
+
+    # =====================================================
     # RESPUESTA AJAX
     # =====================================================
-    if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+
+    if request.headers.get(
+        "X-Requested-With"
+    ) == "XMLHttpRequest":
 
         return render(
             request,
@@ -280,39 +418,11 @@ def listado_documentos(request):
             }
         )
 
-    # =====================================================
-    # VALORES SELECCIONADOS
-    # =====================================================
-    try:
-        institucion_seleccionada = (
-            int(institucion_id)
-            if institucion_id
-            else None
-        )
-    except ValueError:
-        institucion_seleccionada = None
-
-    try:
-        tipo_seleccionado = (
-            int(tipo_id)
-            if tipo_id
-            else None
-        )
-    except ValueError:
-        tipo_seleccionado = None
-
-    try:
-        anio_seleccionado = (
-            int(anio)
-            if anio
-            else None
-        )
-    except ValueError:
-        anio_seleccionado = None
 
     # =====================================================
     # CONTEXTO
     # =====================================================
+
     context = {
 
         "documentos": documentos,
@@ -327,11 +437,8 @@ def listado_documentos(request):
 
         "anios": anios,
 
-        # -----------------------------------------------
-        # CONTEXTO ACTUAL
-        # -----------------------------------------------
-
-        "categoria_seleccionada": categoria_slug,
+        "categoria_seleccionada":
+            categoria_slug,
 
         "institucion_seleccionada":
             institucion_seleccionada,
@@ -346,12 +453,15 @@ def listado_documentos(request):
             buscar,
     }
 
+
     return render(
         request,
         "biblioteca/listado.html",
         context
     )
-   
+
+
+
 
 
 
