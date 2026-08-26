@@ -14,13 +14,11 @@ INSTALLED_APPS = [
 
     "apps.home",
     "apps.institucional",
-    "apps.cursos",
-    "apps.blog",
-    "apps.contacto",
-    "apps.inscripciones",
+
+
+
     "apps.biblioteca",
-    "apps.opiniones",
-    "apps.docentes",
+
 ]
 
 

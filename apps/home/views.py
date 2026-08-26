@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
 from .models import Testimonio
-from apps.cursos.models import Curso
-from apps.docentes.models import Docente
+
 
 
 def index(request):
@@ -11,23 +10,10 @@ def index(request):
         activo=True
     ).order_by("orden")
 
-    cursos_vivo = Curso.objects.filter(
-        activo=True,
-        tipo="vivo"
-    ).order_by("orden")
 
-    cursos_virtual = Curso.objects.filter(
-        activo=True,
-        tipo="virtual"
-    ).order_by("orden")
-
-    docentes = Docente.objects.all()
 
     context = {
         "testimonios": testimonios,
-        "cursos_vivo": cursos_vivo,
-        "cursos_virtual": cursos_virtual,
-        'docentes': docentes,
     }
  
     return render(request, 'home/home.html', context)

@@ -1,173 +1,920 @@
 {% extends "base.html" %}
 
+{% block title %}
+Biblioteca Jurídica | IAGP
+{% endblock %}
+
+
 {% block content %}
 
-<div class="container py-5">
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="biblioteca-hero">
 
-    <!-- ===================================================== -->
-    <!-- ENCABEZADO -->
-    <!-- ===================================================== -->
-    <div class="text-center mb-5">
+    <div class="container">
 
-        <h1 class="fw-bold">
-            📚 Biblioteca Jurídica
-        </h1>
+        <div class="row align-items-center py-5">
 
-        <p class="text-muted mb-0">
-            Contrataciones del Estado
-        </p>
+            <!-- TEXTO -->
+            <div class="col-lg-7">
 
-    </div>
+                <span class="biblioteca-badge">
+                    <i class="bi bi-book-half me-2"></i>
+                    BIBLIOTECA VIRTUAL
+                </span>
 
+                <h1 class="biblioteca-title mt-3">
+                    Biblioteca Jurídica
+                </h1>
 
-    <!-- ===================================================== -->
-    <!-- PESTAÑAS -->
-    <!-- ===================================================== -->
-    <div class="d-flex justify-content-center mb-4">
-
-        <ul class="nav nav-tabs" role="tablist">
-
-            {% for categoria in categorias %}
-
-            <li class="nav-item" role="presentation">
-
-                <a href="?categoria={{ categoria.slug }}" class="nav-link
-                    {% if categoria.id == categoria_activa.id %}
-                        active
-                    {% endif %}">
-
-                    {% if categoria.nombre == "Normativa" %}
-                    📜
-                    {% elif categoria.nombre == "Jurisprudencia" %}
-                    ⚖️
-                    {% elif categoria.nombre == "Doctrina" %}
-                    📚
-                    {% else %}
-                    📄
-                    {% endif %}
-
-                    {{ categoria.nombre }}
-
-                </a>
-
-            </li>
-
-            {% endfor %}
-
-        </ul>
-
-    </div>
-
-
-    <!-- ===================================================== -->
-    <!-- CATEGORÍA ACTIVA -->
-    <!-- ===================================================== -->
-    {% if categoria_activa %}
-
-
-    
-
-
-    
-    <!-- ===================================================== -->
-    <!-- JURISPRUDENCIA -->
-    <!-- ===================================================== -->
-    {% if categoria_activa.nombre == "Jurisprudencia" %}
-
-    <div class="mb-2  mt-5">
-
-        <!-- <h5 class="fw-bold mb-4">
-            🏛️ Instituciones
-        </h5> -->
-
-        <div class="row g-4 justify-content-center">
-
-            {% for institucion in instituciones %}
-
-            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-
-                <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_activa.slug }}&institucion={{ institucion.id }}"
-                    class="text-decoration-none text-dark">
-
-                    <div class="text-center">
-
-                        <!-- IMAGEN CIRCULAR -->
-
-                        <div class="institucion-imagen mx-auto mb-3">
-
-                            {% if institucion.imagen %}
-
-                            <img src="{{ institucion.imagen.url }}" alt="{{ institucion.nombre }}" class="img-fluid">
-
-                            {% else %}
-
-                            <div class="institucion-placeholder">
-                                🏛️
-                            </div>
-
-                            {% endif %}
-
-                        </div>
-
-
-                        <!-- NOMBRE -->
-
-                        <h6 class="fw-bold mb-1">
-
-                            {{ institucion.sigla|default:institucion.nombre }}
-
-                        </h6>
-
-
-                        <!-- NOMBRE COMPLETO -->
-
-                        {% if institucion.sigla %}
-
-                        <small class="text-muted">
-
-                            {{ institucion.nombre }}
-
-                        </small>
-
-                        {% endif %}
-
-                    </div>
-
-                </a>
-
-            </div>
-
-            {% empty %}
-
-            <div class="col-12">
-
-                <p class="text-muted text-center">
-
-                    No hay instituciones registradas.
-
+                <p class="biblioteca-subtitle">
+                    Contrataciones del Estado
                 </p>
 
+                <p class="biblioteca-description">
+                    Consulta y accede de manera organizada a normativa,
+                    jurisprudencia, doctrina y demás recursos jurídicos
+                    relacionados con las contrataciones públicas.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2 mt-4">
+
+                    <a href="#contenido"
+                       class="btn btn-light btn-lg px-4">
+
+                        <i class="bi bi-search me-2"></i>
+                        Explorar biblioteca
+
+                    </a>
+
+                </div>
+
             </div>
 
-            {% endfor %}
+
+            <!-- ICONO -->
+            <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+
+                <div class="biblioteca-hero-icon">
+
+                    <i class="bi bi-bank"></i>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-    {% endif %}
+</section>
 
 
+<!-- =========================================================
+     CONTENIDO
+========================================================= -->
+<section id="contenido" class="biblioteca-contenido">
+
+    <div class="container py-5">
 
 
+        <!-- =================================================
+             ENCABEZADO
+        ================================================== -->
+        <div class="text-center mb-5">
+
+            <span class="section-label">
+                RECURSOS JURÍDICOS
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Explora nuestra biblioteca
+            </h2>
+
+            <p class="text-muted mx-auto biblioteca-intro">
+                Selecciona una categoría para consultar
+                información jurídica especializada.
+            </p>
+
+        </div>
 
 
+        <!-- =================================================
+             PESTAÑAS / CATEGORÍAS
+        ================================================== -->
+
+        <div class="biblioteca-tabs-wrapper mb-5">
+
+            <ul class="nav nav-pills justify-content-center gap-2"
+                role="tablist">
+
+                {% for categoria in categorias %}
+
+                <li class="nav-item" role="presentation">
+
+                    <a href="?categoria={{ categoria.slug }}"
+                       class="nav-link biblioteca-tab
+                       {% if categoria.id == categoria_activa.id %}
+                           active
+                       {% endif %}">
+
+                        {% if categoria.nombre == "Normativa" %}
+
+                            <i class="bi bi-file-earmark-text"></i>
+
+                        {% elif categoria.nombre == "Jurisprudencia" %}
+
+                            <i class="bi bi-bank"></i>
+
+                        {% elif categoria.nombre == "Doctrina" %}
+
+                            <i class="bi bi-book"></i>
+
+                        {% else %}
+
+                            <i class="bi bi-folder"></i>
+
+                        {% endif %}
+
+                        <span>
+                            {{ categoria.nombre }}
+                        </span>
+
+                    </a>
+
+                </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </div>
 
 
-    
+        {% if categoria_activa %}
 
-    {% endif %}
 
-</div>
+        <!-- =================================================
+             CATEGORÍA ACTIVA
+        ================================================== -->
+
+        <div class="categoria-header mb-5">
+
+            <div class="categoria-header-icon">
+
+                {% if categoria_activa.nombre == "Jurisprudencia" %}
+
+                    <i class="bi bi-bank"></i>
+
+                {% elif categoria_activa.nombre == "Normativa" %}
+
+                    <i class="bi bi-file-earmark-text"></i>
+
+                {% elif categoria_activa.nombre == "Doctrina" %}
+
+                    <i class="bi bi-book"></i>
+
+                {% else %}
+
+                    <i class="bi bi-folder"></i>
+
+                {% endif %}
+
+            </div>
+
+            <div>
+
+                <h3 class="fw-bold mb-1">
+                    {{ categoria_activa.nombre }}
+                </h3>
+
+                <p class="text-muted mb-0">
+                    Recursos disponibles en esta categoría
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             JURISPRUDENCIA
+        ================================================== -->
+
+        {% if categoria_activa.nombre == "Jurisprudencia" %}
+
+        <div class="mb-4">
+
+            <div class="d-flex justify-content-between
+                        align-items-center mb-4">
+
+                <div>
+
+                    <h4 class="fw-bold mb-1">
+                        Instituciones
+                    </h4>
+
+                    <p class="text-muted mb-0">
+                        Selecciona una institución para consultar
+                        su información jurídica.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="row g-4 justify-content-center">
+
+                {% for institucion in instituciones %}
+
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+
+                    <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_activa.slug }}&institucion={{ institucion.id }}"
+                       class="text-decoration-none">
+
+                        <div class="institucion-card">
+
+                            <!-- IMAGEN -->
+                            <div class="institucion-imagen">
+
+                                {% if institucion.imagen %}
+
+                                    <img
+                                        src="{{ institucion.imagen.url }}"
+                                        alt="{{ institucion.nombre }}"
+                                    >
+
+                                {% else %}
+
+                                    <div class="institucion-placeholder">
+
+                                        <i class="bi bi-bank"></i>
+
+                                    </div>
+
+                                {% endif %}
+
+                            </div>
+
+
+                            <!-- NOMBRE -->
+                            <h6 class="institucion-sigla">
+
+                                {{ institucion.sigla|default:institucion.nombre }}
+
+                            </h6>
+
+
+                            <!-- NOMBRE COMPLETO -->
+                            {% if institucion.sigla %}
+
+                            <p class="institucion-nombre">
+
+                                {{ institucion.nombre }}
+
+                            </p>
+
+                            {% endif %}
+
+
+                            <span class="institucion-link">
+
+                                Ver jurisprudencia
+
+                                <i class="bi bi-arrow-right ms-1"></i>
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+
+                {% empty %}
+
+                <div class="col-12">
+
+                    <div class="empty-state">
+
+                        <i class="bi bi-building"></i>
+
+                        <h5>
+                            No hay instituciones registradas
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Actualmente no existen instituciones
+                            disponibles para esta categoría.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ESTILOS
+========================================================= -->
+
+{% block extra_css %}
+
+<style>
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.biblioteca-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #064e3b 0%,
+            #087f5b 55%,
+            #0f9d70 100%
+        );
+
+    color: white;
+
+}
+
+
+.biblioteca-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+
+    top: -220px;
+    right: -120px;
+
+}
+
+
+.biblioteca-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.04);
+
+    bottom: -170px;
+    left: -100px;
+
+}
+
+
+.biblioteca-hero .container {
+
+    position: relative;
+    z-index: 2;
+
+}
+
+
+.biblioteca-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 8px 16px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.12);
+
+    border: 1px solid rgba(255,255,255,0.20);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.biblioteca-title {
+
+    font-size: clamp(2.5rem, 5vw, 4rem);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 5px;
+
+}
+
+
+.biblioteca-subtitle {
+
+    font-size: 1.45rem;
+
+    font-weight: 500;
+
+    opacity: .9;
+
+    margin-bottom: 18px;
+
+}
+
+
+.biblioteca-description {
+
+    max-width: 650px;
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    opacity: .9;
+
+}
+
+
+.biblioteca-hero-icon {
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.20);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.15);
+
+}
+
+
+.biblioteca-hero-icon i {
+
+    font-size: 100px;
+
+    opacity: .95;
+
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.biblioteca-contenido {
+
+    background: #fff;
+
+}
+
+
+.section-label {
+
+    color: #087f5b;
+
+    font-size: .78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.biblioteca-intro {
+
+    max-width: 650px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.biblioteca-tabs-wrapper {
+
+    padding: 8px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e5e9e7;
+
+    border-radius: 14px;
+
+    max-width: 800px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.biblioteca-tab {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 11px 20px;
+
+    border-radius: 10px !important;
+
+    color: #495057;
+
+    font-weight: 600;
+
+    transition: all .2s ease;
+
+}
+
+
+.biblioteca-tab:hover {
+
+    color: #087f5b;
+
+    background: rgba(8,127,91,.08);
+
+}
+
+
+.biblioteca-tab.active {
+
+    background: #087f5b !important;
+
+    color: white !important;
+
+    box-shadow:
+        0 5px 15px rgba(8,127,91,.20);
+
+}
+
+
+.biblioteca-tab i {
+
+    font-size: 1.1rem;
+
+}
+
+
+/* =========================================================
+   CATEGORÍA
+========================================================= */
+
+.categoria-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid #e9ecef;
+
+}
+
+
+.categoria-header-icon {
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(8,127,91,.10);
+
+    color: #087f5b;
+
+    font-size: 24px;
+
+}
+
+
+/* =========================================================
+   INSTITUCIONES
+========================================================= */
+
+.institucion-card {
+
+    height: 100%;
+
+    padding: 22px 14px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #e8ecea;
+
+    border-radius: 16px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+}
+
+
+.institucion-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: rgba(8,127,91,.30);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.09);
+
+}
+
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.institucion-imagen {
+
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #f1f5f3;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 4px solid #f8faf9;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+}
+
+
+.institucion-imagen img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.institucion-placeholder {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #087f5b;
+
+    font-size: 35px;
+
+}
+
+
+/* =========================================================
+   TEXTO INSTITUCIÓN
+========================================================= */
+
+.institucion-sigla {
+
+    color: #212529;
+
+    font-size: 1rem;
+
+}
+
+
+.institucion-nombre {
+
+    color: #6c757d;
+
+    font-size: .75rem;
+
+    line-height: 1.4;
+
+    min-height: 34px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.institucion-link {
+
+    display: inline-block;
+
+    color: #087f5b;
+
+    font-size: .72rem;
+
+    font-weight: 700;
+
+    opacity: 0;
+
+    transform: translateY(5px);
+
+    transition: all .2s ease;
+
+}
+
+
+.institucion-card:hover .institucion-link {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-state {
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    border: 1px dashed #ced4da;
+
+    border-radius: 16px;
+
+    background: #fafafa;
+
+}
+
+
+.empty-state i {
+
+    display: block;
+
+    font-size: 45px;
+
+    color: #adb5bd;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .biblioteca-title {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .biblioteca-description {
+
+        font-size: .95rem;
+
+    }
+
+
+    .biblioteca-tabs-wrapper {
+
+        border: none;
+
+        background: transparent;
+
+        padding: 0;
+
+    }
+
+
+    .biblioteca-tab {
+
+        border: 1px solid #e5e9e7;
+
+        background: #fff;
+
+    }
+
+
+    .categoria-header {
+
+        align-items: flex-start;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .biblioteca-title {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .biblioteca-subtitle {
+
+        font-size: 1.2rem;
+
+    }
+
+
+    .institucion-card {
+
+        padding: 18px 8px;
+
+    }
+
+
+    .institucion-imagen {
+
+        width: 75px;
+        height: 75px;
+
+    }
+
+}
+
+</style>
+
+{% endblock %}
 
 {% endblock %}

@@ -2,1040 +2,475 @@
 
 {% load static %}
 
-
 {% block title %}
-Inicio | IAGP
+Biblioteca Virtual Jurídica | IAGP
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="biblioteca-hero py-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+
+            <div class="col-lg-7 text-white">
+
+                <span class="badge bg-light text-success mb-3 px-3 py-2">
+                    BIBLIOTECA VIRTUAL
+                </span>
+
+                <h1 class="display-4 fw-bold mb-3">
+                    Biblioteca Virtual Jurídica
+                </h1>
+
+                <p class="lead mb-4">
+                    Accede de manera rápida y organizada a jurisprudencia,
+                    documentos y fuentes de información jurídica.
+                </p>
+
+            
+
+            </div>
+
+
+            <div class="col-lg-5 text-center mt-5 mt-lg-0">
+
+                <div class="biblioteca-hero-icon">
+                    <i class="bi bi-bank"></i>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- =========================================================
+     CATEGORÍAS
+========================================================= -->
+<section id="categorias" class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-semibold">
+                RECURSOS JURÍDICOS
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Acceso rápido
+            </h2>
+
+            <p class="text-muted">
+                Consulta las principales fuentes de información jurídica.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- JURISPRUDENCIA -->
+            <div class="col-md-6 col-lg-3">
+
+                <a href="{% url 'biblioteca:biblioteca' %}?categoria=jurisprudencia" class="text-decoration-none">
+                
+                    <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                        <div class="card-body text-center p-4">
+
+                            <div class="biblioteca-icon mb-3">
+                                <i class="bi bi-bank"></i>
+                            </div>
+
+                            <h5 class="fw-bold text-dark">
+                                Jurisprudencia
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                Consulta opiniones y pronunciamientos
+                                jurídicos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- NORMATIVA -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="biblioteca-icon mb-3">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Normativa
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Accede a normas y disposiciones
+                            jurídicas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCTRINA -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="biblioteca-icon mb-3">
+                            <i class="bi bi-book"></i>
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Doctrina
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Recursos y referencias de doctrina
+                            jurídica.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENTOS -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="biblioteca-icon mb-3">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Documentos
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Consulta documentos de interés
+                            jurídico.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INSTITUCIONES
+========================================================= -->
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-semibold">
+                FUENTES JURÍDICAS
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Instituciones
+            </h2>
+
+            <p class="text-muted">
+                Consulta información jurídica de las principales
+                instituciones.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 justify-content-center">
+
+
+            <!-- OECE -->
+            <div class="col-md-4">
+
+                <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_activa.slug }}&institucion=1" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-building fs-1 text-success"></i>
+
+                            <h4 class="fw-bold text-dark mt-3">
+                                OECE
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Organismo Especializado para las
+                                Contrataciones Públicas Eficientes.
+                            </p>
+
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+
+            <!-- CONTRALORÍA -->
+            <div class="col-md-4">
+
+                <a href="{% url 'biblioteca:listado' %}?institucion=contraloria"
+                   class="text-decoration-none">
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-building fs-1 text-success"></i>
+
+                            <h4 class="fw-bold text-dark mt-3">
+                                Contraloría
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Información y pronunciamientos
+                                institucionales.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- TRIBUNAL CONSTITUCIONAL -->
+            <div class="col-md-4">
+
+                <a href="{% url 'biblioteca:listado' %}?institucion=tribunal_constitucional"
+                   class="text-decoration-none">
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-bank fs-1 text-success"></i>
+
+                            <h4 class="fw-bold text-dark mt-3">
+                                Tribunal Constitucional
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Jurisprudencia constitucional
+                                y resoluciones.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LLAMADA A LA ACCIÓN
+========================================================= -->
+<section class="py-5 biblioteca-cta">
+
+    <div class="container text-center text-white py-4">
+
+        <i class="bi bi-book-half fs-1 mb-3"></i>
+
+        <h2 class="fw-bold">
+            Explora nuestra Biblioteca Jurídica
+        </h2>
+
+        <p class="lead mb-4">
+            Encuentra información jurídica de manera rápida,
+            organizada y accesible.
+        </p>
+
+        <a href="{% url 'biblioteca:biblioteca' %}"
+           class="btn btn-light btn-lg px-4">
+
+            <i class="bi bi-arrow-right me-2"></i>
+            Ingresar a la biblioteca
+
+        </a>
+
+    </div>
+
+</section>
+
+
 {% endblock %}
 
 
 {% block extra_css %}
 
-<link rel="stylesheet" href="{% static 'home/css/hero.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/eventosenvivo.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/docentes.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/conferenciasenvivo.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/testimonios.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/logros.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/convenios.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/beneficios.css' %}">
-
-{% endblock %}
-
-
-
-{% block content %}
-
-<!-- ========================================= -->
-<!-- HERO -->
-<!-- ========================================= -->
-<section class="section-hero">
-    {% include "home/sections/1hero.html" %}
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- CURSOS -->
-<!-- ========================================= -->
-<section class="home-section">
-
-    <div class="section-header text-center mb-5">
-
-        <h2 class="section-title">
-            Cursos
-        </h2>
-
-    </div>
-
-
-    <!-- PESTAÑAS -->
-    <ul class="nav nav-pills justify-content-center mb-4" id="eventosTab" role="tablist">
-
-        <li class="nav-item">
-
-            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#presenciales" type="button">
-
-                Eventos en Vivo
-
-            </button>
-
-        </li>
-
-
-        <li class="nav-item">
-
-            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#virtuales" type="button">
-
-                Eventos Virtuales
-
-            </button>
-
-        </li>
-
-    </ul>
-
-
-
-    <div class="tab-content container">
-        <!-- ========================================= -->
-        <!-- EVENTOS EN VIVO -->
-        <!-- ========================================= -->
-        <div class="tab-pane fade show active" id="presenciales">
-
-            <!-- BUSCADOR -->
-            <div class="row justify-content-center mb-4">
-
-                <div class="col-lg-6">
-
-                    <div class="input-group">
-
-                        <span class="input-group-text">
-
-                            <i class="bi bi-search"></i>
-
-                        </span>
-
-
-                        <input type="text" id="buscarVivo" class="form-control" placeholder="Buscar curso en vivo...">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CURSOS -->
-            <div class="row g-4" id="listaVivo">
-
-
-                {% for curso in cursos_vivo %}
-
-
-                <div class="col-lg-4 col-md-6 curso-item">
-
-
-                    <div class="course-card">
-
-
-                        <!-- IMAGEN -->
-
-                        <div class="course-image-wrapper">
-
-                            <img src="{{ curso.imagen.url }}" class="course-image" alt="{{ curso.titulo }}">
-
-                        </div>
-
-
-
-                        <!-- CONTENIDO -->
-
-                        <div class="course-body">
-
-
-                            <span class="course-status">
-
-                                Evento en Vivo
-
-                            </span>
-
-
-                            <h5 class="course-title">
-
-                                {{ curso.titulo }}
-
-                            </h5>
-
-
-
-                            <div class="course-info">
-
-
-                                <span>
-
-                                    <i class="bi bi-clock-fill text-danger me-1"></i>
-
-                                    {{ curso.horas }} H
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-calendar-week-fill text-success me-1"></i>
-
-                                    {{ curso.semanas }} semanas
-
-                                </span>
-
-
-                            </div>
-
-
-
-                            <div class="course-date">
-
-                                <i class="bi bi-calendar-event-fill text-warning me-1"></i>
-
-                                {{ curso.fecha_inicio|date:"d/m/Y" }}
-
-                            </div>
-
-
-
-                            <!-- FOOTER -->
-
-                            <div class="course-footer">
-
-                                <img src="{% static 'assets/img/logo.png' %}" width="98" alt="Logo IAGP">
-
-                                <span>
-
-                                    IAGP
-
-                                </span>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-                {% empty %}
-
-
-                <div class="col-12 text-center">
-
-                    <p class="text-muted">
-
-                        No hay cursos en vivo disponibles.
-
-                    </p>
-
-                </div>
-
-
-                {% endfor %}
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- ========================================= -->
-        <!-- EVENTOS VIRTUALES -->
-        <!-- ========================================= -->
-        <div class="tab-pane fade" id="virtuales">
-
-
-            <!-- BUSCADOR -->
-
-            <div class="row justify-content-center mb-4">
-
-                <div class="col-lg-6">
-
-                    <div class="input-group">
-
-                        <span class="input-group-text">
-
-                            <i class="bi bi-search"></i>
-
-                        </span>
-
-
-                        <input type="text" id="buscarVirtual" class="form-control"
-                            placeholder="Buscar curso virtual...">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- CURSOS -->
-
-            <div class="row g-4" id="listaVirtual">
-
-
-                {% for curso in cursos_virtual %}
-
-
-                <div class="col-lg-4 col-md-6 curso-item">
-
-
-                    <div class="course-card">
-
-
-                        <!-- IMAGEN -->
-
-                        <div class="course-image-wrapper">
-
-                            <img src="{{ curso.imagen.url }}" class="course-image" alt="{{ curso.titulo }}">
-
-                        </div>
-
-
-
-                        <!-- CONTENIDO -->
-
-                        <div class="course-body">
-
-
-                            <span class="course-status">
-
-                                Evento Virtual
-
-                            </span>
-
-
-                            <h5 class="course-title">
-
-                                {{ curso.titulo }}
-
-                            </h5>
-
-
-
-                            <div class="course-info">
-
-
-                                <span>
-
-                                    <i class="bi bi-clock-fill text-danger me-1"></i>
-
-                                    {{ curso.horas }} H
-
-                                </span>
-
-
-                                <span>
-
-                                    <i class="bi bi-calendar-week-fill text-success me-1"></i>
-
-                                    {{ curso.semanas }} semanas
-
-                                </span>
-
-
-                            </div>
-
-
-
-                            <div class="course-date">
-
-                                <i class="bi bi-calendar-event-fill text-warning me-1"></i>
-
-                                {{ curso.fecha_inicio|date:"d/m/Y" }}
-
-                            </div>
-
-
-
-                            <!-- FOOTER -->
-
-                            <div class="course-footer">
-
-                                <img src="{% static 'assets/img/logo.png' %}" width="98" alt="Logo IAGP">
-
-                                <span>
-
-                                    IAGP
-
-                                </span>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
-                {% empty %}
-
-
-                <div class="col-12 text-center">
-
-                    <p class="text-muted">
-
-                        No hay cursos virtuales disponibles.
-
-                    </p>
-
-                </div>
-
-
-                {% endfor %}
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-<!-- ========================================= -->
-<!-- BENEFICIOS -->
-<!-- ========================================= -->
-<section class="home-section">
-    {% include "home/sections/4beneficios.html" %}
-</section>
-
-
-
-
-
-
-
-<!-- ========================================= -->
-<!-- DOCENTES -->
-<!-- ========================================= -->
-<section class="py-5">
-    <div class="container">
-
-        <!-- DOCENTES -->
-        <section class="py-5">
-            <div class="container">
-
-                <!-- TÍTULO -->
-                <div class="text-center mb-5">
-                    <h2 class="fw-bold">Nuestros Docentes</h2>
-
-                    <p class="text-muted">
-                        Profesionales que forman parte de nuestra institución.
-                    </p>
-                </div>
-
-                <div class="docentes-slider">
-
-                    <!-- FLECHA IZQUIERDA -->
-                    <button class="docentes-btn docentes-prev" type="button">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-
-                    <!-- CONTENEDOR -->
-                    <div class="docentes-viewport">
-
-                        <div class="docentes-track">
-
-                            {% for docente in docentes %}
-
-                            <div class="docente-item">
-
-                                <div class="card docente-card h-100 border-0 shadow-sm">
-
-                                    <!-- FOTO -->
-                                    <div class="docente-imagen">
-
-                                        {% if docente.foto %}
-
-                                        <img src="{{ docente.foto.url }}" alt="{{ docente.nombre }}" class="img-fluid">
-
-                                        {% else %}
-
-                                        <div class="docente-sin-foto">
-                                            <i class="bi bi-person"></i>
-                                        </div>
-
-                                        {% endif %}
-
-                                    </div>
-
-                                    <!-- INFORMACIÓN -->
-                                    <div class="card-body text-center">
-
-                                        <!-- LOGO -->
-                                        <div class="docente-logo">
-
-                                            <img src="{% static 'home/img/logo.png' %}" alt="Logo del Instituto">
-
-                                        </div>
-
-                                        <!-- NOMBRE -->
-                                        <h4 class="mb-2">
-                                            {{ docente.nombre }}
-                                        </h4>
-
-                                        <!-- CARGO -->
-                                        <span class="docente-cargo mt-1">
-                                            <i class="bi bi-mortarboard-fill"></i>
-                                            Docente
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            {% empty %}
-
-                            <div class="text-center w-100">
-                                <p class="text-muted">
-                                    No hay docentes disponibles.
-                                </p>
-                            </div>
-
-                            {% endfor %}
-
-                        </div>
-
-                    </div>
-
-                    <!-- FLECHA DERECHA -->
-                    <button class="docentes-btn docentes-next" type="button">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
-
-                </div>
-
-            </div>
-        </section>
-
-    </div>
-</section>
-
 <style>
-    /* ================================
-   TARJETA DOCENTE
-================================ */
 
-    .docente-card {
-        border-radius: 20px;
-        overflow: hidden;
-        background: #ffffff;
-        border: 1px solid #e8eee9 !important;
-        transition: all 0.3s ease;
-    }
+    /* =====================================================
+       HERO
+    ===================================================== */
 
-    .docente-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+    .biblioteca-hero {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(0, 70, 45, 0.97),
+                rgba(0, 110, 75, 0.90)
+            );
     }
 
 
-    /* ================================
-   FOTO
-================================ */
+    .biblioteca-hero-icon {
+        width: 220px;
+        height: 220px;
 
-    .docente-imagen {
-        height: 280px;
-        overflow: hidden;
-        background: #f3f7f4;
-    }
+        margin: auto;
 
-    .docente-imagen img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-    }
-
-    .docente-card:hover .docente-imagen img {
-        transform: scale(1.05);
-    }
-
-
-    /* ================================
-   LOGO DEL INSTITUTO
-================================ */
-
-    .docente-logo {
-        width: 80px;
-        height: 80px;
-        margin: -38px auto 12px;
-        background: #ffffff;
         border-radius: 50%;
-        padding: 7px;
-        position: relative;
-        z-index: 2;
-        border: 3px solid #198754;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 
         display: flex;
         align-items: center;
         justify-content: center;
-    }
 
-    .docente-logo img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+        background: rgba(255,255,255,0.10);
 
+        border: 1px solid rgba(255,255,255,0.25);
 
-    /* ================================
-   NOMBRE
-================================ */
-
-    .docente-card h5 {
-        color: #212529;
-        font-size: 1.05rem;
+        box-shadow:
+            0 20px 50px rgba(0,0,0,0.20);
     }
 
 
-    /* ================================
-   ETIQUETA DOCENTE
-================================ */
+    .biblioteca-hero-icon i {
+        font-size: 100px;
+        color: white;
+    }
 
-    .docente-cargo {
-        display: inline-flex;
+
+    /* =====================================================
+       CARDS
+    ===================================================== */
+
+    .biblioteca-card {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    .biblioteca-card:hover {
+        transform: translateY(-6px);
+
+        box-shadow:
+            0 12px 30px rgba(0,0,0,0.12) !important;
+    }
+
+
+    .biblioteca-icon {
+        width: 70px;
+        height: 70px;
+
+        margin: auto;
+
+        border-radius: 50%;
+
+        display: flex;
         align-items: center;
-        gap: 6px;
+        justify-content: center;
 
-        padding: 6px 14px;
+        background: rgba(25,135,84,0.10);
 
-        border: 1px solid #198754;
-        border-radius: 50px;
-
-        background: #f0fff7;
         color: #198754;
 
-        font-size: 0.85rem;
-        font-weight: 600;
-
-        transition: all 0.3s ease;
-    }
-
-    .docente-cargo i {
-        font-size: 0.9rem;
-    }
-
-    .docente-card:hover .docente-cargo {
-        background: #198754;
-        color: #ffffff;
+        font-size: 32px;
     }
 
 
-    /* =================================
-   CARRUSEL DE DOCENTES
-================================= */
+    /* =====================================================
+       CTA
+    ===================================================== */
 
-    .docentes-carrusel {
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 15px 5px 25px;
-
-        scroll-behavior: smooth;
-
-        scrollbar-width: thin;
+    .biblioteca-cta {
+        background:
+            linear-gradient(
+                135deg,
+                #006b46,
+                #198754
+            );
     }
 
-    .docentes-track {
-        display: flex;
-        gap: 24px;
-    }
 
-    /* Cada docente */
-
-    .docente-item {
-        flex: 0 0 calc(25% - 18px);
-        min-width: 250px;
-    }
-
-    /* Tablet */
-
-    @media (max-width: 992px) {
-
-        .docente-item {
-            flex: 0 0 calc(33.333% - 16px);
-        }
-
-    }
-
-    /* Móvil */
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
 
     @media (max-width: 768px) {
 
-        .docente-item {
-            flex: 0 0 calc(50% - 12px);
+        .biblioteca-hero h1 {
+            font-size: 2.3rem;
+        }
+
+        .biblioteca-hero-icon {
+            width: 160px;
+            height: 160px;
+        }
+
+        .biblioteca-hero-icon i {
+            font-size: 70px;
         }
 
     }
 
-    /* Celular pequeño */
-
-    @media (max-width: 576px) {
-
-        .docente-item {
-            flex: 0 0 85%;
-        }
-
-    }
-
-    /* =========================================
-   SLIDER DOCENTES
-========================================= */
-
-    .docentes-slider {
-        position: relative;
-        width: 100%;
-        padding: 0 65px;
-    }
-
-    .docentes-viewport {
-        overflow: hidden;
-        width: 100%;
-    }
-
-    .docentes-track {
-        display: flex;
-        gap: 24px;
-        transition: transform 0.6s ease;
-        will-change: transform;
-    }
-
-    .docente-item {
-        flex: 0 0 calc(25% - 18px);
-    }
-
-    /* =========================================
-   BOTONES
-========================================= */
-
-    .docentes-btn {
-        position: absolute;
-
-        top: 50%;
-        transform: translateY(-50%);
-
-        width: 42px;
-        height: 42px;
-
-        border: none;
-        border-radius: 50%;
-
-        background: #198754;
-        color: white;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 20px;
-
-        z-index: 10;
-
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-        transition: all 0.3s ease;
-    }
-
-    .docentes-btn:hover {
-        background: #146c43;
-        transform: translateY(-50%) scale(1.08);
-    }
-
-    .docentes-prev {
-        left: 0;
-    }
-
-    .docentes-next {
-        right: 0;
-    }
-
-
-    /* =========================================
-   TABLET
-========================================= */
-
-    @media (max-width: 992px) {
-
-        .docente-item {
-            flex: 0 0 calc(33.333% - 16px);
-        }
-
-    }
-
-
-    /* =========================================
-   MÓVIL
-========================================= */
-
-    @media (max-width: 768px) {
-
-        .docentes-slider {
-            padding: 0 35px;
-        }
-
-        .docente-item {
-            flex: 0 0 calc(50% - 12px);
-        }
-
-    }
-
-
-    /* =========================================
-   CELULAR PEQUEÑO
-========================================= */
-
-    @media (max-width: 576px) {
-
-        .docentes-slider {
-            padding: 0 30px;
-        }
-
-        .docente-item {
-            flex: 0 0 100%;
-        }
-
-        .docentes-btn {
-            width: 36px;
-            height: 36px;
-            font-size: 16px;
-        }
-
-    }
 </style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-        const track = document.querySelector(".docentes-track");
-        const slider = document.querySelector(".docentes-slider");
-        const nextBtn = document.querySelector(".docentes-next");
-        const prevBtn = document.querySelector(".docentes-prev");
-
-        if (!track) return;
-
-        const items = Array.from(
-            track.querySelectorAll(".docente-item")
-        );
-
-        if (items.length === 0) return;
-
-        let currentIndex = 0;
-        let autoSlide;
-
-        function getVisibleItems() {
-
-            if (window.innerWidth <= 576) {
-                return 1;
-            }
-
-            if (window.innerWidth <= 768) {
-                return 2;
-            }
-
-            if (window.innerWidth <= 992) {
-                return 3;
-            }
-
-            return 4;
-        }
-
-        function updateSlider() {
-
-            const visibleItems = getVisibleItems();
-
-            const maxIndex = Math.max(
-                0,
-                items.length - visibleItems
-            );
-
-            if (currentIndex > maxIndex) {
-                currentIndex = 0;
-            }
-
-            const itemWidth = items[0].offsetWidth;
-            const gap = 24;
-
-            const movement =
-                currentIndex * (itemWidth + gap);
-
-            track.style.transform =
-                `translateX(-${movement}px)`;
-        }
-
-        function nextSlide() {
-
-            const visibleItems = getVisibleItems();
-
-            const maxIndex = Math.max(
-                0,
-                items.length - visibleItems
-            );
-
-            currentIndex++;
-
-            if (currentIndex > maxIndex) {
-                currentIndex = 0;
-            }
-
-            updateSlider();
-        }
-
-        function previousSlide() {
-
-            const visibleItems = getVisibleItems();
-
-            const maxIndex = Math.max(
-                0,
-                items.length - visibleItems
-            );
-
-            currentIndex--;
-
-            if (currentIndex < 0) {
-                currentIndex = maxIndex;
-            }
-
-            updateSlider();
-        }
-
-        function startAutoSlide() {
-
-            stopAutoSlide();
-
-            if (items.length > getVisibleItems()) {
-
-                autoSlide = setInterval(
-                    nextSlide,
-                    4000
-                );
-
-            }
-        }
-
-        function stopAutoSlide() {
-
-            if (autoSlide) {
-                clearInterval(autoSlide);
-            }
-
-        }
-
-        /* BOTÓN SIGUIENTE */
-
-        nextBtn.addEventListener(
-            "click",
-            function () {
-
-                nextSlide();
-                startAutoSlide();
-
-            }
-        );
-
-        /* BOTÓN ANTERIOR */
-
-        prevBtn.addEventListener(
-            "click",
-            function () {
-
-                previousSlide();
-                startAutoSlide();
-
-            }
-        );
-
-        /* PAUSA AL PASAR EL MOUSE */
-
-        slider.addEventListener(
-            "mouseenter",
-            stopAutoSlide
-        );
-
-        slider.addEventListener(
-            "mouseleave",
-            startAutoSlide
-        );
-
-        /* RESPONSIVE */
-
-        window.addEventListener(
-            "resize",
-            function () {
-
-                updateSlider();
-                startAutoSlide();
-
-            }
-        );
-
-        /* INICIAR */
-
-        updateSlider();
-        startAutoSlide();
-
-    });
-</script>
-
-
-
-
-
-
-
-
-
-<!-- ========================================= -->
-<!-- CONVENIOS -->
-<!-- ========================================= -->
-<section class="home-section">
-    {% include "home/sections/6convenios.html" %}
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- CONFERENCIAS -->
-<!-- ========================================= -->
-<section class="home-section">
-    {% include "home/sections/7conferenciasenvivo.html" %}
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- TESTIMONIOS -->
-<!-- ========================================= -->
-<section class="home-section">
-    {% include "home/sections/8testimonios.html" %}
-</section>
-
-
-
-<!-- ========================================= -->
-<!-- LOGROS -->
-<!-- ========================================= -->
-<section class="home-section">
-    {% include "home/sections/9logros.html" %}
-</section>
-
-{% endblock %}
-
-
-
-
-{% block extra_js %}
-<script src="{% static 'home/js/hero.js' %}"></script>
 {% endblock %}

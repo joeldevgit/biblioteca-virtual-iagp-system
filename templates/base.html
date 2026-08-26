@@ -71,6 +71,9 @@
                         <a class="nav-link active" href="{% url 'home' %}">Inicio</a>
                     </li>
 
+
+                   
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="nosotrosDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,42 +104,36 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'catalogo:index' %}">
-                            Catálogo Académico
+                        <a class="nav-link" href="{% url 'biblioteca:biblioteca' %}">Biblioteca</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            Publicaciones
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'blog:index' %}">
-                            Blog
+                        <a class="nav-link" href=""">
+                            Actividades
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Servicios</a>
-                    </li>
+                  
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contacto:index' %}">
+                        <a class="nav-link"
+                        href="https://wa.me/51939393006"
+                        target="_blank"
+                        rel="noopener noreferrer">
                             Contáctanos
                         </a>
                     </li>
 
                 </ul>
 
-                <div class="d-flex gap-2 mt-3 mt-lg-0">
-
-                    <a href="{% url 'inscripciones:index' %}" class="btn btn-success rounded-pill px-4 fw-semibold">
-                        Preinscripción
-                    </a>
-
-
-                    <a href="https://campus.iagp.edu.pe/login/index.php"
-                        class="btn btn-success rounded-pill px-4 fw-semibold" target="_blank" rel="noopener">
-                        Campus
-                    </a>
-
-                </div>
+       
 
             </div>
 
@@ -205,9 +202,12 @@
                     </div>
 
                     <!-- Botón -->
-                    <div class="col-lg-4 text-lg-end text-center mt-4 mt-lg-0">
+                   <div class="col-lg-4 text-lg-end text-center mt-4 mt-lg-0">
 
-                        <a href="#" class="btn btn-contact">
+                        <a href="https://wa.me/51939393006" 
+                        class="btn btn-contact"
+                        target="_blank"
+                        rel="noopener noreferrer">
 
                             Contáctanos Ahora
 
