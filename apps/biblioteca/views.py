@@ -11,113 +11,102 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 
-
-
 def biblioteca(request):
 
-    categorias = Categoria.objects.filter(
-        activo=True
+    # =====================================================
+    # CATEGORÍAS
+    # =====================================================
+    categorias = ( 
+        Categoria.objects 
+        .filter(activo=True) 
+        .order_by("nombre") 
     )
 
     categoria_slug = request.GET.get("categoria")
 
     if categoria_slug:
+
         categoria_activa = get_object_or_404(
             categorias,
             slug=categoria_slug
         )
+
     else:
+
         categoria_activa = categorias.first()
 
 
     # =====================================================
-    # TIPOS
+    # DATOS DE LA CATEGORÍA ACTIVA
     # =====================================================
 
-    tipos = (
-        TipoDocumento.objects
-        .filter(
-            activo=True,
-            categoria=categoria_activa,
+    tipos = TipoDocumento.objects.none()
+    documentos = Documento.objects.none()
+    instituciones = Institucion.objects.none()
+
+
+    if categoria_activa:
+
+        # =================================================
+        # TIPOS DE DOCUMENTO
+        # =================================================
+
+        tipos = (
+            TipoDocumento.objects
+            .filter(
+                activo=True,
+                categoria=categoria_activa,
+            )
+            .order_by("nombre")
         )
-        .order_by("nombre")
-    )
 
 
-    # =====================================================
-    # OPINIONES POR DEFECTO
-    # =====================================================
 
-    tipo_opiniones = tipos.filter(
-        nombre__iexact="Opiniones"
-    ).first()
+   
+        # =================================================
+        # INSTITUCIONES
+        # =================================================
 
-    if not tipo_opiniones:
-
-        tipo_opiniones = tipos.filter(
-            nombre__iexact="Opinión"
-        ).first()
-
-
-    # =====================================================
-    # TIPO SELECCIONADO
-    # =====================================================
-
-    tipo_seleccionado = (
-        tipo_opiniones.id
-        if tipo_opiniones
-        else None
-    )
-
-
-    # =====================================================
-    # DOCUMENTOS
-    # =====================================================
-
-    documentos = (
-        Documento.objects
-        .filter(
-            activo=True,
-            categoria=categoria_activa,
-            tipo_id=tipo_seleccionado,
+        instituciones = (
+            Institucion.objects
+            .filter(
+                activo=True,
+                documentos__categoria=categoria_activa,
+                documentos__activo=True,
+            )
+            .distinct()
+            .order_by("nombre")
         )
-        .select_related(
-            "categoria",
-            "institucion",
-            "tipo",
-        )
-    )
 
 
     # =====================================================
-    # INSTITUCIONES
+    # CONTEXTO
     # =====================================================
 
-    instituciones = (
-        Institucion.objects
-        .filter(
-            activo=True,
-            documentos__categoria=categoria_activa,
-            documentos__activo=True,
-        )
-        .distinct()
-        .order_by("nombre")
-    )
+    context = {
+
+        "categorias": categorias,
+
+        "categoria_activa":
+            categoria_activa,
+
+        "instituciones":
+            instituciones,
+
+        "tipos":
+            tipos,
+
+    }
 
 
     return render(
         request,
         "biblioteca/biblioteca.html",
-        {
-            "categorias": categorias,
-            "categoria_activa": categoria_activa,
-            "documentos": documentos,
-            "instituciones": instituciones,
-            "tipos": tipos,
-
-            "tipo_seleccionado": tipo_seleccionado,
-        }
+        context
     )
+
+
+
 
 
 
@@ -243,7 +232,6 @@ def listado_documentos(request):
     # =====================================================
     # CATEGORÍAS
     # =====================================================
-
     categorias = (
         Categoria.objects
         .filter(activo=True)

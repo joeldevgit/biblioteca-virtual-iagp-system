@@ -12,41 +12,105 @@ Biblioteca Virtual Jurídica | IAGP
 <!-- =========================================================
      HERO
 ========================================================= -->
-<section class="biblioteca-hero py-5">
-    <div class="container py-5">
-        <div class="row align-items-center">
-
-            <div class="col-lg-7 text-white">
+<section class="biblioteca-hero">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-9 text-white">
 
                 <span class="badge bg-light text-success mb-3 px-3 py-2">
                     BIBLIOTECA VIRTUAL
                 </span>
 
-                <h1 class="display-4 fw-bold mb-3">
+                <h1 class="display-3 fw-bold mb-3">
                     Biblioteca Virtual Jurídica
                 </h1>
 
-                <p class="lead mb-4">
+                <p class="lead mb-0">
                     Accede de manera rápida y organizada a jurisprudencia,
                     documentos y fuentes de información jurídica.
                 </p>
 
-            
-
             </div>
-
-
-            <div class="col-lg-5 text-center mt-5 mt-lg-0">
-
-                <div class="biblioteca-hero-icon">
-                    <i class="bi bi-bank"></i>
-                </div>
-
-            </div>
-
         </div>
     </div>
 </section>
+
+
+
+<!-- =========================================================
+     CSS HERO
+========================================================= -->
+
+<style>
+
+.biblioteca-hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 70, 45, 0.82),
+            rgba(0, 70, 45, 0.82)
+        ),
+        url("https://images.crexi.com/lease-assets/1072410/5ef5ce0755fe41edac97c81d60b64237_3000x2000_resize.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.biblioteca-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.biblioteca-hero h1 {
+    letter-spacing: -1px;
+}
+
+.biblioteca-hero p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.biblioteca-hero .badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .biblioteca-hero {
+        min-height: 430px;
+        padding: 60px 20px;
+    }
+
+    .biblioteca-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .biblioteca-hero p {
+        font-size: 1rem;
+    }
+
+}
+
+</style>
 
 
 
@@ -255,7 +319,7 @@ Biblioteca Virtual Jurídica | IAGP
             <!-- CONTRALORÍA -->
             <div class="col-md-4">
 
-                <a href="{% url 'biblioteca:listado' %}?institucion=contraloria"
+                <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_activa.slug }}&institucion=2"
                    class="text-decoration-none">
 
                     <div class="card border-0 shadow-sm h-100">

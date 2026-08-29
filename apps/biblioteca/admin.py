@@ -107,3 +107,36 @@ class DocumentoAdmin(admin.ModelAdmin):
         "-anio",
         "-fecha",
     )
+
+
+# ==========================================================
+# ORDEN PERSONALIZADO DE LOS MODELOS EN EL ADMIN
+# ==========================================================
+
+_original_get_app_list = admin.site.get_app_list
+
+
+def get_app_list(request, app_label=None):
+    app_list = _original_get_app_list(request, app_label)
+
+    orden_biblioteca = {
+        "Categoria": 1,
+        "Institucion": 2,
+        "TipoDocumento": 3,
+        "Documento": 4,
+    }
+
+    for app in app_list:
+        if app["app_label"] == "biblioteca":
+
+            app["models"].sort(
+                key=lambda model: orden_biblioteca.get(
+                    model["object_name"],
+                    999
+                )
+            )
+
+    return app_list
+
+
+admin.site.get_app_list = get_app_list
