@@ -1,0 +1,74 @@
+<tbody id="tablaDocumentos">
+
+    {% for documento in documentos %}
+
+    <tr>
+
+        <td class="text-center">
+            <span class="badge bg-secondary">
+                {{ forloop.counter }}
+            </span>
+        </td>
+
+        <td>
+            <strong>
+                {{ documento.titulo }}
+            </strong>
+        </td>
+
+        <td>
+            {% if documento.tema %}
+                {{ documento.tema }}
+            {% else %}
+                —
+            {% endif %}
+        </td>
+
+        <td>
+            {% if documento.fecha %}
+                {{ documento.fecha|date:"d/m/Y" }}
+            {% else %}
+                —
+            {% endif %}
+        </td>
+
+        <td class="text-center">
+
+            {% if documento.pdf_url %}
+
+                <a href="{{ documento.pdf_url }}"
+                   target="_blank"
+                   class="btn btn-sm btn-danger">
+
+                    <i class="bi bi-file-earmark-pdf-fill"></i>
+                    PDF
+
+                </a>
+
+            {% else %}
+
+                —
+
+            {% endif %}
+
+        </td>
+
+    </tr>
+
+    {% empty %}
+
+    <tr>
+
+        <td colspan="5" class="text-center py-5">
+
+            <div class="text-muted">
+                📭 No se encontraron documentos.
+            </div>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</tbody>

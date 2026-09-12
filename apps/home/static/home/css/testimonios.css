@@ -1,0 +1,86 @@
+
+/* =======================================================
+   TESTIMONIOS
+======================================================= */
+.testimonials{
+
+    background:#f8f9fa;
+
+}
+
+.testimonial-card{
+
+    max-width:800px;
+
+    margin:auto;
+
+    background:#fff;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+}
+
+.testimonial-card img{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+    border:5px solid #F7941D;
+
+}
+
+.testimonial-card p{
+
+    font-size:20px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    font-style:italic;
+
+}
+
+.testimonial-card h4{
+
+    margin-top:30px;
+
+    font-weight:700;
+
+}
+
+.testimonial-card span{
+
+    color:#F7941D;
+
+    font-weight:600;
+
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon{
+
+    background-color:#0A4A8A;
+
+    border-radius:50%;
+
+    padding:20px;
+
+}
+
+

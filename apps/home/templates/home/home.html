@@ -1,0 +1,540 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Biblioteca Virtual Jurídica | IAGP
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="biblioteca-hero">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-9 text-white">
+
+                <span class="badge bg-light text-success mb-3 px-3 py-2">
+                    BIBLIOTECA VIRTUAL
+                </span>
+
+                <h1 class="display-3 fw-bold mb-3">
+                    Biblioteca Virtual Jurídica
+                </h1>
+
+                <p class="lead mb-0">
+                    Accede de manera rápida y organizada a jurisprudencia,
+                    documentos y fuentes de información jurídica.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- =========================================================
+     CSS HERO
+========================================================= -->
+
+<style>
+
+.biblioteca-hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 70, 45, 0.82),
+            rgba(0, 70, 45, 0.82)
+        ),
+        url("https://images.crexi.com/lease-assets/1072410/5ef5ce0755fe41edac97c81d60b64237_3000x2000_resize.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.biblioteca-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.biblioteca-hero h1 {
+    letter-spacing: -1px;
+}
+
+.biblioteca-hero p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.biblioteca-hero .badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .biblioteca-hero {
+        min-height: 430px;
+        padding: 60px 20px;
+    }
+
+    .biblioteca-hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .biblioteca-hero p {
+        font-size: 1rem;
+    }
+
+}
+
+</style>
+
+
+
+
+
+<!-- =========================================================
+     CATEGORÍAS
+========================================================= -->
+<section id="categorias" class="py-5">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-semibold">
+                RECURSOS JURÍDICOS
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Acceso rápido
+            </h2>
+
+            <p class="text-muted">
+                Consulta las principales fuentes de información jurídica.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- JURISPRUDENCIA -->
+            <div class="col-md-6 col-lg-3">
+
+                <a href="{% url 'biblioteca:biblioteca' %}?categoria=jurisprudencia" class="text-decoration-none">
+                
+                    <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                        <div class="card-body text-center p-4">
+
+                            <div class="biblioteca-icon mb-3">
+                                <i class="bi bi-bank"></i>
+                            </div>
+
+                            <h5 class="fw-bold text-dark">
+                                Jurisprudencia
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                Consulta opiniones y pronunciamientos
+                                jurídicos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- NORMATIVA -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="biblioteca-icon mb-3">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Normativa
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Accede a normas y disposiciones
+                            jurídicas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCTRINA -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="biblioteca-icon mb-3">
+                            <i class="bi bi-book"></i>
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Doctrina
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Recursos y referencias de doctrina
+                            jurídica.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENTOS -->
+            <div class="col-md-6 col-lg-3">
+
+                <div class="card h-100 border-0 shadow-sm biblioteca-card">
+
+                    <div class="card-body text-center p-4">
+
+                        <div class="biblioteca-icon mb-3">
+                            <i class="bi bi-folder2-open"></i>
+                        </div>
+
+                        <h5 class="fw-bold">
+                            Documentos
+                        </h5>
+
+                        <p class="text-muted mb-0">
+                            Consulta documentos de interés
+                            jurídico.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INSTITUCIONES
+========================================================= -->
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="text-success fw-semibold">
+                FUENTES JURÍDICAS
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                Instituciones
+            </h2>
+
+            <p class="text-muted">
+                Consulta información jurídica de las principales
+                instituciones.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 justify-content-center">
+
+
+            <!-- OECE -->
+            <div class="col-md-4">
+
+                <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_activa.slug }}&institucion=1" class="text-decoration-none">
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-building fs-1 text-success"></i>
+
+                            <h4 class="fw-bold text-dark mt-3">
+                                OECE
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Organismo Especializado para las
+                                Contrataciones Públicas Eficientes.
+                            </p>
+
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+
+            <!-- CONTRALORÍA -->
+            <div class="col-md-4">
+
+                <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_activa.slug }}&institucion=2"
+                   class="text-decoration-none">
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-building fs-1 text-success"></i>
+
+                            <h4 class="fw-bold text-dark mt-3">
+                                Contraloría
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Información y pronunciamientos
+                                institucionales.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- TRIBUNAL CONSTITUCIONAL -->
+            <div class="col-md-4">
+
+                <a href="{% url 'biblioteca:listado' %}?institucion=tribunal_constitucional"
+                   class="text-decoration-none">
+
+                    <div class="card border-0 shadow-sm h-100">
+
+                        <div class="card-body text-center p-4">
+
+                            <i class="bi bi-bank fs-1 text-success"></i>
+
+                            <h4 class="fw-bold text-dark mt-3">
+                                Tribunal Constitucional
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Jurisprudencia constitucional
+                                y resoluciones.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LLAMADA A LA ACCIÓN
+========================================================= -->
+<section class="py-5 biblioteca-cta">
+
+    <div class="container text-center text-white py-4">
+
+        <i class="bi bi-book-half fs-1 mb-3"></i>
+
+        <h2 class="fw-bold">
+            Explora nuestra Biblioteca Jurídica
+        </h2>
+
+        <p class="lead mb-4">
+            Encuentra información jurídica de manera rápida,
+            organizada y accesible.
+        </p>
+
+        <a href="{% url 'biblioteca:biblioteca' %}"
+           class="btn btn-light btn-lg px-4">
+
+            <i class="bi bi-arrow-right me-2"></i>
+            Ingresar a la biblioteca
+
+        </a>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+
+
+{% block extra_css %}
+
+<style>
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .biblioteca-hero {
+        background:
+            linear-gradient(
+                135deg,
+                rgba(0, 70, 45, 0.97),
+                rgba(0, 110, 75, 0.90)
+            );
+    }
+
+
+    .biblioteca-hero-icon {
+        width: 220px;
+        height: 220px;
+
+        margin: auto;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(255,255,255,0.10);
+
+        border: 1px solid rgba(255,255,255,0.25);
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,0.20);
+    }
+
+
+    .biblioteca-hero-icon i {
+        font-size: 100px;
+        color: white;
+    }
+
+
+    /* =====================================================
+       CARDS
+    ===================================================== */
+
+    .biblioteca-card {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    .biblioteca-card:hover {
+        transform: translateY(-6px);
+
+        box-shadow:
+            0 12px 30px rgba(0,0,0,0.12) !important;
+    }
+
+
+    .biblioteca-icon {
+        width: 70px;
+        height: 70px;
+
+        margin: auto;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(25,135,84,0.10);
+
+        color: #198754;
+
+        font-size: 32px;
+    }
+
+
+    /* =====================================================
+       CTA
+    ===================================================== */
+
+    .biblioteca-cta {
+        background:
+            linear-gradient(
+                135deg,
+                #006b46,
+                #198754
+            );
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 768px) {
+
+        .biblioteca-hero h1 {
+            font-size: 2.3rem;
+        }
+
+        .biblioteca-hero-icon {
+            width: 160px;
+            height: 160px;
+        }
+
+        .biblioteca-hero-icon i {
+            font-size: 70px;
+        }
+
+    }
+
+</style>
+
+{% endblock %}

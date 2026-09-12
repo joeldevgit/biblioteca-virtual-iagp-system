@@ -1,0 +1,50 @@
+
+/*==================================================
+BENEFITS
+==================================================*/
+
+.benefits {
+
+    background: #f8f9fa;
+
+}
+
+.benefit-card {
+
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: .35s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    height: 100%;
+
+}
+
+.benefit-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+
+}
+
+.benefit-card i {
+
+    font-size: 55px;
+    color: #F7941D;
+    margin-bottom: 20px;
+
+}
+
+.benefit-card h4 {
+
+    font-weight: 700;
+    margin-bottom: 15px;
+
+}
+
+.benefit-card p {
+
+    color: #666;
+}

@@ -1,0 +1,91 @@
+{% load static %}
+
+<section class="hero-section">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- Columna Izquierda -->
+            <div class="col-lg-9">
+
+                <div class="video-box mb-4">
+                    <video autoplay muted loop playsinline>
+                        <source src="{% static 'home/img/hero/iagp_video.mp4' %}" type="video/mp4">
+                    </video>
+                </div>
+
+                <!-- Tarjetas inferiores -->
+                <div class="row g-3">
+
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <img src="{% static 'home/img/hero/capacitacion.jpg' %}" alt="">
+                            <div class="overlay">
+                                <h3>Líderes en capacitación a nivel Nacional</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="info-card">
+                            <img src="{% static 'home/img/hero/consultoria.jpg' %}" alt="">
+                            <div class="overlay">
+                                <h3>Consultoría y Asesoría Legal</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha -->
+            <div class="col-lg-3">
+
+                <a href="https://iagp.edu.pe/wp-content/uploads/2026/06/Ley-y-Reglamento-2026-actualizado.pdf"
+                    class="menu-item">
+                    <i class="bi bi-journal-bookmark-fill"></i>
+                    Ley de Contrataciones del Estado
+                </a>
+
+
+
+
+
+                <a href="http://iagp.edu.pe/wp-content/uploads/2024/05/PROCEDIMIENTO-ADMINISTRATIVO-ACTUALIZADA-A-MAYO-2023.pdf"
+                    class="menu-item">
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                    Ley de Procedimiento Administrativo
+                </a>
+
+             
+                <a href="https://wa.me/51939393006" class="menu-item" target="_blank">
+                    <i class="bi bi-person-workspace"></i>
+                    Orientación Legal sin Cargo
+                </a>
+
+                <a href="{% url 'biblioteca:biblioteca' %}" class="menu-item">
+                    <i class="bi bi-book-half me-3"></i>
+                    Biblioteca Virtual
+                </a>
+
+                <div class="widget-box">
+
+                    <div id="fb-root"></div>
+
+                    <script async defer crossorigin="anonymous"
+                        src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v23.0"></script>
+
+                    <div class="fb-page" data-href="https://www.facebook.com/IAGP.PAGINAOFICIAL" data-tabs="timeline"
+                        data-width="500" data-height="700" data-small-header="false" data-adapt-container-width="true"
+                        data-hide-cover="false" data-show-facepile="true">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

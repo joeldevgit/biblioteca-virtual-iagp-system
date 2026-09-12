@@ -1,0 +1,49 @@
+
+/* =======================================================
+   CONVENIOS
+======================================================= */
+/*==================================================
+CONVENIOS
+==================================================*/
+
+.agreements {
+
+    background: #f8f9fa;
+
+}
+
+.agreement-card {
+
+    background: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    height: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.agreement-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .15);
+
+}
+
+.agreement-card img {
+
+    width: 90%;
+    height: 160px;
+    object-fit: contain;
+
+}
+
+.agreement-card:hover img {
+
+    filter: none;
+    transform: scale(1.08);
+
+}

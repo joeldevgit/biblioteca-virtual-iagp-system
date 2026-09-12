@@ -1,0 +1,123 @@
+
+/* =======================================================
+   HERO
+======================================================= */
+/*==================================================
+HERO
+==================================================*/
+.hero-section{
+    padding:20px;
+    background:#f8f8f8;
+}
+
+/* Video */
+
+.video-box{
+    height:520px;
+    overflow:hidden;
+    border-radius:6px;
+}
+
+.video-box video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Botones */
+
+.menu-item{
+    display:block;
+    background:#63c48d;
+    color:#fff;
+    padding:14px 18px;
+    margin-bottom:10px;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:4px;
+    transition:.3s;
+}
+
+.menu-item:hover{
+    background:#43a96d;
+    color:#fff;
+}
+
+/* Facebook */
+
+.widget-box{
+    margin-top:15px;
+    border:1px solid #ddd;
+    padding:8px;
+    background:#fff;
+}
+
+.widget-box img{
+    width:100%;
+}
+
+/* Tarjetas inferiores */
+
+.info-card{
+    position:relative;
+    height:250px;
+    overflow:hidden;
+    border-radius:6px;
+}
+
+.info-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.info-card:hover img{
+    transform:scale(1.08);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.overlay h3{
+    font-size:30px;
+    font-weight:bold;
+}
+
+
+.menu-item i {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    width: 22px; /* Mantiene todos los textos alineados */
+    text-align: center;
+}
+
+ 
+
+
+
+.widget-box{
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.fb-page,
+.fb-page span,
+.fb-page iframe{
+    width:100% !important;
+}
+
+
+
+

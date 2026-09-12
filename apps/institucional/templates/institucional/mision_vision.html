@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="institucional py-5">
+
+    <div class="container">
+
+        <!-- Título -->
+        <div class="text-center mb-5">
+
+            <span class="badge bg-primary px-3 py-2 mb-3">
+                Institucional
+            </span>
+
+            <h1 class="display-5 fw-bold">
+                Misión, Visión y Compromiso
+            </h1>
+
+            <div class="linea-titulo mx-auto"></div>
+
+        </div>
+
+
+        <!-- Misión y Visión -->
+        <div class="row g-4 mb-5">
+
+            <!-- Misión -->
+            <div class="col-lg-6">
+
+                <div class="card-institucional h-100">
+
+                    <div class="icono">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+
+                    <h2>
+                        Misión
+                    </h2>
+
+                    <p>
+                        Es contribuir a formar gestores públicos, empresarios,
+                        emprendedores y ejecutivos que lideren el cambio y la
+                        transformación en las instituciones y organismos del
+                        sector público y privado mediante la innovación,
+                        el espíritu emprendedor y valores éticos.
+                    </p>
+
+                    <p>
+                        Nuestro objetivo es transmitir a los alumnos y participantes
+                        la capacidad de innovar y emprender, promoviendo el aprendizaje
+                        sin límites y la actualización permanente.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Visión -->
+            <div class="col-lg-6">
+
+                <div class="card-institucional h-100">
+
+                    <div class="icono">
+                        <i class="bi bi-eye"></i>
+                    </div>
+
+                    <h2>
+                        Visión
+                    </h2>
+
+                    <p>
+                        Ser una institución de prestigio a nivel nacional con
+                        proyección internacional, reconocida por sus estándares
+                        de máxima calidad en el ámbito educativo.
+                    </p>
+
+                    <p>
+                        Ser referente mundial por nuestra formación basada en
+                        la innovación, el liderazgo y el espíritu emprendedor.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Apostamos por -->
+
+        <div class="apostamos">
+
+            <div class="text-center mb-4">
+
+                <h2 class="fw-bold">
+                    Apostamos por
+                </h2>
+
+                <p class="text-muted">
+                    La innovación, tecnología y excelencia educativa como pilares
+                    fundamentales de nuestra formación.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-md-6">
+                    <div class="item-apuesta">
+                        <i class="bi bi-laptop"></i>
+                        <p>
+                            El uso de nuevas tecnologías y la innovación en el
+                            aprendizaje como base fundamental de la formación.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="item-apuesta">
+                        <i class="bi bi-people"></i>
+                        <p>
+                            La utilización de casos prácticos y simulaciones como
+                            eje central de la enseñanza, preparando al alumno para
+                            afrontar situaciones reales.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="item-apuesta">
+                        <i class="bi bi-lightbulb"></i>
+                        <p>
+                            Incorporar las últimas tendencias e innovaciones en
+                            cada área del conocimiento.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="item-apuesta">
+                        <i class="bi bi-person-workspace"></i>
+                        <p>
+                            Contar con profesores especializados, con experiencia
+                            profesional y conocimiento actualizado.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="item-apuesta">
+                        <i class="bi bi-person-check"></i>
+                        <p>
+                            Que nuestros profesores sean mentores de cada participante,
+                            guiándolo durante todo su proceso de formación.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="item-apuesta">
+                        <i class="bi bi-chat-square-text"></i>
+                        <p>
+                            Que nuestros participantes sean proactivos, analicen,
+                            expresen sus opiniones y desarrollen su capacidad
+                            para tomar decisiones.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+.institucional {
+    background:#f8fafc;
+}
+
+
+.linea-titulo {
+    width:80px;
+    height:4px;
+    background:#0d4b8e;
+    border-radius:10px;
+}
+
+
+.card-institucional {
+
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+
+}
+
+
+.card-institucional:hover {
+
+    transform:translateY(-8px);
+
+}
+
+
+.card-institucional h2 {
+
+    font-weight:700;
+    color:#0d4b8e;
+    margin-bottom:20px;
+
+}
+
+
+.card-institucional p {
+
+    color:#6b7280;
+    line-height:1.8;
+
+}
+
+
+.icono {
+
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef5ff;
+    border-radius:50%;
+    font-size:28px;
+    color:#0d4b8e;
+    margin-bottom:20px;
+
+}
+
+
+
+.item-apuesta {
+
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    height:100%;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+
+}
+
+
+.item-apuesta i {
+
+    font-size:32px;
+    color:#f7941d;
+
+}
+
+
+.item-apuesta p {
+
+    margin:0;
+    color:#4b5563;
+    line-height:1.7;
+
+}
+
+
+</style>
+
+
+{% endblock %}

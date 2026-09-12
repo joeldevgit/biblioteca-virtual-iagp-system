@@ -1,0 +1,73 @@
+    
+/*==================================================
+LOGROS
+==================================================*/
+.achievements{
+
+    background:#0A4A8A;
+
+}
+
+.achievement-card{
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+    padding:40px 20px;
+
+    transition:.35s;
+
+    backdrop-filter:blur(5px);
+
+}
+
+.achievement-card:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.achievement-card i{
+
+    font-size:55px;
+
+    color:#F7941D;
+
+    margin-bottom:20px;
+
+}
+
+.achievement-card h2{
+
+    color:#fff;
+
+    font-size:48px;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+
+}
+
+.achievement-card p{
+
+    color:#fff;
+
+    font-size:20px;
+
+    margin:0;
+}
+
+
+
+
+
+
+

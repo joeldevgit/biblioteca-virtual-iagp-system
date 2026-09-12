@@ -1,0 +1,95 @@
+{% load static %}
+
+<section class="testimonials py-5">
+
+    <div class="container">
+
+        <div class="section-header text-center mb-5">
+
+            <span class="section-subtitle">
+                Testimonios
+            </span>
+
+            <h2 class="section-title">
+                Lo que dicen nuestros estudiantes
+            </h2>
+
+            <p class="section-description">
+                Miles de profesionales confían en nuestra formación.
+            </p>
+
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+
+                {% for testimonio in testimonios %}
+
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+
+                    <div class="testimonial-card">
+
+                        <img src="{{ testimonio.foto.url }}" alt="{{ testimonio.nombre }}">
+
+                        <p>
+                            "{{ testimonio.comentario }}"
+                        </p>
+
+                        <h4>
+                            {{ testimonio.nombre }}
+                        </h4>
+
+                        <span>
+                            {{ testimonio.profesion }}
+                        </span>
+
+                        <h6 class="fst-italic pt-2">
+                            {{ testimonio.ciudad }}
+                        </h6>
+
+                        <div class="rating mt-2">
+
+                            {% for i in "12345" %}
+
+                            {% if forloop.counter <= testimonio.calificacion %} <i class="bi bi-star-fill text-warning">
+                                </i>
+                                {% else %}
+                                <i class="bi bi-star text-warning"></i>
+                                {% endif %}
+
+                                {% endfor %}
+
+                                <span class="ms-2 fw-bold">
+                                    {{ testimonio.calificacion }}.0
+                                </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev">
+
+                <span class="carousel-control-prev-icon"></span>
+
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                data-bs-slide="next">
+
+                <span class="carousel-control-next-icon"></span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>

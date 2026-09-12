@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="quienes-somos py-5">
+
+    <div class="container">
+
+        <!-- Título -->
+        <div class="text-center mb-5">
+            <span class="badge bg-primary px-3 py-2 mb-3">
+                Nosotros
+            </span>
+
+            <h1 class="display-5 fw-bold text-dark">
+                ¿Quiénes Somos?
+            </h1>
+
+            <div class="mx-auto linea-titulo"></div>
+
+            <p class="mt-4 text-muted fs-5">
+                Formación, consultoría y asesoramiento para profesionales,
+                entidades y organizaciones del sector público y privado.
+            </p>
+        </div>
+
+
+        <!-- Contenido -->
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+                <div class="imagen-nosotros">
+                    <img src="{% static 'nosotros/img/somos.png' %}" class="img-fluid rounded-4 shadow"
+                        alt="Quiénes Somos">
+                </div>
+            </div>
+
+            <!-- Texto -->
+            <div class="col-lg-7">
+
+                <div class="contenido-nosotros">
+
+                    <p class="fs-5 text-secondary">
+                        Somos una <strong>empresa privada con ámbito nacional</strong>,
+                        especializada en brindar servicios de
+                        <strong>capacitación, consultoría y asesoramiento</strong>
+                        a profesionales, entidades y organizaciones del
+                        sector público y privado.
+                    </p>
+
+
+                    <p class="text-secondary">
+                        En el rubro de capacitación, desarrollamos programas orientados
+                        a la formación y perfeccionamiento de competencias de
+                        funcionarios y servidores públicos de las diferentes entidades
+                        del Estado, así como de profesionales, empresarios y ejecutivos
+                        del sector privado.
+                    </p>
+
+
+                    <p class="text-secondary">
+                        Nuestro trabajo busca fortalecer las capacidades profesionales,
+                        mejorar la gestión organizacional y contribuir al desarrollo
+                        sostenible del país.
+                    </p>
+
+
+                    <!-- Objetivo -->
+                    <div class="objetivo mt-4 p-4 rounded-4">
+
+                        <h3 class="fw-bold mb-3">
+                            <i class="bi bi-bullseye text-primary"></i>
+                            Nuestro Objetivo
+                        </h3>
+
+                        <p class="mb-0 text-secondary">
+                            Formar nuevos líderes en el mercado laboral actual,
+                            capaces de emprender, innovar y crear valor para sus
+                            compañías, empleados y la sociedad, mediante modelos
+                            sostenibles y rentables.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<style>
+    .quienes-somos {
+        background: #f8fafc;
+    }
+
+
+    .linea-titulo {
+        width: 80px;
+        height: 4px;
+        background: #0d4b8e;
+        border-radius: 10px;
+    }
+
+
+    .imagen-nosotros img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+    }
+
+
+    .contenido-nosotros {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+
+    .objetivo {
+        background: #eef5ff;
+        border-left: 5px solid #0d4b8e;
+    }
+</style>
+
+{% endblock %}

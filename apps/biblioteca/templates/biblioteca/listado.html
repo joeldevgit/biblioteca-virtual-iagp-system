@@ -1,0 +1,686 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-5">
+
+
+    <!-- ===================================================== -->
+    <!-- BOTÓN ATRÁS Y ENCABEZADO -->
+    <!-- ===================================================== -->
+
+    <div class="d-flex align-items-center gap-3 mb-5">
+
+        <button type="button"
+                class="btn btn-outline-secondary btn-atras"
+                onclick="history.back()">
+
+            <i class="bi bi-arrow-left"></i>
+            Atrás
+
+        </button>
+
+        
+        <h2 class="fw-bold mb-0 text-center ms-5 titulo-biblioteca">
+            📚 Documentación Jurídica del OECE
+        </h2>
+
+    </div>
+
+
+    <style>
+        .titulo-biblioteca {
+            transform: translateX(190px);
+        }
+
+
+        /* ===================================================== */
+        /* MÓVIL */
+        /* ===================================================== */
+        @media (max-width: 767px) {
+
+            .titulo-biblioteca {
+                transform: none;
+                margin-left: 0 !important;
+                font-size: 1.5rem;
+            }
+
+        }
+    </style>
+
+   
+
+
+    <!-- ===================================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- ===================================================== -->
+
+    <div class="row g-4">
+
+
+        <!-- ================================================= -->
+        <!-- MENÚ LATERAL - TIPO -->
+        <!-- ================================================= -->
+        <div class="col-lg-3">
+
+            <div class="biblioteca-menu">
+
+                {% for tipo in tipos %}
+
+                <button type="button"
+                        class="biblioteca-menu-item {% if forloop.counter == 1 %}active{% endif %}"
+                        data-tipo="{{ tipo.id }}">
+
+                    <span>
+                        {% if forloop.counter == 1 %}
+                            📄
+                        {% elif forloop.counter == 2 %}
+                            📑
+                        {% elif forloop.counter == 3 %}
+                            ⚖️
+                        {% else %}
+                            📘
+                        {% endif %}
+                    </span>
+
+                    {{ tipo.nombre }}
+
+                </button>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- CONTENIDO DERECHO -->
+        <!-- ================================================= -->
+
+        <div class="col-lg-9">
+
+
+            <!-- ================================================= -->
+            <!-- FILTROS -->
+            <!-- ================================================= -->
+
+            <form method="get"
+                  class="card shadow-sm mb-4"
+                  id="filtrosBiblioteca">
+
+
+                <!-- CONTEXTO FIJO -->
+
+                <input type="hidden"
+                       name="categoria"
+                       value="{{ categoria_seleccionada }}">
+
+
+                <input type="hidden"
+                       name="institucion"
+                       value="{{ institucion_seleccionada }}">
+
+
+                <!-- TIPO SELECCIONADO -->
+                <input type="hidden"
+                    name="tipo"
+                    id="tipo"
+                    value="{{ tipo_seleccionado|default:'' }}">
+
+
+                <div class="card-body">
+
+                    <div class="row g-3 align-items-end">
+
+
+                        <!-- ================================= -->
+                        <!-- BUSCAR -->
+                        <!-- ================================= -->
+                        <div class="col-lg-8">
+
+                            <label class="form-label fw-semibold">
+                                Buscar
+                            </label>
+
+                            <input type="text"
+                                   name="buscar"
+                                   id="buscar"
+                                   class="form-control"
+                                   placeholder="Buscar por título, tema..."
+                                   value="{{ buscar_seleccionado|default:'' }}"
+                                   autocomplete="off">
+
+                        </div>
+
+
+
+                        <!-- ================================= -->
+                        <!-- AÑO -->
+                        <!-- ================================= -->
+                        <div class="col-lg-2">
+
+                            <label class="form-label fw-semibold">
+                                Año
+                            </label>
+
+                            <select name="anio"
+                                    id="anio"
+                                    class="form-select">
+
+                                <option value="">
+                                    Todos
+                                </option>
+
+                                {% for anio_item in anios %}
+
+                                <option value="{{ anio_item }}"
+                                    {% if anio_item == anio_seleccionado %}
+                                        selected
+                                    {% endif %}>
+
+                                    {{ anio_item }}
+
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- ================================= -->
+                        <!-- LIMPIAR -->
+                        <!-- ================================= -->
+                        <div class="col-lg-2">
+
+                            <a href="{% url 'biblioteca:listado' %}?categoria={{ categoria_seleccionada }}&institucion={{ institucion_seleccionada }}"
+                               class="btn btn-outline-secondary">
+
+                                Limpiar filtros
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+
+            <!-- ================================================= -->
+            <!-- RESULTADOS -->
+            <!-- ================================================= -->
+
+            <div id="contenedorResultados">
+
+                {% include "biblioteca/_resultados.html" %}
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ========================================================= -->
+<!-- ESTILOS -->
+<!-- ========================================================= -->
+
+<style>
+
+    /* ===================================================== */
+    /* MENÚ LATERAL */
+    /* ===================================================== */
+
+    .biblioteca-menu {
+
+        background: #ffffff;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+        position: sticky;
+
+        top: 90px;
+
+    }
+
+
+    /* ===================================================== */
+    /* TÍTULO DEL MENÚ */
+    /* ===================================================== */
+
+    .biblioteca-menu-titulo {
+
+        background: #0b4f71;
+
+        color: white;
+
+        font-weight: 600;
+
+        padding: 14px 16px;
+
+        font-size: 15px;
+
+    }
+
+
+    /* ===================================================== */
+    /* BOTONES */
+    /* ===================================================== */
+
+    .biblioteca-menu-item {
+
+        width: 100%;
+
+        border: none;
+
+        border-bottom: 1px solid #e5e5e5;
+
+        background: #ffffff;
+
+        color: #174b66;
+
+        padding: 14px 16px;
+
+        text-align: left;
+
+        font-size: 14px;
+
+        font-weight: 500;
+
+        cursor: pointer;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 10px;
+
+        transition: all 0.2s ease;
+
+    }
+
+
+    /* HOVER */
+
+    .biblioteca-menu-item:hover {
+
+        background: #eaf4f9;
+
+        color: #0b4f71;
+
+    }
+
+
+    /* ACTIVO */
+
+    .biblioteca-menu-item.active {
+
+        background: #0b5b80;
+
+        color: #ffffff;
+
+    }
+
+
+    .biblioteca-menu-item.active:hover {
+
+        background: #0b5b80;
+
+        color: #ffffff;
+
+    }
+
+
+    /* ===================================================== */
+    /* ICONO */
+    /* ===================================================== */
+
+    .biblioteca-menu-item span {
+
+        width: 22px;
+
+        text-align: center;
+
+        font-size: 16px;
+
+    }
+
+
+    /* ===================================================== */
+    /* MÓVIL */
+    /* ===================================================== */
+
+    @media (max-width: 991px) {
+
+        .biblioteca-menu {
+
+            position: static;
+
+        }
+
+        .biblioteca-menu-item {
+
+            padding: 12px 14px;
+
+        }
+
+    }
+
+</style>
+
+
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    const formulario =
+        document.getElementById("filtrosBiblioteca");
+
+
+    const buscar =
+        document.getElementById("buscar");
+
+
+    const tipo =
+        document.getElementById("tipo");
+
+
+    const anio =
+        document.getElementById("anio");
+
+
+    const botonesTipo =
+        document.querySelectorAll(".biblioteca-menu-item");
+
+
+    let temporizador = null;
+
+
+
+    // =====================================================
+    // FUNCIÓN AJAX
+    // =====================================================
+
+    function cargarResultados(pagina = 1) {
+
+
+        const parametros =
+            new URLSearchParams(
+                new FormData(formulario)
+            );
+
+
+        parametros.set("page", pagina);
+
+
+        fetch(
+            "{% url 'biblioteca:listado' %}?" +
+            parametros.toString(),
+
+            {
+                method: "GET",
+
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest"
+                }
+            }
+        )
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Error al cargar resultados"
+                );
+
+            }
+
+            return response.text();
+
+        })
+
+        .then(html => {
+
+            document.getElementById(
+                "contenedorResultados"
+            ).innerHTML = html;
+
+        })
+
+        .catch(error => {
+
+            console.error(
+                "Error:",
+                error
+            );
+
+        });
+
+    }
+
+
+
+    // =====================================================
+    // MENÚ TIPO
+    // =====================================================
+
+    botonesTipo.forEach(function (boton) {
+
+
+        boton.addEventListener("click", function () {
+
+
+            // ---------------------------------------------
+            // Quitar activo
+            // ---------------------------------------------
+
+            botonesTipo.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+            // ---------------------------------------------
+            // Activar botón seleccionado
+            // ---------------------------------------------
+
+            this.classList.add("active");
+
+
+            // ---------------------------------------------
+            // Guardar tipo
+            // ---------------------------------------------
+
+            tipo.value =
+                this.dataset.tipo;
+
+
+            // ---------------------------------------------
+            // Cargar resultados
+            // ---------------------------------------------
+
+            cargarResultados(1);
+
+        });
+
+    });
+
+
+
+
+    // =====================================================
+    // TIPO POR DEFECTO
+    // PRIMER BOTÓN
+    // =====================================================
+
+    if (botonesTipo.length > 0) {
+
+        const primerBoton = botonesTipo[0];
+
+        // ---------------------------------------------
+        // Si no existe un tipo seleccionado,
+        // usamos el primer botón
+        // ---------------------------------------------
+
+        if (!tipo.value) {
+
+            tipo.value = primerBoton.dataset.tipo;
+
+        }
+
+
+        // ---------------------------------------------
+        // Activar el botón correspondiente
+        // ---------------------------------------------
+
+        botonesTipo.forEach(function (boton) {
+
+            boton.classList.remove("active");
+
+        });
+
+
+        const botonSeleccionado =
+            Array.from(botonesTipo).find(function (boton) {
+
+                return boton.dataset.tipo === tipo.value;
+
+            });
+
+
+        if (botonSeleccionado) {
+
+            botonSeleccionado.classList.add("active");
+
+        } else {
+
+            primerBoton.classList.add("active");
+
+            tipo.value = primerBoton.dataset.tipo;
+
+        }
+
+    }
+
+
+
+    // =====================================================
+    // CARGAR PRIMER TIPO AUTOMÁTICAMENTE
+    // =====================================================
+
+    if (tipo.value) {
+
+        cargarResultados(1);
+
+    }
+
+
+
+    // =====================================================
+    // BÚSQUEDA AUTOMÁTICA
+    // =====================================================
+
+    buscar.addEventListener(
+        "input",
+        function () {
+
+
+            clearTimeout(
+                temporizador
+            );
+
+
+            temporizador = setTimeout(
+                function () {
+
+                    cargarResultados(1);
+
+                },
+                300
+            );
+
+        }
+    );
+
+
+
+    // =====================================================
+    // FILTRO AÑO
+    // =====================================================
+
+    anio.addEventListener(
+        "change",
+        function () {
+
+            cargarResultados(1);
+
+        }
+    );
+
+
+
+    // =====================================================
+    // PAGINACIÓN AJAX
+    // =====================================================
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+
+            const enlace =
+                event.target.closest(
+                    ".pagina-ajax"
+                );
+
+
+            if (!enlace) {
+
+                return;
+
+            }
+
+
+            event.preventDefault();
+
+
+            const pagina =
+                enlace.dataset.page;
+
+
+            cargarResultados(
+                pagina
+            );
+
+        }
+    );
+
+});
+
+</script>
+
+{% endblock %}
