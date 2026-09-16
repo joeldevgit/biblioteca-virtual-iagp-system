@@ -1,11 +1,13 @@
-
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>Iniciar sesión | Biblioteca Virtual</title>
 
@@ -22,15 +24,20 @@
     >
 
     <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'usuarios/css/login.css' %}">
+    <link
+        rel="stylesheet"
+        href="{% static 'usuarios/css/login.css' %}"
+    >
 </head>
+
 
 <body>
 
 <div class="login-page">
 
+
     <!-- =====================================================
-         DECORACIÓN DE FONDO
+         FONDO
     ====================================================== -->
 
     <div class="background-grid"></div>
@@ -44,79 +51,94 @@
          CONTENEDOR PRINCIPAL
     ====================================================== -->
 
-    <div class="container login-wrapper">
+    <main class="container login-wrapper">
 
-        <div class="row w-100 align-items-center justify-content-center g-5">
+        <div class="row align-items-center justify-content-center g-5">
 
 
             <!-- =================================================
                  INFORMACIÓN INSTITUCIONAL
             ================================================== -->
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 brand-col">
 
-                <div class="brand-section">
+                <section class="brand-section">
 
-                    <!-- LOGO -->
+                    <div class="brand-top">
 
-                    <div class="logo-wrapper">
 
-                        <img
-                            src="{% static 'usuarios/img/logo-biblioteca.png' %}"
-                            alt="Biblioteca Virtual de Contrataciones del Estado"
-                            class="brand-logo"
-                        >
+                        <!-- LOGO -->
+
+                        <div class="logo-wrapper">
+
+                            <img
+                                src="{% static 'usuarios/img/logo-biblioteca.png' %}"
+                                alt="Biblioteca Virtual de Contrataciones del Estado"
+                                class="brand-logo"
+                            >
+
+                        </div>
+
+
+                        <!-- BADGE -->
+
+                        <div class="brand-badge">
+
+                            <span class="badge-icon">
+                                <i class="bi bi-book-half"></i>
+                            </span>
+
+                            <span>
+                                Plataforma jurídica especializada
+                            </span>
+
+                        </div>
+
+
+                        <!-- TÍTULO -->
+
+                        <h1 class="brand-title">
+
+                            Biblioteca
+
+                            <span>
+                                Virtual
+                            </span>
+
+                        </h1>
+
+
+                        <!-- SUBTÍTULO -->
+
+                        <h2 class="brand-subtitle-main">
+
+                            de Contrataciones del Estado
+
+                        </h2>
+
+
+                        <!-- DESCRIPCIÓN -->
+
+                        <p class="brand-description">
+
+                            Accede a una plataforma especializada para la
+                            consulta de información jurídica, normativa y
+                            documental relacionada con las contrataciones
+                            del Estado.
+
+                        </p>
 
                     </div>
 
 
-                    <!-- BADGE -->
-
-                    <div class="brand-badge">
-
-                        <span class="badge-icon">
-                            <i class="bi bi-book-half"></i>
-                        </span>
-
-                        <span>
-                            Plataforma jurídica especializada
-                        </span>
-
-                    </div>
-
-
-                    <!-- TÍTULO -->
-
-                    <h1 class="brand-title">
-
-                        Biblioteca
-                        <span>Virtual</span>
-
-                    </h1>
-
-
-                    <h2 class="brand-subtitle-main">
-
-                        de Contrataciones del Estado
-
-                    </h2>
-
-
-                    <!-- DESCRIPCIÓN -->
-
-                    <p class="brand-description">
-
-                        Accede a una plataforma especializada para la
-                        consulta de información jurídica, normativa y
-                        documental relacionada con las contrataciones
-                        del Estado.
-
-                    </p>
-
-
-                    <!-- CARACTERÍSTICAS -->
+                    <!-- =================================================
+                         CARACTERÍSTICAS
+                    ================================================== -->
 
                     <div class="brand-features">
+
+
+                        <!-- CARACTERÍSTICA 1 -->
 
                         <div class="feature-item">
 
@@ -125,6 +147,7 @@
                                 <i class="bi bi-search"></i>
 
                             </div>
+
 
                             <div class="feature-content">
 
@@ -141,6 +164,8 @@
                         </div>
 
 
+                        <!-- CARACTERÍSTICA 2 -->
+
                         <div class="feature-item">
 
                             <div class="feature-icon">
@@ -148,6 +173,7 @@
                                 <i class="bi bi-file-earmark-text"></i>
 
                             </div>
+
 
                             <div class="feature-content">
 
@@ -164,31 +190,9 @@
                         </div>
 
 
-                        <!-- <div class="feature-item">
-
-                            <div class="feature-icon">
-
-                                <i class="bi bi-shield-check"></i>
-
-                            </div>
-
-                            <div class="feature-content">
-
-                                <strong>
-                                    Acceso seguro
-                                </strong>
-
-                                <span>
-                                    Protección de tus credenciales
-                                </span>
-
-                            </div>
-
-                        </div> -->
-
                     </div>
 
-                </div>
+                </section>
 
             </div>
 
@@ -198,20 +202,22 @@
                  LOGIN
             ================================================== -->
 
-            <div class="col-lg-4 col-md-7 col-sm-10">
+            <div class="col-lg-4 col-md-7 col-sm-10 login-col">
 
-                <div class="login-card">
+                <section class="login-card">
 
 
                     <!-- HEADER -->
 
                     <div class="login-header">
 
+
                         <div class="login-icon">
 
                             <i class="bi bi-person-lock"></i>
 
                         </div>
+
 
                         <div>
 
@@ -228,9 +234,15 @@
                     </div>
 
 
-                    <!-- FORMULARIO -->
 
-                    <form method="post" id="loginForm">
+                    <!-- =================================================
+                         FORMULARIO
+                    ================================================== -->
+
+                    <form
+                        method="post"
+                        id="loginForm"
+                    >
 
                         {% csrf_token %}
 
@@ -246,9 +258,11 @@
                                 Usuario
                             </label>
 
+
                             <div class="input-wrapper">
 
                                 <i class="bi bi-person input-icon"></i>
+
 
                                 <input
                                     type="text"
@@ -277,9 +291,11 @@
                                 Contraseña
                             </label>
 
+
                             <div class="input-wrapper">
 
                                 <i class="bi bi-lock input-icon"></i>
+
 
                                 <input
                                     type="password"
@@ -290,6 +306,7 @@
                                     autocomplete="current-password"
                                     required
                                 >
+
 
                                 <button
                                     type="button"
@@ -311,7 +328,9 @@
 
 
 
-                        <!-- BOTÓN -->
+                        <!-- =================================================
+                             BOTÓN LOGIN
+                        ================================================== -->
 
                         <button
                             type="submit"
@@ -323,6 +342,7 @@
                                 Ingresar
                             </span>
 
+
                             <span
                                 id="btnSpinner"
                                 class="spinner-border spinner-border-sm ms-2 d-none"
@@ -330,7 +350,10 @@
                                 aria-hidden="true"
                             ></span>
 
-                            <i class="bi bi-arrow-right ms-2 login-arrow"></i>
+
+                            <i
+                                class="bi bi-arrow-right ms-2 login-arrow"
+                            ></i>
 
                         </button>
 
@@ -338,48 +361,54 @@
 
 
 
-                    <!-- MENSAJES -->
+                    <!-- =================================================
+                         MENSAJES
+                    ================================================== -->
 
                     {% if messages %}
 
-                        <div class="messages-container mt-3">
+                    <div class="messages-container mt-3">
 
-                            {% for message in messages %}
+                        {% for message in messages %}
 
-                                <div class="alert alert-danger login-alert">
+                        <div class="alert alert-danger login-alert">
 
-                                    <i class="bi bi-exclamation-circle"></i>
+                            <i class="bi bi-exclamation-circle"></i>
 
-                                    <span>
-                                        {{ message }}
-                                    </span>
-
-                                </div>
-
-                            {% endfor %}
+                            <span>
+                                {{ message }}
+                            </span>
 
                         </div>
+
+                        {% endfor %}
+
+                    </div>
 
                     {% endif %}
 
 
 
-                    <!-- DIVISOR -->
+                    <!-- =================================================
+                         DIVISOR
+                    ================================================== -->
 
                     <div class="divider">
+
                         <span></span>
+
                     </div>
 
 
-
-
-                </div>
+                </section>
 
             </div>
 
+
         </div>
 
-    </div>
+    </main>
+
 
 
     <!-- =====================================================
@@ -394,11 +423,18 @@
 
     </div>
 
+
 </div>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
 <script src="{% static 'usuarios/js/login.js' %}"></script>
 
-</body>
-</html>
 
+</body>
+
+</html>
