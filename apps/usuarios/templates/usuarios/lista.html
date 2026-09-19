@@ -1,4 +1,4 @@
-{% extends "base_admin.html" %}
+{% extends "base.html" %}
 
 {% block title %}Usuarios{% endblock %}
 
@@ -53,11 +53,6 @@
         --bs-table-border-color: var(--border-color);
     }
 </style>
-
-
-
-
-
 
 <div class="container-fluid usuarios-page">
 
@@ -114,10 +109,15 @@
                                 </a>
 
                                 {% if not usuario.is_superuser %}
-                                    <a href="{% url 'usuarios:estado' usuario.id %}"
-                                       class="btn btn-sm btn-outline-warning">
-                                        Activar/Desactivar
-                                    </a>
+                                    <form method="post"
+                                          action="{% url 'usuarios:estado' usuario.id %}"
+                                          class="d-inline">
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-warning">
+                                            Activar/Desactivar
+                                        </button>
+                                    </form>
                                 {% endif %}
                             </td>
                         </tr>
@@ -136,6 +136,3 @@
 
 </div>
 {% endblock %}
-
-
-

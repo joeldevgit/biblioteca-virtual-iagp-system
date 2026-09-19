@@ -9,8 +9,9 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
 
         grupos = [
-            "Admin",
-            "Empleado",
+            "Administrador",
+            "Bibliotecario",
+            "Usuario",
         ]
 
         for nombre in grupos:

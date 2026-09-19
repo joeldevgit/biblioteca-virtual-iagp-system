@@ -20,9 +20,8 @@
 
         </button>
 
-        
-        <h2 class="fw-bold mb-0 text-center ms-5 titulo-biblioteca">
-            📚 Documentación Jurídica del OECE
+        <h2 class="fw-bold mb-0 text-center ms-5 titulo-biblioteca" id="tituloBiblioteca">
+            📚 {{ tipo_actual.nombre|default:"Documentación Jurídica del OECE" }}
         </h2>
 
     </div>
@@ -68,8 +67,9 @@
                 {% for tipo in tipos %}
 
                 <button type="button"
-                        class="biblioteca-menu-item {% if forloop.counter == 1 %}active{% endif %}"
-                        data-tipo="{{ tipo.id }}">
+                    class="biblioteca-menu-item {% if tipo.id == tipo_seleccionado %}active{% endif %}"
+                    data-tipo="{{ tipo.id }}"
+                    data-nombre="{{ tipo.nombre }}">
 
                     <span>
                         {% if forloop.counter == 1 %}
@@ -95,10 +95,12 @@
 
 
 
+
+
+
         <!-- ================================================= -->
         <!-- CONTENIDO DERECHO -->
         <!-- ================================================= -->
-
         <div class="col-lg-9">
 
 
@@ -230,6 +232,12 @@
     </div>
 
 </div>
+
+
+
+
+
+
 
 
 
@@ -411,6 +419,9 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("anio");
 
 
+    const tituloBiblioteca =
+        document.getElementById("tituloBiblioteca");
+
     const botonesTipo =
         document.querySelectorAll(".biblioteca-menu-item");
 
@@ -519,6 +530,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.dataset.tipo;
 
 
+            if (tituloBiblioteca) {
+                tituloBiblioteca.textContent = "📚 " + this.dataset.nombre;
+            }
+
+
             // ---------------------------------------------
             // Cargar resultados
             // ---------------------------------------------
@@ -575,10 +591,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (botonSeleccionado) {
 
             botonSeleccionado.classList.add("active");
+            botonSeleccionado.dataset.nombre
 
         } else {
 
             primerBoton.classList.add("active");
+            primerBoton.dataset.nombre
 
             tipo.value = primerBoton.dataset.tipo;
 

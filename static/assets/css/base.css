@@ -4,8 +4,10 @@ VARIABLES
 
 :root {
 
-    --primary: #0d4b8e;
-    --secondary: #f7941d;
+    --primary: #b01f0c;
+    --primary-dark: #0c1836;
+    --secondary: #b1716e;
+    --secondary-dark: #b3140f;
     --dark: #1f2937;
     --light: #ffffff;
     --gray: #f5f5f5;
@@ -73,7 +75,7 @@ NAVBAR
 
     font-size:16px;
     font-weight:600;
-    color:#343a40;
+    color:var(--primary);
     padding:.8rem 1rem;
     position:relative;
     transition:.3s;
@@ -84,7 +86,7 @@ NAVBAR
 
 .navbar-nav .nav-link:hover{
 
-    color:#198754;
+    color:var(--secondary);
 
 }
 
@@ -99,7 +101,7 @@ NAVBAR
     width:0;
     height:3px;
     border-radius:50px;
-    background:#198754;
+    background:var(--secondary);
     transition:.3s;
 
 }
@@ -114,7 +116,7 @@ NAVBAR
 
 .navbar-nav .nav-link.active{
 
-    color:#198754;
+    color:var(--secondary);
 
 }
 
@@ -130,13 +132,17 @@ NAVBAR
 
     padding:11px 24px;
     font-weight:600;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
 
 }
 
 .btn-success:hover{
 
     transform:translateY(-2px);
-    box-shadow:0 10px 22px rgba(25,135,84,.28);
+    box-shadow:0 10px 22px rgba(226,35,26,.28);
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
 
 }
 
@@ -144,12 +150,17 @@ NAVBAR
 
     padding:11px 24px;
     font-weight:600;
+    color: var(--secondary);
+    border-color: var(--secondary);
 
 }
 
 .btn-outline-success:hover{
 
     transform:translateY(-2px);
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: #fff;
 
 }
 
@@ -211,7 +222,7 @@ NAVBAR
 }
 
 .dropdown-item:hover{
-    background: #3a850f;
+    background: var(--secondary);
     color: #fff;
     transform: translateX(5px);
 }
@@ -226,7 +237,7 @@ NAVBAR
 
 .navbar .nav-link {
     position: relative;
-    color: #333;
+    color: var(--primary);
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -234,13 +245,13 @@ NAVBAR
 
 /* Hover */
 .navbar .nav-link:hover {
-    color: #0d6efd;
+    color: var(--secondary);
 }
 
 
 /* Enlace activo */
 .navbar .nav-link.active {
-    color: #0d6efd;
+    color: var(--secondary);
     font-weight: 600;
 }
 
@@ -256,7 +267,7 @@ NAVBAR
 
     height: 3px;
 
-    background-color: #0d6efd;
+    background-color: var(--secondary);
 
     border-radius: 10px;
 }
@@ -268,7 +279,7 @@ NAVBAR
 
 .navbar .dropdown-toggle.active::after {
     /* Mantiene la flecha de Bootstrap */
-    border-top-color: #0d6efd;
+    border-top-color: var(--secondary);
 }
 
 
@@ -315,13 +326,14 @@ CALL TO ACTION
 
 .cta-box{
 
-    background:linear-gradient(135deg,#0A4A8A,#0ec645);
+    /* background:linear-gradient(135deg,var(--primary),var(--secondary)); */
+    background:linear-gradient(135deg,#947e7b,#f9f5f5);
 
     border-radius:25px;
 
     padding:60px;
 
-    color:#fff;
+    color:#020202;
 
     box-shadow:0 15px 40px rgba(0,0,0,.15);
 
@@ -329,7 +341,7 @@ CALL TO ACTION
 
 .cta-subtitle{
 
-    color:#F7941D;
+    color:#ffd6d3;
 
     text-transform:uppercase;
 
@@ -361,7 +373,7 @@ CALL TO ACTION
 
 .btn-contact{
 
-    background:#F7941D;
+    background:var(--secondary);
 
     color:#fff;
 
@@ -381,7 +393,7 @@ CALL TO ACTION
 
     background:#fff;
 
-    color:#0A4A8A;
+    color:var(--primary);
 
     transform:translateY(-3px);
 
@@ -401,7 +413,7 @@ FOOTER
 
 .footer{
 
-    background:#068a41;
+    background:var(--primary);
 
     color:#fff;
 
@@ -463,7 +475,7 @@ FOOTER
 
 .footer ul li a:hover{
 
-    color:#F7941D;
+    color:var(--secondary);
 
     padding-left:6px;
 
@@ -487,7 +499,7 @@ FOOTER
 
     border-radius:50%;
 
-    background:#152648;
+    background:var(--primary-dark);
 
     display:flex;
 
@@ -505,7 +517,7 @@ FOOTER
 
 .footer-social a:hover{
 
-    background:#F7941D;
+    background:var(--secondary);
 
     transform:translateY(-5px);
 

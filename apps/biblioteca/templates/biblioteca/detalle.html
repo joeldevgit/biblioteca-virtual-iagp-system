@@ -1,3 +1,4 @@
+```html
 {% extends "base.html" %}
 
 {% block content %}
@@ -8,147 +9,108 @@
 
         <div class="card-body p-4 p-lg-5">
 
+            <!-- Categoría -->
             <span class="badge bg-primary mb-3">
                 {{ documento.categoria.nombre }}
             </span>
 
+            <!-- Título -->
             <h1 class="fw-bold mb-4">
                 {{ documento.titulo }}
             </h1>
 
-
+            <!-- Información principal -->
             <div class="row g-3 mb-4">
 
                 <div class="col-md-4">
-
-                    <strong>
-                        Tipo
-                    </strong>
-
+                    <strong>Tipo</strong>
                     <div>
                         {{ documento.tipo.nombre }}
                     </div>
-
                 </div>
 
-
                 <div class="col-md-4">
-
-                    <strong>
-                        Institución
-                    </strong>
-
+                    <strong>Institución</strong>
                     <div>
-
                         {% if documento.institucion %}
                             {{ documento.institucion.nombre }}
                         {% else %}
                             —
                         {% endif %}
-
                     </div>
-
                 </div>
 
-
                 <div class="col-md-4">
-
-                    <strong>
-                        Año
-                    </strong>
-
+                    <strong>Año</strong>
                     <div>
                         {{ documento.anio|default:"—" }}
                     </div>
-
                 </div>
 
             </div>
 
-
+            <!-- Tema -->
             {% if documento.tema %}
-
             <div class="mb-4">
-
-                <strong>
-                    Tema
-                </strong>
+                <strong>Tema</strong>
 
                 <p>
                     {{ documento.tema }}
                 </p>
-
             </div>
-
             {% endif %}
 
-
+            <!-- Descripción -->
             {% if documento.descripcion %}
-
             <div class="mb-4">
-
-                <strong>
-                    Descripción
-                </strong>
+                <strong>Descripción</strong>
 
                 <p>
                     {{ documento.descripcion }}
                 </p>
-
             </div>
-
             {% endif %}
 
-
+            <!-- Autor -->
             {% if documento.autor %}
-
             <div class="mb-4">
-
-                <strong>
-                    Autor
-                </strong>
+                <strong>Autor</strong>
 
                 <p>
                     {{ documento.autor }}
                 </p>
-
             </div>
-
             {% endif %}
 
-
+            <!-- Botones -->
             <div class="d-flex gap-2 flex-wrap">
 
                 {% if documento.pdf %}
 
-                <a
-                    href="{{ documento.pdf.url }}"
-                    target="_blank"
-                    class="btn btn-primary"
-                >
-                    📄 Ver PDF
-                </a>
+                    <!-- Ver PDF -->
+                    <a href="{% url 'biblioteca:descargar' documento.pk %}?modo=ver"
+                       target="_blank"
+                       class="btn btn-primary">
+                        📄 Ver PDF
+                    </a>
 
-                <a
-                    href="{{ documento.pdf.url }}"
-                    download
-                    class="btn btn-outline-primary"
-                >
-                    ⬇️ Descargar PDF
-                </a>
+                    <!-- Descargar PDF -->
+                    <a href="{% url 'biblioteca:descargar' documento.pk %}"
+                       class="btn btn-outline-primary">
+                        ⬇️ Descargar PDF
+                    </a>
 
                 {% endif %}
 
-
                 {% if documento.pdf_url %}
 
-                <a
-                    href="{{ documento.pdf_url }}"
-                    target="_blank"
-                    class="btn btn-outline-dark"
-                >
-                    🔗 Abrir documento
-                </a>
+                    <!-- Abrir documento externo -->
+                    <a href="{{ documento.pdf_url }}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline-dark">
+                        🔗 Abrir documento
+                    </a>
 
                 {% endif %}
 
@@ -161,3 +123,4 @@
 </div>
 
 {% endblock %}
+```

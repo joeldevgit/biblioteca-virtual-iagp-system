@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
+from django.http import FileResponse, Http404
 
 from .models import (
     Categoria,
@@ -11,6 +12,16 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
+
+from .forms import DocumentoForm
+from apps.usuarios.decorators import grupos_requeridos
+
+
+
+@login_required
 def biblioteca(request):
 
     # =====================================================
@@ -110,7 +121,7 @@ def biblioteca(request):
 
 
 
-
+@login_required
 def listado_documentos(request):
 
     # =====================================================
@@ -410,8 +421,22 @@ def listado_documentos(request):
     # =====================================================
     # CONTEXTO
     # =====================================================
+    # =====================================================
+    # TIPO ACTUALMENTE SELECCIONADO (para el título dinámico)
+    # =====================================================
+
+    tipo_actual = None
+
+    if tipo_seleccionado:
+
+        tipo_actual = next(
+            (t for t in tipos if t.id == tipo_seleccionado),
+            None,
+        )
 
     context = {
+
+        "tipo_actual": tipo_actual,
 
         "documentos": documentos,
 
@@ -452,7 +477,7 @@ def listado_documentos(request):
 
 
 
-
+@login_required
 def detalle_documento(request, pk):
 
     documento = get_object_or_404(
@@ -470,5 +495,172 @@ def detalle_documento(request, pk):
         "biblioteca/detalle.html",
         {
             "documento": documento,
+        }
+    )
+
+
+
+
+
+
+# =========================================================
+# DESCARGA DE DOCUMENTOS (requiere estar logueado)
+# =========================================================
+
+@login_required
+def documento_descargar(request, pk):
+
+    documento = get_object_or_404(
+        Documento,
+        pk=pk,
+        activo=True,
+    )
+
+    # Archivo subido directamente al servidor
+    if documento.pdf:
+        modo_ver = request.GET.get("modo") == "ver"
+
+        return FileResponse(
+            documento.pdf.open("rb"),
+            as_attachment=not modo_ver,
+            filename=documento.pdf.name.split("/")[-1],
+        )
+
+    # Documento alojado externamente (enlace)
+    if documento.pdf_url:
+        return redirect(documento.pdf_url)
+
+    raise Http404("Este documento no tiene un archivo disponible.")
+
+
+
+
+
+
+# =========================================================
+# GESTIÓN DE DOCUMENTOS
+# =========================================================
+
+@login_required
+@grupos_requeridos("Administrador", "Bibliotecario")
+def documento_crear(request):
+
+    if request.method == "POST":
+        form = DocumentoForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(
+                request,
+                "Documento creado correctamente."
+            )
+
+            return redirect("biblioteca:gestion_documentos")
+
+    else:
+        form = DocumentoForm()
+
+    return render(
+        request,
+        "biblioteca/gestion/documento_form.html",
+        {
+            "form": form,
+            "titulo": "Nuevo documento",
+        }
+    )
+
+
+@login_required
+@grupos_requeridos("Administrador", "Bibliotecario")
+def documento_editar(request, pk):
+
+    documento = get_object_or_404(
+        Documento,
+        pk=pk
+    )
+
+    if request.method == "POST":
+        form = DocumentoForm(
+            request.POST,
+            request.FILES,
+            instance=documento
+        )
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(
+                request,
+                "Documento actualizado correctamente."
+            )
+
+            return redirect(
+                "biblioteca:gestion_documentos"
+            )
+
+    else:
+        form = DocumentoForm(
+            instance=documento
+        )
+
+    return render(
+        request,
+        "biblioteca/gestion/documento_form.html",
+        {
+            "form": form,
+            "titulo": "Editar documento",
+            "documento": documento,
+        }
+    )
+
+
+@login_required
+@grupos_requeridos("Administrador", "Bibliotecario")
+@require_POST
+def documento_estado(request, pk):
+
+    documento = get_object_or_404(
+        Documento,
+        pk=pk
+    )
+
+    documento.activo = not documento.activo
+    documento.save()
+
+    messages.success(
+        request,
+        "Estado del documento actualizado."
+    )
+
+    return redirect(
+        "biblioteca:gestion_documentos"
+    )
+
+
+@login_required
+@grupos_requeridos("Administrador", "Bibliotecario")
+def gestion_documentos(request):
+
+    documentos = (
+        Documento.objects
+        .select_related(
+            "categoria",
+            "institucion",
+            "tipo",
+        )
+        .order_by(
+            "-activo",
+            "-anio",
+            "-fecha",
+            "-id",
+        )
+    )
+
+    return render(
+        request,
+        "biblioteca/gestion/documentos.html",
+        {
+            "documentos": documentos,
         }
     )
